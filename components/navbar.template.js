@@ -1,13 +1,17 @@
 export const navbarTemplate = {
 
-    init(name){
+    init(obj){
         return `
-            <div id="navbarDiv">
-                <div><p>hola mundo</p></div>
-                <div><p>hola mundo</p></div>
-                <div><p>hola mundo</p></div>
-                <div><p>${name}</p></div>
-            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="#">Guitarra</a></li>
+                    <li><a href="#">Amplificación</a></li>
+                    <li><a href="#">Efectos</a></li>
+                    <li><a href="#">Bajos</a></li>
+                    <li><a href="#">contador carrito = ${obj.count}</a></li>
+                
+                </ul>
+            </nav>
         `
     }
 }
