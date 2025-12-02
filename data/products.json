@@ -5,9 +5,15 @@
     "categoria": "Cuerdas",
     "subcategoria": "Guitarras",
     "precio": 199.99,
+    "descuento": 0,
+    "IVA": 21,
     "stock": 12,
-    "imagen": "img/cuerdas/guitarra_clasica.jpg",
-    "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes."
+    "status": "available",
+    "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes.",
+    "imagenes": [
+    "img/cuerdas/Guitarra clasica de madera_sola.webg",
+    "img/cuerdas/guitarra-electrica.webp"
+  ]
   },
   {
     "id": 2,
@@ -15,18 +21,25 @@
     "categoria": "Cuerdas",
     "subcategoria": "Bajos",
     "precio": 349.00,
-    "stock": 8,
-    "imagen": "img/cuerdas/bajo_electrico.jpg",
-    "descripcion": "Bajo eléctrico de 4 cuerdas con acabado brillante."
-  },
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "descripcion": "Bajo eléctrico de 4 cuerdas con acabado brillante.",
+    "imagenes": ["img/cuerdas/bajo_4Cuerdas.webp","Bajo_electrico.webp"
+]
+},
   {
     "id": 3,
     "nombre": "Arpa celta",
     "categoria": "Cuerdas",
     "subcategoria": "Arpas",
     "precio": 599.00,
-    "stock": 3,
-    "imagen": "img/cuerdas/arpa_celta.jpg",
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "imagenes": ["img/cuerdas/arpa_palanca_Aurelia_1.webp"],
     "descripcion": "Arpa celta portátil con 22 cuerdas, sonido cálido y envolvente."
   },
   {
@@ -35,7 +48,10 @@
     "categoria": "Cuerdas",
     "subcategoria": "Ukeleles",
     "precio": 89.99,
-    "stock": 20,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/cuerdas/ukelele_soprano.jpg",
     "descripcion": "Ukelele soprano de caoba, perfecto para iniciarse en el instrumento."
   },
@@ -45,7 +61,10 @@
     "categoria": "Cuerdas",
     "subcategoria": "Instrumentos de arco",
     "precio": 249.00,
-    "stock": 10,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/cuerdas/violin.jpg",
     "descripcion": "Violín tamaño completo con arco y estuche rígido."
   },
@@ -55,7 +74,10 @@
     "categoria": "Percusión",
     "subcategoria": "Baterías",
     "precio": 699.00,
-    "stock": 5,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/percusion/bateria_acustica.jpg",
     "descripcion": "Set de batería acústica de 5 piezas con platillos incluidos."
   },
@@ -65,7 +87,10 @@
     "categoria": "Percusión",
     "subcategoria": "Percusión latina",
     "precio": 299.00,
-    "stock": 7,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/percusion/congas.jpg",
     "descripcion": "Par de congas de madera con herrajes cromados."
   },
@@ -75,7 +100,10 @@
     "categoria": "Percusión",
     "subcategoria": "Cajones",
     "precio": 129.00,
-    "stock": 15,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/percusion/cajon.jpg",
     "descripcion": "Cajón flamenco artesanal con tapa de abedul."
   },
@@ -85,7 +113,10 @@
     "categoria": "Teclados y pianos",
     "subcategoria": "Pianos digitales",
     "precio": 899.00,
-    "stock": 4,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/teclados/piano_digital.jpg",
     "descripcion": "Piano digital con 88 teclas contrapesadas y sonidos realistas."
   },
@@ -95,7 +126,10 @@
     "categoria": "Teclados y pianos",
     "subcategoria": "Sintetizadores",
     "precio": 499.00,
-    "stock": 6,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/teclados/sintetizador.jpg",
     "descripcion": "Sintetizador portátil con secuenciador integrado y múltiples efectos."
   },
@@ -105,7 +139,10 @@
     "categoria": "Viento",
     "subcategoria": "Viento madera",
     "precio": 349.00,
-    "stock": 9,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/viento/clarinete.jpg",
     "descripcion": "Clarinete en Sib con estuche rígido y boquilla incluida."
   },
@@ -115,7 +152,10 @@
     "categoria": "Viento",
     "subcategoria": "Viento metal",
     "precio": 399.00,
-    "stock": 11,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/viento/trompeta.jpg",
     "descripcion": "Trompeta en Do con acabado dorado y estuche."
   },
@@ -125,7 +165,10 @@
     "categoria": "Complementos y accesorios",
     "subcategoria": "Micrófonos",
     "precio": 79.99,
-    "stock": 25,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/accesorios/microfono.jpg",
     "descripcion": "Micrófono dinámico cardioide ideal para voces en directo."
   },
@@ -135,7 +178,10 @@
     "categoria": "Complementos y accesorios",
     "subcategoria": "Auriculares",
     "precio": 149.00,
-    "stock": 18,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
     "imagen": "img/accesorios/auriculares.jpg",
     "descripcion": "Auriculares cerrados de estudio con respuesta plana."
   }
