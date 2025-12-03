@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="../css/contacto.css">
     <title>Contacto</title>
 </head>
 <body>
@@ -34,14 +34,16 @@
         <!-- FORMULARIO -->
         <div class="card">
             <h2>Envíanos un mensaje :</h2>
-            <form action="#" method="post">
+            <form id="contactForm">
                 <input type="text" name="nombre" placeholder="Tu nombre" required>
                 <input type="email" name="correo" placeholder="Tu correo electrónico" required>
                 <input type="text" name="telefono" placeholder="Teléfono (opcional)">
                 <textarea name="mensaje" rows="6" placeholder="Escribe tu mensaje..." required></textarea>
                 <button type="submit">Enviar mensaje</button>
             </form>
+             <button onclick="deleteAll()" class="delete-all-btn">🗑 Burrar Todo</button>
         </div>
+        <div id="result"></div> 
 
     </div>
 
@@ -80,5 +82,6 @@
 <footer>
     © 2025 Symfone – Todos los derechos reservados
 </footer>
+<script src="../js/contacto.js"></script>
 </body>
 </html>
