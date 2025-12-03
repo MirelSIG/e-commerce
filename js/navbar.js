@@ -2,6 +2,9 @@ import { navbarTemplate } from "../components/navbar.template.js"
 
 export const navbar = {
 
+    id: `navbar`,
+    divId: `navbarDiv`,
+
     getTemplate(obj){
         
         try {
