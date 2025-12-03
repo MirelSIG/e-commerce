@@ -8,9 +8,10 @@ export const headerTemplate = {
                 </div>
 
         <div class="search-bar">
-            <input type="text" placeholder=" Buscar tu instrumento">
-            <button><i class="fas fa-search"></i></button>
+            <input id="buscador-input" type="text" placeholder=" Buscar tu instrumento">
+            <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
         </div>
+        <div id="search-results"></div>
 
                 <div class="top-right">
                     <div class="contactanos"><a href="">CONTACTANOS</a></div>

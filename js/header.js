@@ -20,6 +20,31 @@ export const header = {
     render(){
         let output = document.querySelector(`#${this.id}`)
         output.innerHTML = this.getTemplate()
+
+    },
+
+async  buscarInstrumentos (buscar) {
+    const respuesta = await fetch("/data/products.json");
+    const instrumento = await respuesta.json(); 
+    
+
+/* resultados = instrumento.filter(inst => 
+    inst.nombre.toLowerCase().includes(buscar.toLowerCase())
+)  */
+//return resultados; 
+const resultados = instrumento.filter(function(value,index){ 
+    index.nombre.toLowerCase()
+    if (){
+        
     }
+
+} 
+   
+) 
+console.log(resultados);
+
+}
+    
+
 
 }
