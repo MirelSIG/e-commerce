@@ -17,11 +17,11 @@ export const HeaderTemplate = {
 
             <div class="separator"></div>
 
-            <a href="#" style="  color: #9370DB;">
+            <a href="#" >
                 <div class="user-actions">
                     <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta <span class="cart-count">0</span>
             </a>
-            <a href="#" style="  color: #9370DB;">
+            <a href="#" >
                 <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
                 <span class="cart-count">0</span>
             </a>
