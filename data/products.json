@@ -10,10 +10,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes.",
-    "imagenes": [
-    "img/cuerdas/Guitarra clasica de madera_sola.webg",
-    "img/cuerdas/guitarra-electrica.webp"
-  ]
+    "imagenes": ["img/cuerdas/guitarra_clasica_id1.webp", "img/cuerdas/guitarra_electrica_id1.webp"]
   },
   {
     "id": 2,
@@ -26,9 +23,8 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Bajo eléctrico de 4 cuerdas con acabado brillante.",
-    "imagenes": ["img/cuerdas/bajo_4Cuerdas.webp","Bajo_electrico.webp"
-]
-},
+    "imagenes": ["img/cuerdas/bajo_4cuerdas_id2.webp", "img/cuerdas/bajo_electrico_id2.webp"]
+  },
   {
     "id": 3,
     "nombre": "Arpa celta",
@@ -39,8 +35,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagenes": ["img/cuerdas/arpa_palanca_Aurelia_1.webp"],
-    "descripcion": "Arpa celta portátil con 22 cuerdas, sonido cálido y envolvente."
+    "descripcion": "Arpa celta portátil con 22 cuerdas, sonido cálido y envolvente.",
+    "imagenes": ["img/cuerdas/arpa_palanca_aurelia_id3.webp"]
   },
   {
     "id": 4,
@@ -52,8 +48,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/cuerdas/ukelele_soprano.jpg",
-    "descripcion": "Ukelele soprano de caoba, perfecto para iniciarse en el instrumento."
+    "descripcion": "Ukelele soprano de caoba, perfecto para iniciarse en el instrumento.",
+    "imagenes": ["img/cuerdas/ukelele_1_id4.webp", "img/cuerdas/ukelele_2_id4.webp"]
   },
   {
     "id": 5,
@@ -65,9 +61,10 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/cuerdas/violin.jpg",
-    "descripcion": "Violín tamaño completo con arco y estuche rígido."
+    "descripcion": "Violín tamaño completo con arco y estuche rígido.",
+    "imagenes": ["img/cuerdas/violin_id5.webp", "img/cuerdas/id_4_id5.webp"]
   },
+  
   {
     "id": 6,
     "nombre": "Batería acústica 5 piezas",
@@ -78,8 +75,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/percusion/bateria_acustica.jpg",
-    "descripcion": "Set de batería acústica de 5 piezas con platillos incluidos."
+    "descripcion": "Set de batería acústica de 5 piezas con platillos incluidos.",
+    "imagenes": ["img/percusion/bateria_id6.webp"]
   },
   {
     "id": 7,
@@ -91,8 +88,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/percusion/congas.jpg",
-    "descripcion": "Par de congas de madera con herrajes cromados."
+    "descripcion": "Par de congas de madera con herrajes cromados.",
+    "imagenes": ["img/percusion/congas_id7.webp"]
   },
   {
     "id": 8,
@@ -104,8 +101,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/percusion/cajon.jpg",
-    "descripcion": "Cajón flamenco artesanal con tapa de abedul."
+    "descripcion": "Cajón flamenco artesanal con tapa de abedul.",
+    "imagenes": ["img/percusion/cajon_flamenco_id8.webp"]
   },
   {
     "id": 9,
@@ -117,8 +114,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/teclados/piano_digital.jpg",
-    "descripcion": "Piano digital con 88 teclas contrapesadas y sonidos realistas."
+    "descripcion": "Piano digital con 88 teclas contrapesadas y sonidos realistas.",
+    "imagenes": ["img/teclados/piano_pedal_id9.webp"]
   },
   {
     "id": 10,
@@ -130,8 +127,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/teclados/sintetizador.jpg",
-    "descripcion": "Sintetizador portátil con secuenciador integrado y múltiples efectos."
+    "descripcion": "Sintetizador portátil con secuenciador integrado y múltiples efectos.",
+    "imagenes": ["img/teclados/sintetizador_id10.webp"]
   },
   {
     "id": 11,
@@ -143,8 +140,8 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/viento/clarinete.jpg",
-    "descripcion": "Clarinete en Sib con estuche rígido y boquilla incluida."
+    "descripcion": "Clarinete en Sib con estuche rígido y boquilla incluida.",
+    "imagenes": ["img/viento/clarinete_id11.webp"]
   },
   {
     "id": 12,
@@ -156,33 +153,202 @@
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/viento/trompeta.jpg",
-    "descripcion": "Trompeta en Do con acabado dorado y estuche."
+    "descripcion": "Trompeta en Do con acabado dorado y estuche.",
+    "imagenes": ["img/viento/trompeta_id12.webp", "img/viento/trompeta_2_id12.webp", "img/viento/trompeta_azul_id12.webp"]
   },
   {
     "id": 13,
-    "nombre": "Micrófono dinámico",
-    "categoria": "Complementos y accesorios",
-    "subcategoria": "Micrófonos",
+    "nombre": "Acordeón dinámico",
+    "categoria": "Viento",
+    "subcategoria": "Viento y teclado",
     "precio": 79.99,
     "descuento": 0,
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/accesorios/microfono.jpg",
-    "descripcion": "Micrófono dinámico cardioide ideal para voces en directo."
+    "descripcion": "Acordeón dinámico con diseño compacto.",
+    "imagenes": ["img/viento/acordeon_id13.webp"]
   },
   {
     "id": 14,
-    "nombre": "Auriculares profesionales",
+    "nombre": "Amplificador de Bajo 100W",
     "categoria": "Complementos y accesorios",
-    "subcategoria": "Auriculares",
+    "subcategoria": "Amplificadores",
     "precio": 149.00,
     "descuento": 0,
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "imagen": "img/accesorios/auriculares.jpg",
-    "descripcion": "Auriculares cerrados de estudio con respuesta plana."
+    "descripcion": "Amplificador de estudio con respuesta plana.",
+    "imagenes": ["img/accesorios/amplificador_bajo_id14.webp"]
+  },
+  {
+    "id": 15,
+    "nombre": "Bajo Acústico",
+    "categoria": "Cuerdas",
+    "subcategoria": "Bajos",
+    "precio": 149.00,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "descripcion": "Bajo acústico de alta calidad con cuerpo de madera maciza.",
+    "imagenes": ["img/cuerdas/bajo_acustico_id15.webp"]
+  },
+  {
+    "id": 16,
+    "nombre": "Arpa clásica de cuerdas de nylon",
+    "categoria": "Cuerdas",
+    "subcategoria": "Arpas",
+    "precio": 149.00,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "descripcion": "Arpa clásica de cuerdas de nylon con diseño elegante.",
+    "imagenes": ["img/cuerdas/arpa_clasica_id16.webp"]
+  },
+  {
+    "id": 17,
+    "nombre": "Arpa Palanca Aurelia",
+    "categoria": "Cuerdas",
+    "subcategoria": "Arpas",
+    "precio": 149.00,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "descripcion": "Arpa Aurelia de palanca con cuerdas de nylon y diseño elegante.",
+    "imagenes": ["img/cuerdas/arpa_palanca_aurelia_id17.webp"]
+  },
+  {
+    "id": 18,
+    "nombre": "Funda de trompeta",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Fundas",
+    "precio": 39.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 20,
+    "status": "available",
+    "descripcion": "Funda acolchada para trompeta, ligera y resistente.",
+    "imagenes": ["img/accesorios/funda_trompeta_id18.webp"]
+  },
+  {
+    "id": 19,
+    "nombre": "Case para violonchelo",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Fundas",
+    "precio": 89.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 10,
+    "status": "available",
+    "descripcion": "Estuche rígido para violonchelo, con interior acolchado.",
+    "imagenes": ["img/accesorios/case_violonchelo_id19.webp"]
+  },
+  {
+    "id": 20,
+    "nombre": "Órgano electrónico",
+    "categoria": "Teclados y pianos",
+    "subcategoria": "Órganos",
+    "precio": 599.00,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 8,
+    "status": "available",
+    "descripcion": "Órgano electrónico con múltiples registros y acompañamientos automáticos.",
+    "imagenes": ["img/teclados/organo_electronico_id20.webp"]
+  },
+  {
+    "id": 21,
+    "nombre": "Flauta dulce",
+    "categoria": "Viento",
+    "subcategoria": "Flautas",
+    "precio": 19.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 50,
+    "status": "available",
+    "descripcion": "Flauta dulce de plástico ABS, ideal para estudiantes.",
+    "imagenes": ["img/viento/flauta_dulce_id21.webp"]
+  },
+  {
+    "id": 22,
+    "nombre": "Castañuelas tradicionales",
+    "categoria": "Percusión",
+    "subcategoria": "Castañuelas",
+    "precio": 24.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 30,
+    "status": "available",
+    "descripcion": "Castañuelas clásicas de madera, ideales para acompañar danzas flamencas.",
+    "imagenes": ["img/percusion/castanuelas_id22.webp"]
+  },
+  {
+    "id": 23,
+    "nombre": "Castañuelas con mango",
+    "categoria": "Percusión",
+    "subcategoria": "Castañuelas",
+    "precio": 29.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 25,
+    "status": "available",
+    "descripcion": "Castañuelas con mango ergonómico para mayor comodidad en la interpretación.",
+    "imagenes": ["img/percusion/castanuelas_con_mango_id23.webp"]
+  },
+  {
+    "id": 24,
+    "nombre": "Maracas de madera",
+    "categoria": "Percusión",
+    "subcategoria": "Instrumentos de mano",
+    "precio": 19.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 40,
+    "status": "available",
+    "descripcion": "Par de maracas de madera con sonido vibrante, perfectas para ritmos latinos.",
+    "imagenes": ["img/percusion/maracas_id24.webp"]
+  },
+  {
+    "id": 25,
+    "nombre": "Set de percusión infantil",
+    "categoria": "Percusión",
+    "subcategoria": "Sets",
+    "precio": 59.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 15,
+    "status": "available",
+    "descripcion": "Set completo de percusión para niños, incluye varios instrumentos pequeños.",
+    "imagenes": ["img/percusion/set_percusion_id25.webp"]
+  },
+  {
+    "id": 26,
+    "nombre": "Forro para guitarra",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Fundas",
+    "precio": 34.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 20,
+    "status": "available",
+    "descripcion": "Forro acolchado para guitarra clásica o acústica, resistente y ligero.",
+    "imagenes": ["img/accesorios/forro_guitarra_id26.webp"]
+  },
+  {
+    "id": 27,
+    "nombre": "Funda para arpa Palanca Aurelia",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Fundas",
+    "precio": 79.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 10,
+    "status": "available",
+    "descripcion": "Funda protectora para arpa Palanca Aurelia, con acolchado y asas resistentes.",
+    "imagenes": ["img/accesorios/funda_arpa_palanca_aurelia_id27.webp"]
   }
 ]
