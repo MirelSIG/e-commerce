@@ -37,29 +37,24 @@ async  buscarInstrumentos(buscar) {
 },
 
      mostrarResultados(resultados) {
-    const contenedor = document.getElementById("search-results");
-    contenedor.innerHTML = ""; // limpiar
+        const contenedor = document.getElementById("search-results");
+        contenedor.innerHTML = "";
 
-    if (resultados.length === 0) {
-        contenedor.innerHTML = "<p>No se encontraron resultados</p>";
-        return;
-    }
+        if (resultados.length === 0) {
+            contenedor.innerHTML = "<p>No se encontraron resultados</p>";
+            return;
+        }
 
-    resultados.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("resultado-item");
+        resultados.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("resultado-item");
+            div.innerHTML = `<p>${item.nombre}</p>`;
 
-        div.innerHTML = `
-            <p>${item.nombre}</p>
-        `;
+            // Al hacer clic, llevar al producto
+            div.addEventListener("click", () => {
+                window.location.href = `/producto.html?id=${item.id}`;
+            });
 
-        // 👉 Si el usuario hace clic en un resultado
-        div.addEventListener("click", () => {
-            window.location.href = `/producto.html?id=${item.id}`;
+            contenedor.appendChild(div);
         });
-
-        contenedor.appendChild(div);
-    });
-}
-
-}
+    } }
