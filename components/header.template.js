@@ -36,5 +36,12 @@ export const headerTemplate = {
 
     carrito(){
         return `estructura html del carrito aqui`
+    },
+
+    itemSearch(obj){
+        return`
+        aqui el html que se repetira${obj.nombre}
+        aqui el html que se repetira${obj.description}
+        `
     }
 }
