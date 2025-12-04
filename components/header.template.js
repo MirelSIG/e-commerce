@@ -21,9 +21,9 @@ export const headerTemplate = {
                         <div class="user-actions">
                             <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta <span class="cart-count">0</span>
                     </a>
-                    <a href="#" style="  color: #9370DB;">
+                    <a id="btnCart" href="#" style="  color: #9370DB;">
                         <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
-                        <span class="cart-count">0</span>
+                        <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0 }</span>
                     </a>
                 </div>
             </div>
