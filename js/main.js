@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
  products.getData()
+await products.getData()
+products.render()
+
 header.init()
 navbar.render()
 footer.render()
