@@ -3,9 +3,9 @@ export const cartTemplate = {
     init(obj){
         return `
             <aside id="cart" class="cart">
-                <div id="cartDiv">
+                <div id="cartDiv" class="cartDiv">
                     <header class="cart-header">
-                        <div class="">
+                        <div class="divBtnClose">
                             <a id="btnCloseCart" class="btnCloseCart" href="#">
                                 <i class="fa-solid fa-xmark"></i>
                             </a>
@@ -13,12 +13,12 @@ export const cartTemplate = {
                         <div class="divTitle">
                             <h2>Tu carrito</h2>
                             <div class="subTitle">
-                                <p>3 artículos</p>
+                                <p>${obj.cartCount} artículos</p>
                             </div>
                         </div>
                     </header>
-                    <div class="cartBody">
-                        ${obj.items}
+                    <div id="cartItems" class="cartBody">
+                        ${obj.items ? obj.items : this.isEmpty()}
                     </div>
                     <footer class="cartFooter">
                         <div class="totalRow">
@@ -35,7 +35,8 @@ export const cartTemplate = {
     },
     item(obj){
         return`
-            <div>item del carrito</div>
+            <div>ID: ${obj.id}</div>
+            <div>Nombre: ${obj.nombre}</div>
         `
     },
     isEmpty(){
