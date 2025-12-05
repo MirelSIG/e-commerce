@@ -1,5 +1,5 @@
 import { headerTemplate } from "../components/header.template.js"
-import { cart } from "./cart.js"
+import { cart } from "../components/cart/cart.js"
 
 export const header = {
 
