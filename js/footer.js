@@ -12,7 +12,7 @@ export const footer = {
             return footerTemplate.init()
            
         } catch (error) {
-            console.error('Error al cargar el navbar:', error)
+            console.error('Error al cargar el footer:', error)
         }
 
     }, 
