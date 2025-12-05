@@ -9,7 +9,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes.",
-    "imagenes": ["img/cuerdas/guitarra_clasica_id1.webp", "img/cuerdas/guitarra_electrica_id1.webp"]
+    "imagenes": ["img/cuerdas/guitarra_espanola_clasica_id1.webp"]
   },
   {
     "id": 2,
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "nombre": "Arpa celta",
+    "nombre": "Arpa celta portátil",
     "categoria": "Cuerdas",
     "precio": 599.00,
     "descuento": 0,
@@ -33,7 +33,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Arpa celta portátil con 22 cuerdas, sonido cálido y envolvente.",
-    "imagenes": ["img/cuerdas/arpa_palanca_aurelia_id3.webp"]
+    "imagenes": ["img/cuerdas/arpa_celta_id3.webp"]
   },
   {
     "id": 4,
@@ -194,15 +194,15 @@
 },
 {
     "id": 17,
-    "nombre": "Guitarra Clásica",
-    "categoria": "Cuerdas",
+    "nombre": "Saxofón alto",
+    "categoria": "Viento",
     "precio": 149.00,
     "descuento": 0,
     "IVA": 21,
     "stock": 12,
     "status": "available",
-    "descripcion": "Guitarra clásica de alta calidad con cuerdas de nylon y cuerpo de madera maciza.",
-    "imagenes": ["img/cuerdas/guitarra_clasica_id17.webp"]
+    "descripcion": "Saxofón alto con acabado dorado y estuche rígido.",
+    "imagenes": ["img/viento/saxofon_id17.webp"]
 },
 {
     "id": 18,
