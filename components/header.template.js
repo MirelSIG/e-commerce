@@ -13,27 +13,19 @@ export const headerTemplate = {
         </div>
         <div id="search-results"></div>
 
+
                 <div class="top-right">
                     <div class="contactanos"><a href="">CONTACTANOS</a></div>
 
                     <div class="separator"></div>
 
-            <a href="#" >
-                <div class="user-actions">
-                    <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta <span class="cart-count">0</span>
-            </a>
-            <a href="#" >
-                <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
-                <span class="cart-count">0</span>
-            </a>
+        
         </div>
-        </div>
-
 
     </header>
                     <a href="#" style="  color: #9370DB;">
                         <div class="user-actions">
-                            <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta <span class="cart-count">0</span>
+                            <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
                     </a>
                     <a id="btnCart" href="#" style="  color: #9370DB;">
                         <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
