@@ -1,0 +1,31 @@
+  :root{
+    --accent: #5b8cff;
+    --bg: rgba(255,255,255,0.75);
+    --glass: rgba(255,255,255,0.12);
+    --muted: #6b7280;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(11, 20, 40, 0.15);
+    --max-width: 420px;
+    --gap: 14px;
+    --color1: #9370DB; 
+  }
+.cart {
+    position: fixed;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    right: 0;
+    z-index: 1001;
+    height: calc(100vh - 11.2rem);
+    width: 30%;
+    background-color: white;
+    border-top-left-radius: 2rem;
+    color: gray;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.cart h2, p {
+    color:gray;
+}

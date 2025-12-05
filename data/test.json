@@ -1,0 +1,26 @@
+[{
+    "id": 13,
+    "nombre": "Micrófono dinámico",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Micrófonos",
+    "precio": 79.99,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "imagen": "img/accesorios/microfono.jpg",
+    "descripcion": "Micrófono dinámico cardioide ideal para voces en directo."
+  },
+  {
+    "id": 14,
+    "nombre": "Auriculares profesionales",
+    "categoria": "Complementos y accesorios",
+    "subcategoria": "Auriculares",
+    "precio": 149.00,
+    "descuento": 0,
+    "IVA": 21,
+    "stock": 12,
+    "status": "available",
+    "imagen": "img/accesorios/auriculares.jpg",
+    "descripcion": "Auriculares cerrados de estudio con respuesta plana."
+  }]

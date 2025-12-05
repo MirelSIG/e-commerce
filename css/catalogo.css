@@ -1,0 +1,76 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Encabezado y pie de página */
+header, footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Navegación (si la usas) */
+nav {
+  background-color: #444;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+/* Títulos de sección */
+main h2 {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #444;
+}
+
+/* Contenedor de productos */
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 1rem;
+}
+
+/* Tarjeta de producto */
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.02);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.producto h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.producto p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
