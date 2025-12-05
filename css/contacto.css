@@ -1,11 +1,12 @@
         :root {
             --dorado: #D4A857;
-            --dorado-suave: #e7c27a;
+            --dorado-suave: #FFD700;
             --negro: #36454E;
             --gris-oscuro: #2A2A2A;
-            --blanco: #f7f7f7;
+            --blanco: #ffffff;
         }
         body{
+            font-family: 'Montserrat', sans-serif;
             background: var(--negro);
             color: var(--blanco);
         }
