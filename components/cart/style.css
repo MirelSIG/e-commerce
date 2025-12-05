@@ -1,0 +1,46 @@
+@import url("../../css/vars.css");
+.cart {
+    position: fixed;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    right: 0;
+    z-index: 1001;
+    height: calc(100vh - 11.2rem);
+    width: 30%;
+    background-color: white;
+    border-top-left-radius: 2rem;
+    color: gray;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.cart h2, p {
+    color:gray;
+}
+.cartDiv{
+    width: 100%;
+}
+.divBtnClose {
+    display: flex;
+    justify-content: end;
+}
+.btnCloseCart {
+   text-decoration: none;
+}
+.btnCloseCart i {
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .cart {
+        width: 90%;
+        background-color: white;
+        border-top-left-radius: 2rem;
+        color: gray;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+}
