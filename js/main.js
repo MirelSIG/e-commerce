@@ -7,8 +7,7 @@ import { products } from "./products.js"
 document.addEventListener("DOMContentLoaded", () => {
 
 
- products.getData()
-await products.getData()
+products.getData()
 products.render()
 
 header.init()
