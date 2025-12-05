@@ -70,6 +70,46 @@
     }
 
  
+/* Contenedor de resultados */
+#search-results {
+    position: absolute; 
+    top: 100%; 
+    width: 500px;
+    max-height: 250px; /* altura máxima con scroll si hay muchos resultados */
+    overflow-y: auto;
+    background-color: #c7b136;
+    border: none; /* para que se vea conectado con el input */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 999; /* siempre encima de otros elementos */
+    border-radius:  10px; /* bordes redondeados solo abajo */
+}
+
+/* Cada resultado individual */
+.resultado-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+
+
+/* Hover: cuando el usuario pasa el mouse */
+.resultado-item:hover {
+    background-color: #a8a8a9;
+   
+}
+
+/* Texto de “no se encontraron resultados” */
+#search-results p {
+    margin: 0;
+    padding: 10px 15px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+    
 .icon-text-below .cart-count {
   position: absolute;
   top: -8px;
@@ -162,6 +202,7 @@
       padding: 8px 16px;
       border-radius: 6px;
     }
+    
 
     /* === RESPONSIVE === */
     @media (max-width: 992px) {
