@@ -5,6 +5,8 @@ import { cart } from "./cart.js"
 import { products } from "./products.js"
 
 await products.getData()
+products.render()
+
 header.init()
 navbar.render()
 footer.render()
