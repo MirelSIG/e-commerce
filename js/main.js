@@ -9,7 +9,7 @@ await productsController.getData()
 header.init()
 navbar.render()
 footer.render()
-products.render()
+productsController.render()
 
 document.addEventListener("DOMContentLoaded", () => {
 
