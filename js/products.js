@@ -2,7 +2,7 @@ export const productsController = {
     data:[],
     async getData(){
         try {
-            const response = await fetch("../data/products.json")
+            const response = await fetch("data/products.json")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
@@ -62,8 +62,8 @@ export const productsController = {
         if (this.data.length > 0) {
             result.data = this.data.filter(function(value, index){
                 if(value.nombre.toLowerCase().includes(q.toLowerCase()) || 
-                   value.categoria.toLowerCase().includes(q.toLowerCase()) ||
-                   value.descripcion.toLowerCase().includes(q.toLowerCase())
+                    value.categoria.toLowerCase().includes(q.toLowerCase()) ||
+                    value.descripcion.toLowerCase().includes(q.toLowerCase())
                 ){
                     return value
                 }
@@ -82,22 +82,32 @@ export const productsController = {
         }
         return products
     },
-   render() {
-  const contenedor = document.getElementById("catalogo-container");
-  if (!contenedor || this.data.length === 0) return;
+render() {
+    if (!this.data || this.data.length === 0) {
+    console.warn("No hay productos para renderizar.");
+    return;
+}
+
+    const contenedorGeneral = document.getElementById("catalogo-container");
+    if (!contenedorGeneral) {
+    console.error("No se encontró el contenedor #catalogo-container");
+    return;
+}
 
   // Agrupar productos por categoría
-  const categorias = {};
-  this.data.forEach(producto => {
-    const cat = producto.categoria;
+    const categorias = {};
+    this.data.forEach(producto => {
+    const cat = producto.categoria.trim();
     if (!categorias[cat]) categorias[cat] = [];
     categorias[cat].push(producto);
-  });
+});
 
-  // Crear secciones por categoría
-  for (const [categoria, items] of Object.entries(categorias)) {
+  // Renderizar secciones por categoría
+    for (const [categoria, productos] of Object.entries(categorias)) {
+    const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-");
+
     const seccion = document.createElement("section");
-    seccion.id = categoria.toLowerCase().replace(/\s+/g, "-");
+    seccion.id = categoriaId;
 
     const titulo = document.createElement("h2");
     titulo.textContent = categoria;
@@ -106,27 +116,28 @@ export const productsController = {
     const grid = document.createElement("div");
     grid.className = "catalogo";
 
-    items.forEach(producto => {
-      const tarjeta = document.createElement("article");
-      tarjeta.className = "producto";
-      tarjeta.id = `producto-${producto.id}`;
+    productos.forEach(producto => {
+    const tarjeta = document.createElement("article");
+    tarjeta.className = "producto";
+    tarjeta.id = `producto-${producto.id}`;
 
-      const imagen = producto.imagenes?.[0] || "";
+    const imagen = producto.imagenes?.[0] || "img/placeholder.jpg";
 
-      tarjeta.innerHTML = `
+    tarjeta.innerHTML = `
         <figure>
-          <img src="${imagen}" alt="${producto.nombre}">
-          <figcaption>${producto.nombre}</figcaption>
+        <img src="${imagen}" alt="${producto.nombre}">
+        <figcaption>${producto.nombre}</figcaption>
         </figure>
         <h3>${producto.nombre}</h3>
-        <p>Precio: €${producto.precio.toFixed(2)}</p>
-      `;
+        <p class="categoria">Categoría: ${producto.categoria}</p>
+        <p class="precio">Precio: €${producto.precio.toFixed(2)}</p>
+    `;
 
-      grid.appendChild(tarjeta);
+    grid.appendChild(tarjeta);
     });
 
     seccion.appendChild(grid);
-    contenedor.appendChild(seccion);
-  }
-} 
+    contenedorGeneral.appendChild(seccion);
 }
+}
+};
