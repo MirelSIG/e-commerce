@@ -1,5 +1,7 @@
+/* importamos las variables y las fuentes de google*/
 @import url("../../css/vars.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sofia&display=swap');
+/* Estilos del carrito*/
 .cart {
     position: fixed;
     display: flex;
@@ -11,19 +13,21 @@
     height: calc(100vh - 11.2rem);
     width: 30%;
     background-color: white;
-    border-top-left-radius: 2rem;
-    color: gray;
+    border-top-left-radius: 3rem;
+    color: var(--text-color);
     padding: 1rem;
     box-shadow: var(--shadow);
-    overflow: hidden;
+    overflow-y: auto;
+    scrollbar-color: var(--color1) transparent;
+    scrollbar-width: thin;
 }
 .cart h2 {
     font-family: "Sofia", cursive, "Montserrat", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
 }
 .cart h2, p {
-    color:gray;
+    color: var(--text-color);
 }
 .cartDiv{
     width: 100%;
@@ -36,17 +40,97 @@
    text-decoration: none;
 }
 .btnCloseCart i {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+/* estilos de los items del carrito*/
+.cartItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+    width: 100%;
+    padding: var(--p-lg);
+    border: 0.1rem solid var(--color1);
+    border-radius: var(--radius07);
+    margin: 0.7rem 0 0.7rem 0;
+    box-shadow: var(--shadow);
+}
+.cartItemTitle > h3 {
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    font-family: "montserrat", sans-serif;
+}
+.cartItemContent {
+    display: flex;
+    gap: var(--gap-sm);
+    width: 100%;
+    align-items: center;
+}
+.cartItemImg {
+    width: 40%;
+}
+.cartItemImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius07);
+}
+.cartItemDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+    width: 60%;
+}
+.cartItemQuantity, .cartItemIva, .cartItemPrice, .cartItemTotalPrice {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartItemQuantityInput {
+    width: 4rem;
+    text-align: center;
+    border: 0.1rem solid var(--color2);
+    border-radius: var(--radius07);
+    padding: var(--p-sm);
+    margin: 0 0.2rem 0 0.2rem;
+}
+.cartQuantityControls {
+    display: flex;
+    align-items: center;
+}
+.cartQuantityControls a {
+    text-decoration: none;
+    color: var(--color1);
+    font-size: 1.3rem;
+}
+.cartItemFooter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.cartRemoveItemBtn {
+    background-color: white;
+    color: var(--color1);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.1rem;
+    border: 0.1rem solid var(--color2);
+    border-radius: var(--radius07);
+    transition: background-color 0.7s ease, color 0.7s ease;
+}
+.cartRemoveItemBtn:hover {
+    background-color: var(--color2);
+    color: var(--text-color);
 }
 
 @media screen and (max-width: 768px) {
     .cart {
         width: 90%;
-        background-color: white;
-        border-top-left-radius: 2rem;
-        color: gray;
-        padding: 1rem;
-        box-shadow: var(--shadow);
-        overflow: hidden;
     }
 }

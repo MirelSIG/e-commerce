@@ -13,7 +13,7 @@ export const cartTemplate = {
                         <div class="divTitle">
                             <h2>Tu carrito</h2>
                             <div class="subTitle">
-                                <p>${obj.cartCount} artículos</p>
+                                <p>${obj.cartCount} Artículos</p>
                             </div>
                         </div>
                     </header>
@@ -35,14 +35,47 @@ export const cartTemplate = {
     },
     item(obj){
         return`
-            <div>ID: ${obj.id}</div>
-            <div>Nombre: ${obj.nombre}</div>
+        <div class="cartItem" id="${obj.id}">
+            <div class="cartItemTitle">
+                <h3>${obj.nombre}</h3>
+            </div>
+            <div class="cartItemContent">
+                <div class="cartItemImg">
+                    <img src="${obj.imagen}" alt="${obj.nombre}">
+                </div>
+                <div class="cartItemDetails">
+                    <div class="cartItemPrice">
+                        <p>Precio Unidad:</p>
+                        <p>€${obj.precio}</p>
+                    </div>
+                    <div class="cartItemIva">
+                        <p>IVA ${obj.IVA}%:</p>
+                        <p>€${((obj.precio * obj.IVA)/100).toFixed(2)} </p>
+                    </div>                    
+                    <div class="cartItemQuantity">
+                        <p>Cantidad:</p>
+                        <div class="cartQuantityControls">    
+                            <a href="#" class="cartDecreaseItemBtn" data-id="${obj.id}"><i class="fa fa-minus"></i></a>
+                            <input type="text" class="cartItemQuantityInput" data-id="${obj.id}" value="${obj.quantity}" min="1" max="${obj.stock}"/>
+                            <a href="#" class="cartIncreaseItemBtn" data-id="${obj.id}"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="cartItemTotalPrice">
+                        <p>Total:</p>
+                        <p>€${((obj.precio + (obj.precio * obj.IVA)/100) * obj.stock).toFixed(2)}</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="cartItemFooter">
+                <a class="cartRemoveItemBtn" data-id="${obj.id}"><i class="fa fa-trash"></i> Eliminar</a>
+            </div>
+        </div>
         `
     },
     isEmpty(){
         return`
-            <div class="cart-empty">
-                <p>Tu carrito está vacío. Explora nuestros productos y añade algo.</p>
+            <div class="cartEmpty">
+                <h3>Tu carrito está vacío. Explora nuestros productos y añade algo.</h3>
             </div>
         `
     }
