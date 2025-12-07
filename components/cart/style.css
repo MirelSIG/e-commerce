@@ -1,4 +1,5 @@
 @import url("../../css/vars.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sofia&display=swap');
 .cart {
     position: fixed;
     display: flex;
@@ -15,6 +16,11 @@
     padding: 1rem;
     box-shadow: var(--shadow);
     overflow: hidden;
+}
+.cart h2 {
+    font-family: "Sofia", cursive, "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .cart h2, p {
     color:gray;
