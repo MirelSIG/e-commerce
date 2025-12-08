@@ -4,29 +4,33 @@ export const cartTemplate = {
         return `
             <aside id="cart" class="cart">
                 <div id="cartDiv" class="cartDiv">
-                    <header class="cart-header">
-                        <div class="divBtnClose">
-                            <a id="btnCloseCart" class="btnCloseCart" href="#">
-                                <i class="fa-solid fa-xmark"></i>
-                            </a>
-                        </div>
-                        <div class="divTitle">
-                            <h2>Tu carrito</h2>
-                            <div class="subTitle">
-                                <p>${obj.cartCount} Artículos</p>
-                            </div>
-                        </div>
-                    </header>
+                    <div class="cartHeader">
+                        <h2>Tu carrito</h2>
+                        <a id="btnCloseCart" class="btnCloseCart" href="#">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                    </div>                    
                     <div id="cartItems" class="cartBody">
+                        <div class="cartCoutItems">
+                            <h3><span class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
+                        </div>
                         ${obj.items ? obj.items : this.isEmpty()}
                     </div>
                     <footer class="cartFooter">
-                        <div class="totalRow">
-                            <div class="subTotal" style="font-weight:600">Subtotal</div>
-                            <div style="font-weight:800">€153.49</div>
+                        <div class="cartTotalRow">
+                            <div class="cartSubTotal">Subtotal IVA:</div>
+                            <div class="cartSubTotalPrice">€${obj.totalIva}</div>
                         </div>
-                        <div class="" style="display:flex;flex-direction:column;gap:10px;">
-                            <button class="checkout-btn">Finalizar compra</button>
+                        <div class="cartTotalRow">
+                            <div class="cartSubTotal">Subtotal Productos:</div>
+                            <div class="cartSubTotalPrice">€${obj.totalItems}</div>
+                        </div>
+                        <div class="cartTotalRow">
+                            <div class="cartSubTotal">Total:</div>
+                            <div class="cartSubTotalPrice">€${obj.total}</div>
+                        </div>
+                        <div class="">
+                            <a class="cartCheckoutBtn">Finalizar compra</a>
                         </div>
                     </footer>
                 </div>
@@ -77,6 +81,27 @@ export const cartTemplate = {
             <div class="cartEmpty">
                 <h3>Tu carrito está vacío. Explora nuestros productos y añade algo.</h3>
             </div>
+        `
+    },
+    footer(){
+        return `
+            <footer class="cartFooter">
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Subtotal IVA:</div>
+                    <div class="cartSubTotalPrice">€${obj.totalIva}</div>
+                </div>
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Subtotal Productos:</div>
+                    <div class="cartSubTotalPrice">€${obj.totalItems}</div>
+                </div>
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Total:</div>
+                    <div class="cartSubTotalPrice">€${obj.total}</div>
+                </div>
+                <div class="">
+                    <a class="cartCheckoutBtn">Finalizar compra</a>
+                </div>
+            </footer>
         `
     }
 }

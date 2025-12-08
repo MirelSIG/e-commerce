@@ -19,4 +19,6 @@
   --color3: #36454E;
   --text-color: #36454E;
   --radius07: 0.75rem;
+  --font-titles: "Sofia", cursive, "Montserrat", sans-serif;
+  --font-text:"Montserrat", sans-serif;
 }
