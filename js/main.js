@@ -7,19 +7,24 @@ import { productsController } from "./products.js"
 
 
 
-document.addEventListener("DOMContentLoaded", async () => {
 await productsController.getData()
 header.init()
 navbar.render()
 footer.render()
 productsController.render();
 
-    
+
+
+
+
+/* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
+dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
+(funcion de la barra del header)  */
     const input = document.getElementById("buscador-input");
     if (!input) {
         console.error("No se encontró el input del buscador");
-        return;
-    }
+       
+    } else{
 
     input.addEventListener("keyup", async () => {
         const texto = input.value.trim();
@@ -28,12 +33,18 @@ productsController.render();
             return;
         }
         const resultados = await header.buscarInstrumentos(texto);
-        header.mostrarResultados(resultados);
+        header.mostrarResultados(resultados); 
     });
 
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-btnCart.addEventListener("click", () => cart.toogle());
+};
 
+// Fin de la funcion de la barra del buscador en el header.
+
+const btnCart = document.querySelector(`#${cart.idBtnCart}`)
+btnCart.addEventListener("click", function(e){
+    e.preventDefault()
+    cart.toggle()
+})
 cart.addItem(13)
 cart.addItem(14)
-});
+
