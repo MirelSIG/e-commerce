@@ -16,6 +16,10 @@ footer.render()
 
 
     
+
+/* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
+dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
+(funcion de la barra del header)  */
     const input = document.getElementById("buscador-input");
 
     if (!input) {
@@ -35,6 +39,8 @@ footer.render()
         header.mostrarResultados(resultados); 
     });
 }
+
+// Fin de la funcion de la barra del buscador en el header.
 
 
 
