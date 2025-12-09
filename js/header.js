@@ -2,34 +2,64 @@ import { headerTemplate } from "../components/header.template.js"
 import { cart } from "../components/cart/cart.js"
 
 export const header = {
-    
+
     id: `header`,
     divId: `headerDiv`,
     cartCount: cart.cartCount,
 
-    init(){
-        let exist = document.querySelector(`#${this.divId}`) ? true : false
+    init() {
+        let exist = document.querySelector(`#${this.divId}`) ? true : false;
 
-        if(!exist){
+        if (!exist) {
             this.render();
         }
     },
 
-    getTemplate(obj){
-        
+    getTemplate(obj) {
         try {
-
-            return headerTemplate.init(obj)
-           
+            return headerTemplate.init(obj);
         } catch (error) {
-            console.error('Error al cargar el header:', error)
+            console.error('Error al cargar el header:', error);
         }
-
     },
 
-    render(){
-        let output = document.querySelector(`#${this.id}`)
-        output.innerHTML = this.getTemplate({cartCount:this.cartCount})
-    }
+    render() {
+        let output = document.querySelector(`#${this.id}`);
+        output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+    },
 
-}
+
+
+    async buscarInstrumentos(buscar) {
+        const respuesta = await fetch("/data/products.json");
+        const instrumento = await respuesta.json();
+
+        const resultados = instrumento.filter(item =>
+            item.nombre.toLowerCase().includes(buscar.toLowerCase())
+        );
+
+        return resultados;
+    },
+
+    mostrarResultados(resultados) {
+        const contenedor = document.getElementById("search-results");
+        contenedor.innerHTML = ""; // este me permite borrar resultado 
+
+        if (resultados.length === 0) {
+            contenedor.innerHTML = "<p>No se encontraron resultados</p>";
+            return;
+        }
+
+        resultados.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("resultado-item");
+            div.innerHTML = `<p>${item.nombre}</p>`;
+
+            div.addEventListener("click", () => {
+                window.location.href = `/index.html?id=${item.id}`;
+            });
+
+            contenedor.appendChild(div);
+        });
+    }
+};
