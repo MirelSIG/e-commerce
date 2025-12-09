@@ -20,13 +20,6 @@ header, footer {
   padding: 1rem;
 }
 
-/* Navegación (si la usas) */
-nav {
-  background-color: #444;
-  color: white;
-  padding: 0.5rem 1rem;
-}
-
 /* Títulos de sección */
 main h2 {
   margin: 2rem 0 1rem;
@@ -84,4 +77,33 @@ main h2 {
   font-size: 0.9rem;
   margin: 0.3rem 0;
   color: rgb(126, 126, 32);
+}
+.producto .precio {
+  font-weight: bold;
+  color: #e91e63;
+  margin-top: 0.5rem;
+}
+.producto__btn {
+  display: inline-block;
+  padding: .5rem .75rem;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.producto__btn--add {
+  background: #0b5;
+  color: #fff;
+  border-color: #0a4;
+}
+.producto__btn--add:hover {
+  background: #0a4;
+}
+.producto__btn--view {
+  background: #08f;
+  color: #fff;
+  border-color: #07d;
+}
+.producto__btn--view:hover {
+  background: #07d;
 }

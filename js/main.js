@@ -39,7 +39,4 @@ btnCart.addEventListener("click", function(e){
     cart.toggle()
 })
 cart.addItem(13)
-cart.addItem(14)
-cart.addItem(20)
-cart.addItem(2)
-cart.addItem(10)
+

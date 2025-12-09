@@ -8,5 +8,33 @@ export const cart = {
     },
     addItem(id){
         cartView.addItem(id)
+    },
+     addItem(id) {
+    cartView.addItem(id);
+  },
+
+  add(producto) {
+    const existente = this.items.find(p => p.id === producto.id);
+    if (existente) {
+      existente.qty += 1;
+    } else {
+      this.items.push({ ...producto, qty: 1 });
     }
+
+    // Actualiza la vista del carrito
+    cartView.render(this.items);
+
+    // Opcional: notificar que el carrito cambió
+    document.dispatchEvent(new CustomEvent("cart:updated", {
+      detail: { items: this.items }
+    }));
+  },
+
+  init() {
+    // Escucha el evento personalizado emitido desde el catálogo
+    document.addEventListener("cart:add-item", (ev) => {
+      const { product } = ev.detail;
+      this.add(product);
+    });
 }
+};
