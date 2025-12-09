@@ -4,25 +4,20 @@ import { footer } from "./footer.js"
 import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
 
-
 await productsController.getData()
 header.init()
 navbar.render()
 footer.render()
 productsController.render();
 
-
-
-
-
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
-(funcion de la barra del header)  */
+(funcion de la barra del header) */
     const input = document.getElementById("buscador-input");
     if (!input) {
         console.error("No se encontró el input del buscador");
-       
-    } else{
+    }
+    else{
 
     input.addEventListener("keyup", async () => {
         const texto = input.value.trim();
