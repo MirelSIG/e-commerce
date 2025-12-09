@@ -23,7 +23,7 @@ export const headerTemplate = {
 
                     <div class="user-actions">
 
-                        <a href="#" style="  color: #9370DB;">
+                        <a href="../pages/reguistro.html" style="  color: #9370DB;">
                                 <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
                         </a>
                         <a id="btnCart" href="#" style="  color: #9370DB;">

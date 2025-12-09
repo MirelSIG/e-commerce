@@ -25,7 +25,10 @@ export const header = {
 
     render() {
         let output = document.querySelector(`#${this.id}`);
-        output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+        if (output) {
+           output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+            
+        }
     },
 
 
