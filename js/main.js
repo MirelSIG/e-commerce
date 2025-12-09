@@ -4,11 +4,13 @@ import { footer } from "./footer.js"
 import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
 
+
 await productsController.getData()
 header.init()
 navbar.render()
 footer.render()
 productsController.render();
+cart.init();
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  

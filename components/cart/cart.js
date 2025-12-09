@@ -4,7 +4,7 @@ export const cart = {
     idBtnCart: cartView.idBtnCart,
     idBtnCloseCart: cartView.idBtnCloseCart,
     toggle(){
-        cartView.toggle()
+        cartView.toggle();
     },
     addItem(id){
         cartView.addItem(id)
@@ -31,10 +31,17 @@ export const cart = {
   },
 
   init() {
+    const btnCart = document.getElementById(this.idBtnCart);
+    if (btnCart) {
+      btnCart.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.toggle();
+      });
+    }
     // Escucha el evento personalizado emitido desde el catálogo
     document.addEventListener("cart:add-item", (ev) => {
-      const { product } = ev.detail;
-      this.add(product);
+      const { id } = ev.detail;
+      this.addItem(id);
     });
 }
 };

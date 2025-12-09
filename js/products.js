@@ -134,7 +134,7 @@ render() {
 
       // Evento personalizado para el carrito
       const event = new CustomEvent("cart:add-item", {
-        detail: { product: productoSeleccionado },
+        detail: { id: productoSeleccionado.id },
         bubbles: true
       });
       btn.dispatchEvent(event);
