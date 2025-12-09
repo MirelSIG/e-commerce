@@ -37,7 +37,10 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
 btnCart.addEventListener("click", function(e){
     e.preventDefault()
-    cart.toogle()
+    cart.toggle()
 })
 cart.addItem(13)
 cart.addItem(14)
+cart.addItem(20)
+cart.addItem(2)
+cart.addItem(10)
