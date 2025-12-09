@@ -1,49 +1,47 @@
 export const headerTemplate = {
 
-    init(obj){
+    init(obj) {
         return `
-        <link href='fonts.googleapis.com' rel='stylesheet'>
+     
             <div id="headerDiv" class="top-header">
                 <div class="logo">
-                    <img src="../img/Captura de pantalla de 2025-12-02 09-20-03.png" alt="logo">
+                    <img src="../img/logos/logo Symphony store.png" alt="logo">
                 </div>
 
-        <div class="search-bar">
-            <input id="buscador-input" type="text" placeholder=" Buscar tu instrumento">
-            <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
+                <div class="search-bar">
+                    <input id="buscador-input" type="text" placeholder=" Buscar tu instrumento">
+                    <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
             
         
-        <div id="search-results"></div>
-</div>
+                     <div id="search-results"></div>
+                </div>
 
                 <div class="top-right">
                     <div class="contactanos"><a href="">CONTACTANOS</a></div>
 
                     <div class="separator"></div>
 
-        
-        </div>
+                    <div class="user-actions">
 
-    </header>
-                    <a href="#" style="  color: #9370DB;">
-                        <div class="user-actions">
-                            <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
-                    </a>
-                    <a id="btnCart" href="#" style="  color: #9370DB;">
-                        <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
-                        <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0 }</span>
-                    </a>
+                        <a href="#" style="  color: #9370DB;">
+                                <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
+                        </a>
+                        <a id="btnCart" href="#" style="  color: #9370DB;">
+                            <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
+                            <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         `
     },
 
-    carrito(){
+    carrito() {
         return `estructura html del carrito aqui`
     },
 
-    itemSearch(obj){
-        return`
+    itemSearch(obj) {
+        return `
         aqui el html que se repetira${obj.nombre}
         aqui el html que se repetira${obj.description}
         `
