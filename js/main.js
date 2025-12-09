@@ -3,8 +3,6 @@ import { navbar } from "./navbar.js"
 import { footer } from "./footer.js"
 import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
-// import { cartController } from "../components/cart/controller.js"
-
 
 
 await productsController.getData()
@@ -47,4 +45,6 @@ btnCart.addEventListener("click", function(e){
 })
 cart.addItem(13)
 cart.addItem(14)
-
+cart.addItem(20)
+cart.addItem(2)
+cart.addItem(10)

@@ -2,8 +2,9 @@ import { cartView } from "./view.js"
 
 export const cart = {
     idBtnCart: cartView.idBtnCart,
-    toogle(){
-        cartView.toogle()
+    idBtnCloseCart: cartView.idBtnCloseCart,
+    toggle(){
+        cartView.toggle()
     },
     addItem(id){
         cartView.addItem(id)

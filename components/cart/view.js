@@ -7,6 +7,7 @@ export const cartView = {
     divId: `cartDiv`,
     idToDraw: `drawCart`,
     idBtnCart: `btnCart`,
+    idBtnCloseCart: `btnCloseCart`,
     idCartCount: `cartCount`,
     idToDrawItems: `cartItems`,
     statusVisible: false,
@@ -41,7 +42,14 @@ export const cartView = {
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
         outputToDraw.innerHTML = this.getTemplate()
         this.statusVisible = true
-
+        const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
+        const thisArg = this
+        if (btnCloseCart) {
+            btnCloseCart.addEventListener("click", function(e){
+                e.preventDefault()
+                thisArg.toggle()
+            })
+        }
     },
 
     remove(){
@@ -55,7 +63,7 @@ export const cartView = {
         cartCount.textContent = cartController.cartCount
     },
 
-    toogle(){
+    toggle(){
         if(this.statusVisible && this.exists()){
             this.remove()
         }
