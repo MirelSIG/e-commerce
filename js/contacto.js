@@ -1,5 +1,3 @@
- 
- 
 const form = document.getElementById("contactForm");
 const result = document.getElementById("result");
    

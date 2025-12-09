@@ -6,8 +6,6 @@
             --blanco: #ffffff;
 body {
   font-family: 'Montserrat', sans-serif;;
-  font-size: 17px;
-  padding: 8px;
   background-color:var(--negro);
   color: var(--blanco);
 }
@@ -24,6 +22,7 @@ body {
 
 .col-25 {
   flex: 25%;
+
 }
 
 .col-50 {
@@ -44,6 +43,8 @@ body {
   background-color: var(--gris-oscuro);
   padding: 5px 20px 15px 20px;
   border-radius: 15px;
+  margin: 2rem;
+
 }
 
 input[type=text] {
@@ -83,6 +84,7 @@ label {
 
 a {
   color: #2196F3;
+  
 }
 
 hr {
