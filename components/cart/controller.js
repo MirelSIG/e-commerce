@@ -16,12 +16,13 @@ export const cartController = {
             else{
                 item.quantity = 1
             }
-            item.ivaPrice = ((item.precio * item.IVA) / 100) * item.quantity
-            item.totalPriceItem = (item.precio + item.ivaPrice) * item.quantity
+            item.totalIvaPriceItem = ((item.precio * item.IVA) / 100) * item.quantity
+            item.totalPriceItem = (item.precio * item.quantity)
+            /* item.totalPriceItem = (item.precio + item.ivaPrice) * item.quantity */
             this.items[id] = item
-            this.subTotalIva += item.ivaPrice
+            this.subTotalIva += item.totalIvaPriceItem
             this.subTotalItems += item.totalPriceItem
-            this.totalOrder += item.totalPriceItem
+            this.totalOrder += item.totalPriceItem + item.totalIvaPriceItem
             this.cartCount++
         }
     },
