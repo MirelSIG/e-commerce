@@ -1,5 +1,3 @@
- 
- 
 const form = document.getElementById("contactForm");
 const result = document.getElementById("result");
    
@@ -33,34 +31,6 @@ form.addEventListener("submit", function(e) {
 function mostrarMensajes() {
     const mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
 
-    result.innerHTML = `<h3 style="color:white;">Mensajes recibidos:</h3>`; 
-    mensajes.forEach((m, index) => {
-        result.innerHTML += `
-            <div class="msg">
-                <p><strong>Nombre:</strong> ${m.nombre}</p>
-                <p><strong>Correo:</strong> ${m.correo}</p>
-                <p><strong>Teléfono:</strong> ${m.telefono || "—"}</p>
-                <p><strong>Mensaje:</strong> ${m.mensaje}</p>  
-                <p><strong>Fecha:</strong> ${m.fecha}</p>
-
-                <button onclick="deleteMsg(${index})" class="delete-btn">🗑 Eliminar</button>
-                <hr>
-            </div>
-        `;
-    });
+    result.innerHTML = `<h3 style="color:red;">Su mensaje a sido enviado <i class="fa-regular fa-thumbs-up"></i></h3>`; 
 }
 
-function deleteMsg(index) {
-    let mensajes = JSON.parse(localStorage.getItem("mensajes")) || [];
-
-    mensajes.splice(index, 1);
-
-    localStorage.setItem("mensajes", JSON.stringify(mensajes));
-
-    mostrarMensajes();
-}
-
-function deleteAll() {
-    localStorage.removeItem("mensajes");
-    mostrarMensajes();
-}

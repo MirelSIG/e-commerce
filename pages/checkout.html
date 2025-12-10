@@ -4,12 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/favicon/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='fonts.googleapis.com' rel='stylesheet'>
     <link rel="stylesheet" href="../css/checkout.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Checkout</title>
 </head>
 <body>
+  <header id="header"></header>
+
+    <nav id="navbar"></nav>
+    
+    <main id="app">
+        <div id="drawCart"></div>
+    </main>
+
 
 <div class="row">
   <div class="col-75">
@@ -76,7 +85,7 @@
     </div>
   </div>
   <div class="col-25">
-    <div class="container">
+    <div id="cargarInformacionDelCarrito" class="container">
       <h4>Cart <span class="price" style="color:rgb(236, 233, 233)"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <p><a href="#">Product 1</a> <span class="price">$15</span></p>
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
@@ -87,6 +96,10 @@
     </div>
   </div>
 </div>
+
+<footer id="footer"></footer>
+
 <script src="../js/checkout.js"></script>
+<script type="module" src="../js/main.js"></script>
 </body>
 </html>

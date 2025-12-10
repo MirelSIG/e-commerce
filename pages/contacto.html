@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='fonts.googleapis.com' rel='stylesheet'>
+    <link rel="icon" href="../img/favicon/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Contacto</title>
 </head>
 <body>
+  <header id="header"></header>
+
+  <nav id="navbar"></nav>
+
+  <main id="app">
+        <div id="drawCart"></div>
+    </main>
+
 
 <div class="container">
 
@@ -42,9 +52,10 @@
                 <textarea name="mensaje" rows="6" placeholder="Escribe tu mensaje..." required></textarea>
                 <button type="submit">Enviar mensaje</button>
             </form>
-             <button onclick="deleteAll()" class="delete-all-btn">🗑 Burrar Todo</button>
+        
         </div>
-        <div id="result"></div> 
+        <div id="result">
+        </div> 
 
     </div>
 
@@ -80,9 +91,9 @@
 <!-- BOTÓN DE WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/0000000000" target="_blank">💬</a>
 
-<footer>
-    © 2025 Symfone – Todos los derechos reservados
-</footer>
-<script src="../js/contacto.js"></script>
+    <footer id="footer"></footer>
+
+    <script src="../js/contacto.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 </html>

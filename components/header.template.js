@@ -17,7 +17,7 @@ export const headerTemplate = {
                 </div>
 
                 <div class="top-right">
-                    <div class="contactanos"><a href="">CONTACTANOS</a></div>
+                    <div class="contactanos"><a href="../pages/contacto.html">CONTACTANOS</a></div>
 
                     <div class="separator"></div>
 

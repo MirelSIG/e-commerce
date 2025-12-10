@@ -79,3 +79,6 @@ console.log(registro);
 
 
 /* fin */
+cart.addItem(20)
+cart.addItem(2)
+cart.addItem(10)
