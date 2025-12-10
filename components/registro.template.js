@@ -2,7 +2,14 @@ export const registroTemplate = {
 
     init(obj){
         return `
+
+       <!-- HTML (solo cambia la clase si quieres) -->
+<a href="../index.html" class="btn-volver">
+  <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
+</a>
+                
            <section class="registro-section">
+              <div class="card-registro">    
         <h2>Crear cuenta</h2>
 
         <form id="form-registro" novalidate>
@@ -52,6 +59,7 @@ export const registroTemplate = {
 
           <div id="registro-feedback" aria-live="polite"></div>
         </form>
+        </div>
       </section>
         `
     }
