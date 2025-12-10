@@ -59,7 +59,7 @@ export const header = {
             div.innerHTML = `<p>${item.nombre}</p>`;
 
             div.addEventListener("click", () => {
-                window.location.href = `/index.html?id=${item.id}`;
+                window.location.href = `../data/products.json?id=${item.id}`;
             });
 
             contenedor.appendChild(div);

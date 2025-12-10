@@ -4,8 +4,13 @@ export const registro = {
 
     f () {
         let di = document.querySelector("#registro-section")
+        if (di) {
+        
         di.innerHTML= registroTemplate.init()
-
+    
+        } 
+            
+        
     }
 
 

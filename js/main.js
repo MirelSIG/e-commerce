@@ -3,7 +3,8 @@ import { navbar } from "./navbar.js"
 import { footer } from "./footer.js"
 import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
-import { registro} from "./registro.js"
+import { registro } from "./registro.js"
+import { usuarioCreado } from "./usuarioCreado.js"
 
 await productsController.getData()
 
@@ -39,46 +40,40 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 
 // Fin de la funcion de la barra del buscador en el header.
 
+ const inpt = document.querySelector("#registro-section");
+  if (inpt) {
+   registro.f()
+    }
 
 
+  const inp = document.querySelector("#usuario");
+  if (inp) {
+    usuarioCreado.f()
+    }
+
+/* no borrar esto: evento para llamar al carrito */
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-if(btnCart) {
-   btnCart.addEventListener("click", function(e){
-    e.preventDefault()
-    cart.toggle()
-})
-cart.addItem(13)
-cart.addItem(14)
-
- 
+if (btnCart) {
+    btnCart.addEventListener("click", function(e){
+        e.preventDefault()
+        cart.toggle()
+    })   
 }
+/* fin de evento: no borrar */
 
-
-/*import { header } from "./header.js"
-import { navbar } from "./navbar.js"
-import { footer } from "./footer.js"
-import { cart } from "../components/cart/cart.js"
-import { productsController } from "./products.js"
-
-await productsController.getData()
-header.init()
-navbar.render()
-footer.render()
-
-
+/* solo para hacer test con el carrito */
 cart.addItem(13)
-cart.addItem(14)
+cart.addItem(13)
 cart.addItem(20)
 cart.addItem(2)
-cart.addItem(10) */
-
-/*Seguimiento no borrar */
-
-registro.f()
-console.log(registro);
-
-
-/* fin */
+cart.addItem(10) 
 cart.addItem(20)
 cart.addItem(2)
 cart.addItem(10)
+cart.addItem(20)
+cart.addItem(10)
+/* se puede borrar */
+
+/*Seguimiento no borrar */
+
+
