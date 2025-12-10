@@ -1,25 +1,3 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Encabezado y pie de página */
-header, footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
 /* Títulos de sección */
 main h2 {
   margin: 2rem 0 1rem;
@@ -106,4 +84,19 @@ main h2 {
 }
 .producto__btn--view:hover {
   background: #07d;
+}
+.datetime-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 1rem;
+  padding: 1rem;
+  border-left: 4px solid #0078d4;
+  background-color: #f9f9f9;
+}
+
+.datetime-widget select {
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
 }
