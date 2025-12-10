@@ -35,10 +35,3 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 
 // Fin de la funcion de la barra del buscador en el header.
 
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-btnCart.addEventListener("click", function(e){
-    e.preventDefault()
-    cart.toggle()
-})
-cart.addItem(13)
-
