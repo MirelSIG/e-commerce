@@ -9,14 +9,20 @@ header.init()
 navbar.render()
 footer.render()
 
+/* no borrar esto: evento para llamar al carrito */
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-btnCart.addEventListener("click", function(e){
-    e.preventDefault()
-    cart.toggle()
-})
+if (btnCart) {
+    btnCart.addEventListener("click", function(e){
+        e.preventDefault()
+        cart.toggle()
+    })   
+}
+/* fin de evento: no borrar */
 
+/* solo para hacer test con el carrito */
 cart.addItem(13)
-cart.addItem(14)
+cart.addItem(13)
 cart.addItem(20)
-cart.addItem(2)
+cart.addItem(20)
 cart.addItem(10)
+/* se puede borrar */

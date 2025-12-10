@@ -24,31 +24,37 @@ export const cartView = {
 
     getTemplate(){        
         try {
-            const obj = {}
-            let items =``
-            cartController.data.forEach(function(value, index){
-                items+=cartTemplate.item(value)
+            const obj = cartController.getData()
+            let itemsHtml =``
+            obj.items.forEach(function(value, index){
+                itemsHtml+=cartTemplate.item(value)
             })
-            obj.cartCount = cartController.cartCount
-            obj.items = items            
+            obj.itemsHtml = itemsHtml 
+            console.log(obj);
+                       
 
             return cartTemplate.init(obj)
         } catch (error) {
-            console.error('Error al cargar el carrito:', error)
+            console.error('Error al cargar el template del carrito:', error)
         }
     },
 
     draw(){
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
-        outputToDraw.innerHTML = this.getTemplate()
-        this.statusVisible = true
-        const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
-        const thisArg = this
-        if (btnCloseCart) {
-            btnCloseCart.addEventListener("click", function(e){
-                e.preventDefault()
-                thisArg.toggle()
-            })
+        if (outputToDraw) {
+            outputToDraw.innerHTML = this.getTemplate()
+            this.statusVisible = true
+            const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
+            const thisArg = this
+            if (btnCloseCart) {
+                btnCloseCart.addEventListener("click", function(e){
+                    e.preventDefault()
+                    thisArg.toggle()
+                })
+            }
+        }
+        else{
+            console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
         }
     },
 
@@ -60,7 +66,9 @@ export const cartView = {
 
     updateCartCount() {
         const cartCount = document.querySelector(`#${this.idCartCount}`)
-        cartCount.textContent = cartController.cartCount
+        if (cartCount) {
+            cartCount.textContent = cartController.cartCount           
+        }
     },
 
     toggle(){
