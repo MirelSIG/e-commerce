@@ -18,6 +18,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -16px;
+row-gap: 25px;
+}
+.row h3{
+  margin: 1rem;
 }
 
 .col-25 {
