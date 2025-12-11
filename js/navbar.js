@@ -20,7 +20,10 @@ export const navbar = {
     render(){
         let countCarr = 10
         let output = document.querySelector("#navbar")
-        output.innerHTML = this.getTemplate({count:countCarr})
+        if(output){
+         output.innerHTML = this.getTemplate({count:countCarr})     
+        }
+      
     }
 
 }

@@ -14,25 +14,25 @@ export const cartTemplate = {
                         <div class="cartCoutItems">
                             <h3><span class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
                         </div>
-                        ${obj.items ? obj.items : this.isEmpty()}
+                        ${obj.itemsHtml ? obj.itemsHtml : this.isEmpty()}
                     </div>
-                    <footer class="cartFooter">
+                    <div class="cartFooter">
                         <div class="cartTotalRow">
                             <div class="cartSubTotal">Subtotal IVA:</div>
-                            <div class="cartSubTotalPrice">€${obj.totalIva}</div>
+                            <div class="cartSubTotalPrice">€${obj.subTotalIva.toFixed(2)}</div>
                         </div>
                         <div class="cartTotalRow">
                             <div class="cartSubTotal">Subtotal Productos:</div>
-                            <div class="cartSubTotalPrice">€${obj.totalItems}</div>
+                            <div class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
                         </div>
                         <div class="cartTotalRow">
                             <div class="cartSubTotal">Total:</div>
-                            <div class="cartSubTotalPrice">€${obj.total}</div>
+                            <div class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
                         </div>
                         <div class="">
                             <a class="cartCheckoutBtn">Finalizar compra</a>
                         </div>
-                    </footer>
+                    </div>
                 </div>
             <aside>
         `
@@ -50,12 +50,8 @@ export const cartTemplate = {
                 <div class="cartItemDetails">
                     <div class="cartItemPrice">
                         <p>Precio Unidad:</p>
-                        <p>€${obj.precio}</p>
+                        <p>€${obj.precio.toFixed(2)}</p>
                     </div>
-                    <div class="cartItemIva">
-                        <p>IVA ${obj.IVA}%:</p>
-                        <p>€${((obj.precio * obj.IVA)/100).toFixed(2)} </p>
-                    </div>                    
                     <div class="cartItemQuantity">
                         <p>Cantidad:</p>
                         <div class="cartQuantityControls">    
@@ -64,9 +60,13 @@ export const cartTemplate = {
                             <a href="#" class="cartIncreaseItemBtn" data-id="${obj.id}"><i class="fa fa-plus"></i></a>
                         </div>
                     </div>
+                    <div class="cartItemIva">
+                        <p>IVA ${obj.IVA}%:</p>
+                        <p>€${obj.ivaPrice.toFixed(2)} </p>
+                    </div>                    
                     <div class="cartItemTotalPrice">
                         <p>Total:</p>
-                        <p>€${((obj.precio + (obj.precio * obj.IVA)/100) * obj.stock).toFixed(2)}</p>
+                        <p>€${obj.totalPriceItem.toFixed(2)}</p>
                     </div>
                 </div> 
             </div>
