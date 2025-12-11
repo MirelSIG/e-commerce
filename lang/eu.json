@@ -1,0 +1,34 @@
+{
+    "footer": {
+        "categories": "KATEGORIAK",
+        "information": "INFORMAZIOA",
+        "contact": "kontaktua",
+        "followUs": "JARRAITU GAITZAZU",
+        "paymentMethods": "Ordainketa Metodoak",
+        "copyright": "© 2024 Symphony - Musika Tresnen Denda",
+        "categoriesList": {
+            "strings": "Sokak",
+            "percussion": "Perkusioa",
+            "keyboards": "Teklatuak eta Pianoak",
+            "wind": "Haize",
+            "accessories": "Osagarriak eta Akzesorioak"
+        },
+        "informationList": {
+            "privacy": "Pribatutasun Politika",
+            "terms": "Termino eta Baldintzak",
+            "legal": "Lege Oharra",
+            "cookies": "Cookie Politika",
+            "warranty": "Bermeak eta Itzulketak"
+        },
+        "contactInfo": {
+            "phone": "+53 (555) 123-456",
+            "email": "info@symphony.com",
+            "address": "Harmonia kalea 123, Musika Hiria",
+            "hours": "Astelehenetik ostiralera: 10:00 - 19:00",
+            "hoursWeekend": "Larunbata: 11:00 - 14:00"
+        }
+    },
+    "language": {
+        "select": "Hizkuntza hautatu"
+    }
+}

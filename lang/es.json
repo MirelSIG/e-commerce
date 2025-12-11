@@ -1,0 +1,34 @@
+{
+    "footer": {
+        "categories": "CATEGORIAS",
+        "information": "INFORMACION",
+        "contact": "contacto",
+        "followUs": "SIGUENOS",
+        "paymentMethods": "Metodos de Pagos",
+        "copyright": "© 2024 Symphony - Tienda de Instrumentos Musicales",
+        "categoriesList": {
+            "strings": "Cuerdas",
+            "percussion": "Percusion",
+            "keyboards": "Teclados y Pianos",
+            "wind": "Viento",
+            "accessories": "Complementos y Acesorios"
+        },
+        "informationList": {
+            "privacy": "Política de Privacidad",
+            "terms": "Términos y Condiciones",
+            "legal": "Aviso Legal",
+            "cookies": "Política de Cookies",
+            "warranty": "Garantías y Devoluciones"
+        },
+        "contactInfo": {
+            "phone": "+53 (555) 123-456",
+            "email": "info@symphony.com",
+            "address": "Calle Armonía 123, Ciudad Musical",
+            "hours": "Lunes-viernes: 10:00 - 19:00",
+            "hoursWeekend": "Sabados: 11:00 a 14:00"
+        }
+    },
+    "language": {
+        "select": "Seleccionar idioma"
+    }
+}
