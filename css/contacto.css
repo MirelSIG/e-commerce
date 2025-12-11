@@ -42,7 +42,7 @@ body{
     
 }
 .card:hover {
-    border-color: var(--dorado);
+    border:solid var(--dorado);
 }
 .card p {
     color: var(--blanco);
