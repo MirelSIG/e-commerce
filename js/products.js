@@ -125,7 +125,7 @@ export const productsController = {
             const grid = document.createElement("div");
             grid.className = "catalogo";
 
-            // Delegación de eventos (uso de 'this' en función flecha para acceder al controlador)
+            /* // Delegación de eventos (uso de 'this' en función flecha para acceder al controlador)
             grid.addEventListener("click", (ev) => {
                 const btn = ev.target.closest(".producto__btn--add");
                 if (!btn) return;
@@ -143,7 +143,7 @@ export const productsController = {
                     bubbles: true
                 });
                 btn.dispatchEvent(event);
-            });
+            }); */
 
             // 5) Tarjetas
             productos.forEach(producto => {
@@ -160,13 +160,8 @@ export const productsController = {
                     <h3 class="producto__titulo">${producto.nombre}</h3>
                     <p class="producto__categoria">Categoría: ${producto.categoria}</p>
                     <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-                    <button
-                    type="button"
-                    class="producto__btn producto__btn--add"
-                    data-product-id="${producto.id}">
-                    Seleccionar
-                    </button>
-                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
+                    
+                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
                 `;
 
                 grid.appendChild(tarjeta);

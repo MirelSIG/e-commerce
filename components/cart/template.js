@@ -1,6 +1,6 @@
 export const cartTemplate = {
 
-    init(obj){
+    init(obj, html){
         return `
             <aside id="cart" class="cart">
                 <div id="cartDiv" class="cartDiv">
@@ -12,27 +12,12 @@ export const cartTemplate = {
                     </div>                    
                     <div id="cartItems" class="cartBody">
                         <div class="cartCoutItems">
-                            <h3><span class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
+                            <h3><span id="cartCountNumber" class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
                         </div>
-                        ${obj.itemsHtml ? obj.itemsHtml : this.isEmpty()}
+                        ${html.items ? html.items : this.isEmpty()}
                     </div>
-                    <div class="cartFooter">
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal">Subtotal IVA:</div>
-                            <div class="cartSubTotalPrice">€${obj.subTotalIva.toFixed(2)}</div>
-                        </div>
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal">Subtotal Productos:</div>
-                            <div class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
-                        </div>
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal">Total:</div>
-                            <div class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
-                        </div>
-                        <div class="">
-                            <a class="cartCheckoutBtn">Finalizar compra</a>
-                        </div>
-                    </div>
+                    ${html.items ? html.footer : ``}
+
                 </div>
             <aside>
         `
@@ -83,25 +68,25 @@ export const cartTemplate = {
             </div>
         `
     },
-    footer(){
+    footer(obj){
         return `
-            <footer class="cartFooter">
+            <div class="cartFooter">
                 <div class="cartTotalRow">
                     <div class="cartSubTotal">Subtotal IVA:</div>
-                    <div class="cartSubTotalPrice">€${obj.totalIva}</div>
+                    <div class="cartSubTotalPrice">€${obj.subTotalIva.toFixed(2)}</div>
                 </div>
                 <div class="cartTotalRow">
                     <div class="cartSubTotal">Subtotal Productos:</div>
-                    <div class="cartSubTotalPrice">€${obj.totalItems}</div>
+                    <div class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
                 </div>
                 <div class="cartTotalRow">
                     <div class="cartSubTotal">Total:</div>
-                    <div class="cartSubTotalPrice">€${obj.total}</div>
+                    <div class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
                 </div>
                 <div class="">
                     <a class="cartCheckoutBtn">Finalizar compra</a>
                 </div>
-            </footer>
+            </div>
         `
     }
 }
