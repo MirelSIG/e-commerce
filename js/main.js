@@ -21,6 +21,15 @@ navbar.render()
 footer.render()
 productsController.render();
 
+/* no borrar esto: evento para llamar al carrito */
+const btnCart = document.querySelector(`#${cart.idBtnCart}`)
+if (btnCart) {
+    btnCart.addEventListener("click", function(e){
+        e.preventDefault()
+        cart.toggle()
+    })   
+}
+/* fin de evento: no borrar */
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
@@ -56,28 +65,6 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
     usuarioCreado.f()
     }
 
-/* no borrar esto: evento para llamar al carrito */
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-if (btnCart) {
-    btnCart.addEventListener("click", function(e){
-        e.preventDefault()
-        cart.toggle()
-    })   
-}
-/* fin de evento: no borrar */
-
-/* solo para hacer test con el carrito */
-cart.addItem(13)
-cart.addItem(13)
-cart.addItem(20)
-cart.addItem(2)
-cart.addItem(10) 
-cart.addItem(20)
-cart.addItem(2)
-cart.addItem(10)
-cart.addItem(20)
-cart.addItem(10)
-/* se puede borrar */
 
 /*Seguimiento no borrar */
 

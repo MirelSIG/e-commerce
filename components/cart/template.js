@@ -61,9 +61,9 @@ export const cartTemplate = {
                         </div>
                     </div>
                     <div class="cartItemIva">
-                        <p>IVA ${obj.IVA}%:</p>
-                        <p>€${obj.ivaPrice.toFixed(2)} </p>
-                    </div>                    
+                        <p>IVA:</p>
+                        <p>€${obj.totalIvaPriceItem.toFixed(2)} </p>
+                    </div>
                     <div class="cartItemTotalPrice">
                         <p>Total:</p>
                         <p>€${obj.totalPriceItem.toFixed(2)}</p>
