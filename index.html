@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon/favicon.png">
+    <title>Symphony Store</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="css/catalogo.component.css">
+</head>
+<body>
 
+    <header id="header"></header>
+
+    <nav id="navbar"></nav>
+    
+    <main id="app">
+        <section id="catalogo-container"></section>
+        <button id="btnCart" class="producto__btn producto__btn--add">Cart</button>
+        <div id="drawCart"></div>
+
+
+    <div class="datetime-widget">
+        <select id="langSelector">
+            <option value="es">Castellano</option>
+            <option value="en">English</option>
+            <option value="eus">Euskara</option>
+        </select>
+        <p id="datetimeDisplay"></p>
+    </div>
+    </main>
+
+    <footer id="footer"></footer>
+    
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+
+</html>
