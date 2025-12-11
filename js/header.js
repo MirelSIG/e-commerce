@@ -61,5 +61,13 @@ export const header = {
 
             contenedor.appendChild(div);
         });
-    }
-};
+    },
+
+render() {
+  const output = document.querySelector(`#${this.id}`);
+  if (output) {
+    output.innerHTML = this.getTemplate({ cartCount: cart.cartCount });
+    headerTemplate.initDateTime(); // Aquí se activa el reloj
+  }
+}
+}

@@ -31,19 +31,37 @@ export const headerTemplate = {
                             <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0}</span>
                         </a>
                     </div>
+                            
+                        <div class="datetime-widget">
+                            <p id="datetimeDisplay"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         `
     },
+initDateTime() {
+  const display = document.getElementById("datetimeDisplay");
+  if (!display) return;
 
-    carrito() {
-        return `estructura html del carrito aqui`
-    },
+  const lang = document.documentElement.lang || "es";
 
-    itemSearch(obj) {
-        return `
-        aqui el html que se repetira${obj.nombre}
-        aqui el html que se repetira${obj.description}
-        `
-    }
+  const days = {
+    es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    eus: ["Igandea", "Astelehena", "Asteartea", "Asteazkena", "Osteguna", "Ostirala", "Larunbata"]
+  };
+
+  function update() {
+    const now = new Date();
+    const day = now.getDay();
+    const date = now.toLocaleDateString(lang);
+    const time = now.toLocaleTimeString();
+    const dayName = days[lang]?.[day] || days["es"][day];
+    display.innerHTML = `${dayName}, ${date} - ${time}`;
+  }
+
+  update();
+  setInterval(update, 1000);
+}
 }

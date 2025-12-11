@@ -120,26 +120,6 @@ render() {
     const grid = document.createElement("div");
     grid.className = "catalogo";
 
-    // Delegación de eventos (uso de 'this' en función flecha para acceder al controlador)
-    grid.addEventListener("click", (ev) => {
-      const btn = ev.target.closest(".producto__btn--add");
-      if (!btn) return;
-
-      const id = Number(btn.dataset.productId);
-      const productoSeleccionado = this.data.find(p => p.id === id);
-      if (!productoSeleccionado) {
-        console.warn("Producto no encontrado para id:", id);
-        return;
-      }
-
-      // Evento personalizado para el carrito
-      const event = new CustomEvent("cart:add-item", {
-        detail: { id: productoSeleccionado.id },
-        bubbles: true
-      });
-      btn.dispatchEvent(event);
-    });
-
     // 5) Tarjetas
     productos.forEach(producto => {
       const tarjeta = document.createElement("article");
@@ -155,12 +135,6 @@ render() {
         <h3 class="producto__titulo">${producto.nombre}</h3>
         <p class="producto__categoria">Categoría: ${producto.categoria}</p>
         <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-        <button
-          type="button"
-          class="producto__btn producto__btn--add"
-          data-product-id="${producto.id}">
-          Seleccionar
-        </button>
       `;
 
       grid.appendChild(tarjeta);
@@ -170,4 +144,5 @@ render() {
     contenedorGeneral.appendChild(seccion);
   }
 }
+
 };

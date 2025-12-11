@@ -5,8 +5,6 @@ import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
 import { dateTime } from "./dateTime.js";
 
-dateTime.init();
-
 
 
 await productsController.getData()
@@ -14,6 +12,7 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
+dateTime.init();
 
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario

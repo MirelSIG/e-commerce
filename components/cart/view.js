@@ -82,17 +82,6 @@ export const cartView = {
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
         }        
-    },
-
-    render(items) {
-  // Actualiza los datos del controlador
-  cartController.data = items;
-  cartController.cartCount = items.length;
-
-  // Si el carrito ya está visible, lo redibuja
-  if (this.statusVisible && this.exists()) {
-    this.draw();
-  }
-}
+    }
 
 }
