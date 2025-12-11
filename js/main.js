@@ -5,6 +5,7 @@ import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
 import { registro } from "./registro.js"
 import { usuarioCreado } from "./usuarioCreado.js"
+import { login } from "./login.js"
 
 await productsController.getData()
 
@@ -12,6 +13,7 @@ await productsController.getData()
 
 productsController.getData()    
 header.init()
+
 navbar.render()
 footer.render()
 productsController.render();
@@ -42,7 +44,7 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 
  const inpt = document.querySelector("#registro-section");
   if (inpt) {
-   registro.f()
+   registro.l()
     }
 
 
@@ -60,6 +62,12 @@ if (btnCart) {
     })   
 }
 /* fin de evento: no borrar */
+
+/*Login */
+
+
+ login.loginF()
+
 
 /* solo para hacer test con el carrito */
 cart.addItem(13)
