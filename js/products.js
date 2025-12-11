@@ -1,3 +1,8 @@
+/* no borrar este import es necesario para llamar a la funcion de addItem(id) para agregar item al carrito
+se usa en el escuchador del enevento click que esta al final*/
+import { cart } from "../components/cart/cart.js"
+/* no borrar :) */
+
 export const productsController = {
     data:[],
     async getData(){
@@ -161,12 +166,10 @@ export const productsController = {
                     data-product-id="${producto.id}">
                     Seleccionar
                     </button>
-                    <a class="cartAddItemBtn" data-id="${producto.id}"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
+                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
                 `;
 
                 grid.appendChild(tarjeta);
-                const btnAddToCart = document.querySelector(`[data-id="${producto.id}"]`)
-                console.log(btnAddToCart);
                 
             });
 
@@ -174,8 +177,22 @@ export const productsController = {
             contenedorGeneral.appendChild(seccion);
         }
 
-        /* de Yoandres para mirel: aqui agrego el escuchador para los botones de agregar al carrito que coloque yo el morado*/
+        /* de Yoandres para mirel: 
+        aqui agrego el escuchador para los botones de agregar al carrito que coloque yo,
+        el boton morado*/
         const btnsAddToCart = document.querySelectorAll(".cartAddItemBtn")
-        console.log(btnsAddToCart);
+        if (btnsAddToCart) {
+            btnsAddToCart.forEach(function(value, index){
+                const bntElement = value
+                let id = Number(value.dataset.id)
+                bntElement.addEventListener("click", function(e){
+                    e.preventDefault()
+                    cart.addItem(id)
+                })                
+            })                        
+        } else {
+            console.log(`no se encontraron los botones de añadir al carrito`);                        
+        }
+        /* Fin del escuchador no borrar :) */
     }
 };

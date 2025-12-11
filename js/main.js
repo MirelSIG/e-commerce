@@ -20,14 +20,6 @@ if (btnCart) {
 }
 /* fin de evento: no borrar */
 
-/* solo para hacer test con el carrito */
-cart.addItem(13)
-cart.addItem(13)
-cart.addItem(20)
-cart.addItem(20)
-cart.addItem(10)
-/* se puede borrar */
-
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
 (funcion de la barra del header) */
