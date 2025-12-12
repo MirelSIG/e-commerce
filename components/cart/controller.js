@@ -25,9 +25,11 @@ export const cartController = {
         let item = this.getItemById(id)
         if (item.status) {
             this.items.splice(item.indexItem, 1);
-            console.log(item.indexItem);
             this.cartCount -= item.data[0].quantity     
         }
+    },
+    changeQuantity(id){
+
     },
     getItemById(id){
         const result = {}
