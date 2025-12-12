@@ -11,9 +11,7 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
-cart.init();
 dateTime.init();
-
 
 /* no borrar esto: evento para llamar al carrito */
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
