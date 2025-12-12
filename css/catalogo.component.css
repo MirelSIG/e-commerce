@@ -12,7 +12,13 @@ main h2 {
   gap: 20px;
   padding: 1rem;
 }
-
+/* Estilo del contenedor */
+#datetimeDisplay  {
+  font-family: 'Montserrat', sans-serif;
+  color: #9370DB;                     
+  font-size: 14px;                      
+  font-weight: 800;                      
+} 
 
 /* Tarjeta de producto */
 .producto {
