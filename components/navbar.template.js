@@ -4,10 +4,10 @@ export const navbarTemplate = {
         return `
             <div id="navbarDiv" class="main-menu">
                 <ul>
-                    <li><a href="#">Guitarra</a></li>
-                    <li><a href="#">Amplificación</a></li>
-                    <li><a href="#">Efectos</a></li>
-                    <li><a href="#">Bajos</a></li>                
+                    <li><a href="#">Cuerdas</a></li>
+                    <li><a href="#">Viento</a></li>
+                    <li><a href="#">Teclados y Pianos</a></li>
+                    <li><a href="#">Complementos y Accesorios</a></li>                
                 </ul>
             </div>
         `
