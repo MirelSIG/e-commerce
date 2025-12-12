@@ -14,7 +14,7 @@ export const usuarioCreadoTemplate= {
             </a>
             
             <div class="user-actions">
-              <span class="user-name">¡Hola, 'Usuario'}!</span>
+              <span class="user-name">¡Hola, 'Usuario'</span>
               <a href="/pages/login.html" class="btn-logout-small">
                 <i class="fas fa-sign-out-alt"></i> Salir
               </a>
@@ -22,13 +22,13 @@ export const usuarioCreadoTemplate= {
           </div>
         </header>
 
-        <div class="dashboard-container">
-
           <!-- Título bienvenida -->
           <div class="welcome-title">
             <h1>Tu panel de control</h1>
             <p>Todo lo que necesitas, en un solo lugar</p>
           </div>
+
+        <div class="dashboard-container">
 
           <!-- Grid de tarjetas -->
           <div class="dashboard-grid">

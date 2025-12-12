@@ -1,6 +1,6 @@
-/* ============================================= */
-/* DASHBOARD CON HEADER PEQUEÑO – DORADO 2025    */
-/* ============================================= */
+
+/*CON HEADER PEQUEÑO */
+
 
 .dashboard-section {
   min-height: 100vh;
@@ -86,10 +86,31 @@
 
 /* Contenido principal */
 .dashboard-container {
-  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1300px;          /* Más ancho para dashboards modernos */
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
+            /* ACTIVAMOS COLUMNAS */
+  grid-template-columns: 1fr 3fr;  /* Sidebar y contenido */
+  gap: 2rem;                  /* Separación entre columnas */
+  background: #f5f6fa;        /* Fondo suave */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  min-height: 700px;          /* Altura elegante */
 }
+
+
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Una sola columna */
+    padding: 2rem 1rem;
+  }
+}
+
 
 .welcome-title {
   text-align: center;
@@ -119,6 +140,7 @@
   backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255,215,50,0.35);
   border-radius: 20px;
+  width: 40rem;
   padding: 2rem;
   box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   transition: transform 0.4s;
@@ -133,7 +155,7 @@
 }
 
 .badge { background: #ffdd00; color: #0f0c29; padding: 4px 10px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-left: 10px; }
-.tag { padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; }
+.tag { padding: 6px 10px; border-radius: 8px; font-size: 0.8rem; margin: 6rem; }
 .tag.success { background: #39ff14; color: black; }
 .tag.warning { background: #ffaa00; color: white; }
 .tag.info { background: #00d4ff; color: black; }

@@ -29,7 +29,10 @@ export const headerTemplate = {
                             <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
                             <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0}</span>
                         </a>
+
+                        
                     </div>
+
                             
                         <div class="datetime-widget">
                             <p id="datetimeDisplay"></p>
