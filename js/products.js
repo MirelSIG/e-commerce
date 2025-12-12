@@ -1,3 +1,8 @@
+/* no borrar este import es necesario para llamar a la funcion de addItem(id) para agregar item al carrito
+se usa en el escuchador del enevento click que esta al final*/
+import { cart } from "../components/cart/cart.js"
+/* no borrar :) */
+
 export const productsController = {
     data:[],
     async getData(){
@@ -82,92 +87,107 @@ export const productsController = {
         }
         return products     //Revisar el retorno de esta función: result//
     },
-render() {
-  // 1) Precondiciones
-  if (!this.data || this.data.length === 0) {
-    console.warn("No hay productos para renderizar.");
-    return;
-  }
+    render() {
+        // 1) Precondiciones
+        if (!this.data || this.data.length === 0) {
+            console.warn("No hay productos para renderizar.");
+            return;
+        }
 
-  const contenedorGeneral = document.getElementById("catalogo-container");
-  if (!contenedorGeneral) {
-    console.error("No se encontró el contenedor #catalogo-container");
-    return;
-  }
+        const contenedorGeneral = document.getElementById("catalogo-container");
+        if (!contenedorGeneral) {
+            console.log("No se encontró el contenedor #catalogo-container");
+            return;
+        }
 
-  // 2) Limpieza del contenedor para evitar duplicados en re-render
-  contenedorGeneral.innerHTML = '';
+        // 2) Limpieza del contenedor para evitar duplicados en re-render
+        contenedorGeneral.innerHTML = '';
 
-  // 3) Agrupación de productos por categoría
-  const categorias = {};
-  this.data.forEach(producto => {
-    const cat = (producto.categoria || '').trim();
-    if (!categorias[cat]) categorias[cat] = [];
-    categorias[cat].push(producto);
-  });
+        // 3) Agrupación de productos por categoría
+        const categorias = {};
+        this.data.forEach(producto => {
+            const cat = (producto.categoria || '').trim();
+            if (!categorias[cat]) categorias[cat] = [];
+            categorias[cat].push(producto);
+        });
 
-  // 4) Renderización de secciones por categoría
-  for (const [categoria, productos] of Object.entries(categorias)) {
-    const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-");
+        // 4) Renderización de secciones por categoría
+        for (const [categoria, productos] of Object.entries(categorias)) {
+            const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-");
 
-    const seccion = document.createElement("section");
-    seccion.id = categoriaId;
+            const seccion = document.createElement("section");
+            seccion.id = categoriaId;
 
-    const titulo = document.createElement("h2");
-    titulo.textContent = categoria;
-    seccion.appendChild(titulo);
+            const titulo = document.createElement("h2");
+            titulo.textContent = categoria;
+            seccion.appendChild(titulo);
 
-    const grid = document.createElement("div");
-    grid.className = "catalogo";
+            const grid = document.createElement("div");
+            grid.className = "catalogo";
 
-    // Delegación de eventos (uso de 'this' en función flecha para acceder al controlador)
-    grid.addEventListener("click", (ev) => {
-      const btn = ev.target.closest(".producto__btn--add");
-      if (!btn) return;
+            /* // Delegación de eventos (uso de 'this' en función flecha para acceder al controlador)
+            grid.addEventListener("click", (ev) => {
+                const btn = ev.target.closest(".producto__btn--add");
+                if (!btn) return;
 
-      const id = Number(btn.dataset.productId);
-      const productoSeleccionado = this.data.find(p => p.id === id);
-      if (!productoSeleccionado) {
-        console.warn("Producto no encontrado para id:", id);
-        return;
-      }
+                const id = Number(btn.dataset.productId);
+                const productoSeleccionado = this.data.find(p => p.id === id);
+                if (!productoSeleccionado) {
+                    console.warn("Producto no encontrado para id:", id);
+                    return;
+                }
 
-      // Evento personalizado para el carrito
-      const event = new CustomEvent("cart:add-item", {
-        detail: { id: productoSeleccionado.id },
-        bubbles: true
-      });
-      btn.dispatchEvent(event);
-    });
+                // Evento personalizado para el carrito
+                const event = new CustomEvent("cart:add-item", {
+                    detail: { id: productoSeleccionado.id },
+                    bubbles: true
+                });
+                btn.dispatchEvent(event);
+            }); */
 
-    // 5) Tarjetas
-    productos.forEach(producto => {
-      const tarjeta = document.createElement("article");
-      tarjeta.className = "producto";
-      tarjeta.id = `producto-${producto.id}`;
+            // 5) Tarjetas
+            productos.forEach(producto => {
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "producto";
+                tarjeta.id = `producto-${producto.id}`;
 
-      const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : "img/placeholder.jpg";
+                const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : "img/placeholder.jpg";
 
-      tarjeta.innerHTML = `
-        <figure class="producto__media">
-          <img src="${imagen}" alt="${producto.nombre}">
-        </figure>
-        <h3 class="producto__titulo">${producto.nombre}</h3>
-        <p class="producto__categoria">Categoría: ${producto.categoria}</p>
-        <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-        <button
-          type="button"
-          class="producto__btn producto__btn--add"
-          data-product-id="${producto.id}">
-          Seleccionar
-        </button>
-      `;
+                tarjeta.innerHTML = `
+                    <figure class="producto__media">
+                    <img src="${imagen}" alt="${producto.nombre}">
+                    </figure>
+                    <h3 class="producto__titulo">${producto.nombre}</h3>
+                    <p class="producto__categoria">Categoría: ${producto.categoria}</p>
+                    <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
+                    
+                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
+                `;
 
-      grid.appendChild(tarjeta);
-    });
+                grid.appendChild(tarjeta);
+                
+            });
 
-    seccion.appendChild(grid);
-    contenedorGeneral.appendChild(seccion);
-  }
-}
+            seccion.appendChild(grid);
+            contenedorGeneral.appendChild(seccion);
+        }
+
+        /* de Yoandres para mirel: 
+        aqui agrego el escuchador para los botones de agregar al carrito que coloque yo,
+        el boton morado*/
+        const btnsAddToCart = document.querySelectorAll(".cartAddItemBtn")
+        if (btnsAddToCart) {
+            btnsAddToCart.forEach(function(value, index){
+                const bntElement = value
+                let id = Number(value.dataset.id)
+                bntElement.addEventListener("click", function(e){
+                    e.preventDefault()
+                    cart.addItem(id)
+                })                
+            })                        
+        } else {
+            console.log(`no se encontraron los botones de añadir al carrito`);                        
+        }
+        /* Fin del escuchador no borrar :) */
+    }
 };

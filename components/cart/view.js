@@ -1,6 +1,7 @@
 import { cartTemplate } from "./template.js"
 import { cartController } from "./controller.js"
 import { productsController } from "../../js/products.js"
+import { cart } from "./cart.js"
 
 export const cartView = {
     id: `cart`,
@@ -25,15 +26,15 @@ export const cartView = {
     getTemplate(){        
         try {
             const obj = cartController.getData()
-            let itemsHtml =``
+            const html ={
+                items: ``,
+                footer:``
+            }
             obj.items.forEach(function(value, index){
-                itemsHtml+=cartTemplate.item(value)
+                html.items+=cartTemplate.item(value)
             })
-            obj.itemsHtml = itemsHtml 
-            console.log(obj);
-                       
-
-            return cartTemplate.init(obj)
+            html.footer = cartTemplate.footer(obj)
+            return cartTemplate.init(obj, html)
         } catch (error) {
             console.error('Error al cargar el template del carrito:', error)
         }
@@ -66,8 +67,12 @@ export const cartView = {
 
     updateCartCount() {
         const cartCount = document.querySelector(`#${this.idCartCount}`)
+        const cartCountNumber = document.querySelector(`#cartCountNumber`)
         if (cartCount) {
             cartCount.textContent = cartController.cartCount           
+        }
+        if (cartCountNumber) {
+            cartCountNumber.textContent = cartController.cartCount           
         }
     },
 
@@ -84,23 +89,13 @@ export const cartView = {
         cartController.addItem(id)
         this.updateCartCount()
 
-        if(this.statusVisible && this.exists()){
+        this.draw()
+
+        /* if(this.statusVisible && this.exists()){
             const product = productsController.getById(id)
             const itemHtml = product.status ? cartTemplate.item(product.data[0]) : ``
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
-        }        
-    },
-
-    render(items) {
-  // Actualiza los datos del controlador
-  cartController.data = items;
-  cartController.cartCount = items.length;
-
-  // Si el carrito ya está visible, lo redibuja
-  if (this.statusVisible && this.exists()) {
-    this.draw();
-  }
-}
-
+        }  */       
+    }
 }

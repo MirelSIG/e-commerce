@@ -19,6 +19,7 @@ footer.render()
 productsController.render();
 
 
+
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
 (funcion de la barra del header) */
@@ -44,7 +45,7 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 
  const inpt = document.querySelector("#registro-section");
   if (inpt) {
-   registro.l()
+   registro.f()
     }
 
 

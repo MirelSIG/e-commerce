@@ -2,7 +2,6 @@ export const headerTemplate = {
 
     init(obj) {
         return `
-     
             <div id="headerDiv" class="top-header">
                 <div class="logo">
                     <img src="../img/logos/logo Symphony store.png" alt="logo">
