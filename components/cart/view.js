@@ -33,7 +33,7 @@ export const cartView = {
             obj.items.forEach(function(value, index){
                 html.items+=cartTemplate.item(value)
             })
-            html.footer = cartTemplate.footer(obj)
+            html.footer = cartTemplate.footer(obj)            
             return cartTemplate.init(obj, html)
         } catch (error) {
             console.error('Error al cargar el template del carrito:', error)
@@ -52,6 +52,19 @@ export const cartView = {
                     e.preventDefault()
                     thisArg.toggle()
                 })
+            }
+            const btnsRemoveItem = document.querySelectorAll(".cartRemoveItemBtn")
+            if (btnsRemoveItem) {
+                btnsRemoveItem.forEach(function(value, index){
+                    const bntElement = value
+                    let id = Number(value.dataset.id)
+                    bntElement.addEventListener("click", function(e){
+                        e.preventDefault()
+                        thisArg.removeItem(id)
+                    })                
+                })                        
+            } else {
+                console.log(`no se encontraron los botones de eliminar items del carrito`);                        
             }
         }
         else{
@@ -97,5 +110,11 @@ export const cartView = {
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
         }  */       
+    },
+
+    removeItem(id){
+        cartController.removeItem(id)
+        this.updateCartCount()
+        this.draw()      
     }
 }

@@ -8,5 +8,8 @@ export const cart = {
     },
     addItem(id){
         cartView.addItem(id)
+    },
+    removeItem(){
+        cartView.removeItem(id)
     }
 };
