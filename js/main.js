@@ -19,7 +19,7 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
-cart.init();
+/* cart.init(); */
 dateTime.init();
 
 
