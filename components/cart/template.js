@@ -30,7 +30,7 @@ export const cartTemplate = {
             </div>
             <div class="cartItemContent">
                 <div class="cartItemImg">
-                    <img src="${obj.imagen}" alt="${obj.nombre}">
+                    <img src="${obj.imagenes[0]}" alt="${obj.nombre}">
                 </div>
                 <div class="cartItemDetails">
                     <div class="cartItemPrice">
