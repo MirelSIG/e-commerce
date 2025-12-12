@@ -1,6 +1,7 @@
 import { cartTemplate } from "./template.js"
 import { cartController } from "./controller.js"
 import { productsController } from "../../js/products.js"
+import { cart } from "./cart.js"
 
 export const cartView = {
     id: `cart`,
@@ -24,31 +25,37 @@ export const cartView = {
 
     getTemplate(){        
         try {
-            const obj = {}
-            let items =``
-            cartController.data.forEach(function(value, index){
-                items+=cartTemplate.item(value)
+            const obj = cartController.getData()
+            const html ={
+                items: ``,
+                footer:``
+            }
+            obj.items.forEach(function(value, index){
+                html.items+=cartTemplate.item(value)
             })
-            obj.cartCount = cartController.cartCount
-            obj.items = items            
-
-            return cartTemplate.init(obj)
+            html.footer = cartTemplate.footer(obj)
+            return cartTemplate.init(obj, html)
         } catch (error) {
-            console.error('Error al cargar el carrito:', error)
+            console.error('Error al cargar el template del carrito:', error)
         }
     },
 
     draw(){
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
-        outputToDraw.innerHTML = this.getTemplate()
-        this.statusVisible = true
-        const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
-        const thisArg = this
-        if (btnCloseCart) {
-            btnCloseCart.addEventListener("click", function(e){
-                e.preventDefault()
-                thisArg.toggle()
-            })
+        if (outputToDraw) {
+            outputToDraw.innerHTML = this.getTemplate()
+            this.statusVisible = true
+            const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
+            const thisArg = this
+            if (btnCloseCart) {
+                btnCloseCart.addEventListener("click", function(e){
+                    e.preventDefault()
+                    thisArg.toggle()
+                })
+            }
+        }
+        else{
+            console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
         }
     },
 
@@ -60,7 +67,13 @@ export const cartView = {
 
     updateCartCount() {
         const cartCount = document.querySelector(`#${this.idCartCount}`)
-        cartCount.textContent = cartController.cartCount
+        const cartCountNumber = document.querySelector(`#cartCountNumber`)
+        if (cartCount) {
+            cartCount.textContent = cartController.cartCount           
+        }
+        if (cartCountNumber) {
+            cartCountNumber.textContent = cartController.cartCount           
+        }
     },
 
     toggle(){
@@ -76,11 +89,13 @@ export const cartView = {
         cartController.addItem(id)
         this.updateCartCount()
 
-        if(this.statusVisible && this.exists()){
+        this.draw()
+
+        /* if(this.statusVisible && this.exists()){
             const product = productsController.getById(id)
             const itemHtml = product.status ? cartTemplate.item(product.data[0]) : ``
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
-        }        
+        }  */       
     }
 }

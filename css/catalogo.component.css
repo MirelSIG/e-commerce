@@ -12,21 +12,6 @@ body {
   line-height: 1.6;
 }
 
-/* Encabezado y pie de página */
-header, footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Navegación (si la usas) */
-nav {
-  background-color: #444;
-  color: white;
-  padding: 0.5rem 1rem;
-}
-
 /* Títulos de sección */
 main h2 {
   margin: 2rem 0 1rem;
@@ -84,4 +69,55 @@ main h2 {
   font-size: 0.9rem;
   margin: 0.3rem 0;
   color: rgb(126, 126, 32);
+}
+.producto .precio {
+  font-weight: bold;
+  color: #e91e63;
+  margin-top: 0.5rem;
+}
+.producto__btn {
+  display: inline-block;
+  padding: .5rem .75rem;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.producto__btn--add {
+  background: #0b5;
+  color: #fff;
+  border-color: #0a4;
+}
+.producto__btn--add:hover {
+  background: #0a4;
+}
+.producto__btn--view {
+  background: #08f;
+  color: #fff;
+  border-color: #07d;
+}
+.producto__btn--view:hover {
+  background: #07d;
+}
+.cartAddItemBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9370DB;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  border: 2px solid #9370DB;
+  margin: 0.5rem;
+}
+.cartAddItemBtn i {
+  margin-right: 0.5rem;
+}
+.cartAddItemBtn:hover{
+  background-color: white;
+  color: black;
 }
