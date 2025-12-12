@@ -67,16 +67,6 @@ export const loginTemplate = {
               <span>o continúa con</span>
             </div>
 
-            <!-- Login con Google / GitHub (opcional) -->
-            <div class="social-login">
-              <button type="button" class="btn-social google">
-                <i class="fab fa-google"></i> Google
-              </button>
-              <button type="button" class="btn-social github">
-                <i class="fab fa-github"></i> GitHub
-              </button>
-            </div>
-
             <!-- ¿No tienes cuenta? + Volver -->
             <div class="login-footer">
               <p>
