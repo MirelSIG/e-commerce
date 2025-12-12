@@ -6,6 +6,8 @@ import { productsController } from "./products.js"
 import { registro } from "./registro.js"
 import { usuarioCreado } from "./usuarioCreado.js"
 import { login } from "./login.js"
+import { dateTime } from "./dateTime.js";
+
 
 await productsController.getData()
 
@@ -17,6 +19,9 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
+cart.init();
+dateTime.init();
+
 
 
 

@@ -96,6 +96,9 @@ export const cartView = {
             const itemHtml = product.status ? cartTemplate.item(product.data[0]) : ``
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
+        }        
+    }
+
         }  */       
     }
 }
