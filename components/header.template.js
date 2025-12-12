@@ -16,13 +16,13 @@ export const headerTemplate = {
                 </div>
 
                 <div class="top-right">
-                    <div class="contactanos"><a href="">CONTACTANOS</a></div>
+                    <div class="contactanos"><a href="../pages/contacto.html">CONTACTANOS</a></div>
 
                     <div class="separator"></div>
 
                     <div class="user-actions">
 
-                        <a href="#" style="  color: #9370DB;">
+                        <a href="../pages/reguistro.html" style="  color: #9370DB;">
                                 <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
                         </a>
                         <a id="btnCart" href="#" style="  color: #9370DB;">

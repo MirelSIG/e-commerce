@@ -3,25 +3,25 @@ import { navbar } from "./navbar.js"
 import { footer } from "./footer.js"
 import { cart } from "../components/cart/cart.js"
 import { productsController } from "./products.js"
+import { registro } from "./registro.js"
+import { usuarioCreado } from "./usuarioCreado.js"
+import { login } from "./login.js"
 import { dateTime } from "./dateTime.js";
 
 
 await productsController.getData()
+
+
+
+productsController.getData()    
 header.init()
+
 navbar.render()
 footer.render()
 productsController.render();
 dateTime.init();
 
-/* no borrar esto: evento para llamar al carrito */
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-if (btnCart) {
-    btnCart.addEventListener("click", function(e){
-        e.preventDefault()
-        cart.toggle()
-    })   
-}
-/* fin de evento: no borrar */
+
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
@@ -45,4 +45,47 @@ dicha modificacion significaria la interrupcion de la sincronia y repercutiria c
 };
 
 // Fin de la funcion de la barra del buscador en el header.
+
+ const inpt = document.querySelector("#registro-section");
+  if (inpt) {
+   registro.f()
+    }
+
+
+  const inp = document.querySelector("#usuario");
+  if (inp) {
+    usuarioCreado.f()
+    }
+
+/* no borrar esto: evento para llamar al carrito */
+const btnCart = document.querySelector(`#${cart.idBtnCart}`)
+if (btnCart) {
+    btnCart.addEventListener("click", function(e){
+        e.preventDefault()
+        cart.toggle()
+    })   
+}
+/* fin de evento: no borrar */
+
+/*Login */
+
+
+ login.loginF()
+
+
+/* solo para hacer test con el carrito */
+cart.addItem(13)
+cart.addItem(13)
+cart.addItem(20)
+cart.addItem(2)
+cart.addItem(10) 
+cart.addItem(20)
+cart.addItem(2)
+cart.addItem(10)
+cart.addItem(20)
+cart.addItem(10)
+/* se puede borrar */
+
+/*Seguimiento no borrar */
+
 
