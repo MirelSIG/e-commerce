@@ -1,148 +1,154 @@
+/* no borrar este import es necesario para llamar a la funcion de addItem(id) para agregar item al carrito
+se usa en el escuchador del evento click que esta al final*/
+import { cart } from "../components/cart/cart.js"
+/* no borrar :) */
+
 export const productsController = {
-    data:[],
-    async getData(){
+    data: [],
+    async getData() {
         try {
             const response = await fetch("data/products.json")
             if (!response.ok) {
-                throw new Error('La red respondió con un error.')
+                throw new Error("La red respondió con un error.")
             }
             const data = await response.json()
             this.data = data
-        }
-        catch (error) {
-            console.error('Hubo un problema con la petición fetch:', error);
+        } catch (error) {
+            console.error("Hubo un problema con la petición fetch:", error)
         }
     },
-    getById(id){
+
+    getById(id) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
-                if (value.id === id) {
-                    return value                    
-                }
-            })
+            result.data = this.data.filter(value => value.id === id)
             if (result.data.length > 0) {
-                result.status = true 
-            }
-            else{
+                result.status = true
+            } else {
                 result.status = false
                 result.mensaje = `No existe un producto con el id: ${id}`
             }
-        }
-        else {
+        } else {
             result.status = false
-            result.mensaje = `No hay productos en la data para buscar el id` 
+            result.mensaje = "No hay productos en la data para buscar el id"
         }
         return result
     },
+
     getByCategory(category) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
-                if (value.categoria.toLowerCase() === category.toLowerCase()) {
-                    return value                    
-                }
-            })
+            result.data = this.data.filter(
+                value => value.categoria.toLowerCase() === category.toLowerCase()
+            )
             if (result.data.length > 0) {
-                result.status = true 
-            }
-            else{
+                result.status = true
+            } else {
                 result.status = false
                 result.mensaje = `No existe un producto con la categoria: ${category}`
             }
-        }
-        else {
+        } else {
             result.status = false
-            result.mensaje = `No hay data para filtrar la categoria`  
+            result.mensaje = "No hay data para filtrar la categoria"
         }
         return result
     },
+
     searchString(q) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
-                if(value.nombre.toLowerCase().includes(q.toLowerCase()) || 
-                    value.categoria.toLowerCase().includes(q.toLowerCase()) ||
-                    value.descripcion.toLowerCase().includes(q.toLowerCase())
-                ){
-                    return value
-                }
-            })
+            result.data = this.data.filter(value =>
+                value.nombre.toLowerCase().includes(q.toLowerCase()) ||
+                value.categoria.toLowerCase().includes(q.toLowerCase()) ||
+                value.descripcion.toLowerCase().includes(q.toLowerCase())
+            )
             if (result.data.length > 0) {
-                result.status = true 
-            }
-            else{
+                result.status = true
+            } else {
                 result.status = false
                 result.mensaje = `No existe un producto con el string: ${q}`
             }
-        }
-        else {
+        } else {
             result.status = false
-            result.mensaje = `No hay data para filtrar la busqueda` 
+            result.mensaje = "No hay data para filtrar la búsqueda"
         }
-        return products     //Revisar el retorno de esta función: result//
+        return result   // 🔹 corregido: antes devolvía "products"
     },
-render() {
-  // 1) Precondiciones
-  if (!this.data || this.data.length === 0) {
-    console.warn("No hay productos para renderizar.");
-    return;
-  }
 
-  const contenedorGeneral = document.getElementById("catalogo-container");
-  if (!contenedorGeneral) {
-    console.error("No se encontró el contenedor #catalogo-container");
-    return;
-  }
+    render() {
+        // 1) Precondiciones
+        if (!this.data || this.data.length === 0) {
+            console.warn("No hay productos para renderizar.")
+            return
+        }
 
-  // 2) Limpieza del contenedor para evitar duplicados en re-render
-  contenedorGeneral.innerHTML = '';
+        const contenedorGeneral = document.getElementById("catalogo-container")
+        if (!contenedorGeneral) {
+            console.log("No se encontró el contenedor #catalogo-container")
+            return
+        }
 
-  // 3) Agrupación de productos por categoría
-  const categorias = {};
-  this.data.forEach(producto => {
-    const cat = (producto.categoria || '').trim();
-    if (!categorias[cat]) categorias[cat] = [];
-    categorias[cat].push(producto);
-  });
+        // 2) Limpieza del contenedor
+        contenedorGeneral.innerHTML = ""
 
-  // 4) Renderización de secciones por categoría
-  for (const [categoria, productos] of Object.entries(categorias)) {
-    const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-");
+        // 3) Agrupación de productos por categoría
+        const categorias = {}
+        this.data.forEach(producto => {
+            const cat = (producto.categoria || "").trim()
+            if (!categorias[cat]) categorias[cat] = []
+            categorias[cat].push(producto)
+        })
 
-    const seccion = document.createElement("section");
-    seccion.id = categoriaId;
+        // 4) Renderización de secciones por categoría
+        for (const [categoria, productos] of Object.entries(categorias)) {
+            const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-")
 
-    const titulo = document.createElement("h2");
-    titulo.textContent = categoria;
-    seccion.appendChild(titulo);
+            const seccion = document.createElement("section")
+            seccion.id = categoriaId
 
-    const grid = document.createElement("div");
-    grid.className = "catalogo";
+            const titulo = document.createElement("h2")
+            titulo.textContent = categoria
+            seccion.appendChild(titulo)
 
-    // 5) Tarjetas
-    productos.forEach(producto => {
-      const tarjeta = document.createElement("article");
-      tarjeta.className = "producto";
-      tarjeta.id = `producto-${producto.id}`;
+            const grid = document.createElement("div")
+            grid.className = "catalogo"
 
-      const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : "img/placeholder.jpg";
+            // 5) Tarjetas
+            productos.forEach(producto => {
+                const tarjeta = document.createElement("article")
+                tarjeta.className = "producto"
+                tarjeta.id = `producto-${producto.id}`
 
-      tarjeta.innerHTML = `
-        <figure class="producto__media">
-          <img src="${imagen}" alt="${producto.nombre}">
-        </figure>
-        <h3 class="producto__titulo">${producto.nombre}</h3>
-        <p class="producto__categoria">Categoría: ${producto.categoria}</p>
-        <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-      `;
+                const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : ""
 
-      grid.appendChild(tarjeta);
-    });
+                tarjeta.innerHTML = `
+                    <figure class="producto__media">
+                        ${imagen ? `<img src="${imagen}" alt="${producto.nombre}">` : ""}
+                    </figure>
+                    <h3 class="producto__titulo">${producto.nombre}</h3>
+                    <p class="producto__categoria">Categoría: ${producto.categoria}</p>
+                    <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
+                    <button class="cartAddItemBtn" data-id="${producto.id}">Añadir al carrito</button>
+                `
+                grid.appendChild(tarjeta)
+            })
 
-    seccion.appendChild(grid);
-    contenedorGeneral.appendChild(seccion);
-  }
+            seccion.appendChild(grid)
+            contenedorGeneral.appendChild(seccion)
+        }
+
+        // 6) Escuchador de botones "Añadir al carrito"
+        const btnsAddToCart = document.querySelectorAll(".cartAddItemBtn")
+        if (btnsAddToCart.length > 0) {
+            btnsAddToCart.forEach(btnElement => {
+                const id = Number(btnElement.dataset.id)
+                btnElement.addEventListener("click", e => {
+                    e.preventDefault()
+                    cart.addItem(id)
+                })
+            })
+        } else {
+            console.log("No se encontraron los botones de añadir al carrito")
+        }
+    }
 }
-
-};
