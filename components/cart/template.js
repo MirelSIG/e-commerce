@@ -60,9 +60,12 @@ export const cartTemplate = {
                         <p data-idioma="cart.quantity">Cantidad:</p>
                         <div class="cartQuantityControls">    
                             <a href="#" class="cartDecreaseItemBtn" data-id="${obj.id}"><i class="fa fa-minus"></i></a>
-                            <input type="text" class="cartItemQuantityInput" data-id="${obj.id}" value="${obj.quantity}" min="1" max="${obj.stock}"/>
+                            <input type="text" class="cartItemQuantityInput" data-id="${obj.id}" value="${obj.quantity}"/>
                             <a href="#" class="cartIncreaseItemBtn" data-id="${obj.id}"><i class="fa fa-plus"></i></a>
                         </div>
+                    </div>
+                    <div class="cartItemQuantity">
+                        <p class="cartQuantityMsg"></p>
                     </div>
                     <div class="cartItemIva">
                         <p data-idioma="cart.iva">IVA:</p>
@@ -103,7 +106,7 @@ export const cartTemplate = {
                     <div class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
                 </div>
                 <div class="">
-                    <a class="cartCheckoutBtn">Finalizar compra</a>
+                    <a class="cartCheckoutBtn" disabled>Finalizar compra</a>
                 </div>
             </div>
         `
