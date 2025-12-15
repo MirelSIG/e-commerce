@@ -97,16 +97,29 @@ if (isNaN(cvvNumero) || cvv.length !== 3) {
   // Evitar duplicar emails
   const emailExiste = ordenes.some(o => o.cliente.email === orden.cliente.email);
   if (emailExiste) {
-    alert("Este email ya ha sido registrado. Por favor usa otro.");
-    return;
+    const msg = window.idioma ? window.idioma.getTranslation('checkout.emailExistsAlert') : "Este email ya ha sido registrado. Por favor usa otro.";
+    alert(msg);
+    return; // No guardar ni continuar
   }
+  // Guardar el cliente
+  clientes.push(cliente);
+  localStorage.setItem("clientes", JSON.stringify(clientes));
 
   ordenes.push(orden);
   localStorage.setItem("ordenes", JSON.stringify(ordenes));
 
-  // LIMPIAR FORMULARIO DESPUÉS DE GUARDAR 
-  form.reset();
+  // Guardar el pedido
+  const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+  pedidos.push(pedido);
+  localStorage.setItem("pedidos", JSON.stringify(pedidos));
+
+
+console.log(localStorage.getItem("clientes"));
+console.log(localStorage.getItem("pedidos"));
 
   alert("Pago aceptado. ¡Gracias por su compra!");
   console.log(localStorage.getItem("ordenes"));
+
+
+
 });

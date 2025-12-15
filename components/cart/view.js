@@ -12,18 +12,18 @@ export const cartView = {
     idCartCount: `cartCount`,
     idToDrawItems: `cartItems`,
     statusVisible: false,
-    
-    exists(){
+
+    exists() {
         return document.querySelector(`#${this.id}`) ? true : false
     },
 
-    init(){
-        if(!this.exists()){
+    init() {
+        if (!this.exists()) {
             this.draw()
         }
     },
 
-    getTemplate(){        
+    getTemplate() {
         try {
             const obj = cartController.getData()
             const html ={
@@ -40,19 +40,19 @@ export const cartView = {
         }
     },
 
-    draw(){
+    draw() {
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
         if (outputToDraw) {
             outputToDraw.innerHTML = this.getTemplate()
             this.statusVisible = true
             this.addListeners()
         }
-        else{
+        else {
             console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
         }
     },
 
-    remove(){
+    remove() {
         let cartElement = document.querySelector(`#${this.id}`)
         cartElement.remove()
         this.statusVisible = false
@@ -62,23 +62,23 @@ export const cartView = {
         const cartCount = document.querySelector(`#${this.idCartCount}`)
         const cartCountNumber = document.querySelector(`#cartCountNumber`)
         if (cartCount) {
-            cartCount.textContent = cartController.cartCount           
+            cartCount.textContent = cartController.cartCount
         }
         if (cartCountNumber) {
             cartCountNumber.textContent = cartController.cartCount           
         }
     },
 
-    toggle(){
-        if(this.statusVisible && this.exists()){
+    toggle() {
+        if (this.statusVisible && this.exists()) {
             this.remove()
         }
-        else{
+        else {
             this.init()
         }
     },
 
-    addItem(id){
+    addItem(id) {
         cartController.addItem(id)
         this.updateCartCount()
 
@@ -91,6 +91,14 @@ export const cartView = {
             const itemHtml = product.status ? cartTemplate.item(product.data[0]) : ``
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
+
+            // NO BORRAR: Traduce el nuevo item agregado al carrito
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
+        }
+    }
+
         }  */       
     },
 

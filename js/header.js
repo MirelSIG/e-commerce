@@ -25,7 +25,15 @@ export const header = {
 
     render() {
         let output = document.querySelector(`#${this.id}`);
-        output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+        if (output) {
+            output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+
+            // NO BORRAR: Traduce el contenido nuevo del header
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
+
+        }
     },
 
 
@@ -56,10 +64,18 @@ export const header = {
             div.innerHTML = `<p>${item.nombre}</p>`;
 
             div.addEventListener("click", () => {
-                window.location.href = `/index.html?id=${item.id}`;
+                window.location.href = `../index.html?id=${item.id}`;
             });
 
             contenedor.appendChild(div);
         });
-    }
-};
+    },
+
+render() {
+  const output = document.querySelector(`#${this.id}`);
+  if (output) {
+    output.innerHTML = this.getTemplate({ cartCount: cart.cartCount });
+    headerTemplate.initDateTime(); // Aquí se activa el reloj
+  }
+}
+}
