@@ -33,7 +33,7 @@ export const cartView = {
             obj.items.forEach(function(value, index){
                 html.items+=cartTemplate.item(value)
             })
-            html.footer = cartTemplate.footer(obj)
+            html.footer = cartTemplate.footer(obj)            
             return cartTemplate.init(obj, html)
         } catch (error) {
             console.error('Error al cargar el template del carrito:', error)
@@ -45,14 +45,7 @@ export const cartView = {
         if (outputToDraw) {
             outputToDraw.innerHTML = this.getTemplate()
             this.statusVisible = true
-            const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
-            const thisArg = this
-            if (btnCloseCart) {
-                btnCloseCart.addEventListener("click", function(e){
-                    e.preventDefault()
-                    thisArg.toggle()
-                })
-            }
+            this.addListeners()
         }
         else{
             console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
@@ -89,7 +82,9 @@ export const cartView = {
         cartController.addItem(id)
         this.updateCartCount()
 
-        this.draw()
+        if (this.statusVisible) {
+            this.draw()
+        }
 
         /* if(this.statusVisible && this.exists()){
             const product = productsController.getById(id)
@@ -97,5 +92,70 @@ export const cartView = {
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
         }  */       
+    },
+
+    removeItem(id){
+        cartController.removeItem(id)
+        this.updateCartCount()
+        this.draw()      
+    },
+
+    changeQuantity(id, elementHtml){
+        /* const inputQuantityItem = document.querySelector("#cartItemQuantityInput") */
+        if (elementHtml){
+            const quantity = Number(elementHtml.value)
+            let regex = /^\d+$/;
+            if (regex.test(quantity) && quantity !== '' || quantity !== 0) {
+                /* console.log(`false::: solo se admiten numeros en el input de cantidad`); */
+                console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`);
+                /* elementHtml.value = 1  */                        
+            }
+            else{
+                /* console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`); */
+                console.log(`false::: solo se admiten numeros en el input de cantidad`);
+            }
+
+            /* cartController.changeQuantity(id, quantity)
+            this.updateCartCount() */
+        }
+    },
+
+    addListeners(){
+        const thisArg = this
+        const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
+        if (btnCloseCart) {
+            btnCloseCart.addEventListener("click", function(e){
+                e.preventDefault()
+                thisArg.toggle()
+            })
+        }
+        const btnsRemoveItem = document.querySelectorAll(".cartRemoveItemBtn")
+        if (btnsRemoveItem) {
+            btnsRemoveItem.forEach(function(value, index){
+                const bntElement = value
+                let id = Number(value.dataset.id)
+                bntElement.addEventListener("click", function(e){
+                    e.preventDefault()
+                    thisArg.removeItem(id)
+                })                
+            })                        
+        } else {
+            console.log(`no se encontraron los botones de eliminar items del carrito`);                        
+        }
+        const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput")
+        if (inputsQuantityItem) {
+            inputsQuantityItem.forEach(function(value, index){
+                const inputElement = value
+                let id = Number(value.dataset.id)
+                inputElement.addEventListener("input", function(e){
+                    e.preventDefault()
+                    thisArg.changeQuantity(id, inputElement)
+                })                
+            })                        
+        } else {
+            console.log(`no se encontraron los inputs de cantidad de items del carrito`);                        
+        }
+
     }
+
 }

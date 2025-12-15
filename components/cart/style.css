@@ -11,7 +11,7 @@
     right: 0;
     bottom: 0;
     z-index: 1001;
-    height: calc(100vh);
+    height: 100vh;
     width: 30%;
     background-color: white;
     border-top-left-radius: 3rem;
@@ -161,11 +161,15 @@
 }
 .cartItemImg {
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cartItemImg img {
-    width: 100%;
-    height: auto;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
+    object-fit:contain;
     border-radius: var(--radius07);
 }
 .cartItemDetails {
