@@ -161,11 +161,15 @@
 }
 .cartItemImg {
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cartItemImg img {
-    width: 100%;
-    height: auto;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
+    object-fit:contain;
     border-radius: var(--radius07);
 }
 .cartItemDetails {

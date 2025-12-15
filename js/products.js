@@ -5,32 +5,51 @@ import { cart } from "../components/cart/cart.js"
 
 export const productsController = {
     data: [],
-    async getData() {
+    async getData(){
         try {
             const response = await fetch("../data/products.json")
             if (!response.ok) {
-                throw new Error("La red respondió con un error.")
+                throw new Error('La red respondió con un error.')
             }
             const data = await response.json()
-            this.data = data
-        } catch (error) {
-            console.error("Hubo un problema con la petición fetch:", error)
+            const setLS = this.setLocalStorage(data)
+            if (setLS.status) {
+                this.data = data
+            }
+            else{
+                const getLS = this.getLocalStorage()
+                if (getLS.status) {
+                    this.data = getLS.data
+                }
+                else{
+                    console.log(getLS.msg)
+                }
+            }
+        }
+        catch (error) {
+            console.error('Hubo un problema con la petición fetch:', error);
         }
     },
 
-    getById(id) {
+    getById(id){
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(value => value.id === id)
+            result.data = this.data.filter(function(value, index){
+                if (value.id === id) {
+                    return value
+                }
+            })
             if (result.data.length > 0) {
-                result.status = true
-            } else {
+                result.status = true 
+            }
+            else{
                 result.status = false
                 result.mensaje = `No existe un producto con el id: ${id}`
             }
-        } else {
+        }
+        else {
             result.status = false
-            result.mensaje = "No hay productos en la data para buscar el id"
+            result.mensaje = `No hay productos en la data para buscar el id ${id}`
         }
         return result
     },
@@ -74,7 +93,36 @@ export const productsController = {
         }
         return result   // 🔹 corregido: antes devolvía "products"
     },
-
+    /* No borrar las funciones setLocalStorage y getLocalStorage*/
+    setLocalStorage(obj){
+        const result = {}
+        const products = JSON.parse(localStorage.getItem("products")) || []        
+        if (products.length <= 0){
+            localStorage.setItem('products', JSON.stringify(obj))
+            result.status = true
+            result.msg = `products enviados a Local Storage`
+        }
+        else{
+            result.status = false
+            result.msg = `no se pudo enviar los productos a local storage` 
+        }
+        return result
+    },
+    getLocalStorage(){
+        const result = {}
+        const products = JSON.parse(localStorage.getItem("products")) || [];
+        if (products.length > 0){
+            result.data = products
+            result.status = true
+            result.msg = "obtenido de LocalStorage"
+        }
+        else{
+            result.status = false
+            result.msg = `no se pudo obtener los productos de LocalStorage` 
+        }
+        return result
+    },
+    /* no borrar lo de arriba */
     render() {
         // 1) Precondiciones
         if (!this.data || this.data.length === 0) {
@@ -121,14 +169,16 @@ export const productsController = {
 
                 const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : ""
 
-                tarjeta.innerHTML = `
+                tarjeta.innerHTML = ` <a data-id="${producto.id}" href="./pages/paginaDetalle.html?id=${producto.id}">
                     <figure class="producto__media">
-                        ${imagen ? `<img src="${imagen}" alt="${producto.nombre}">` : ""}
+                    <img src="${imagen}" alt="${producto.nombre}">
                     </figure>
                     <h3 class="producto__titulo">${producto.nombre}</h3>
                     <p class="producto__categoria">Categoría: ${producto.categoria}</p>
                     <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-                    <button class="cartAddItemBtn" data-id="${producto.id}">Añadir al carrito</button>
+                </a> 
+                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
+                
                 `
                 grid.appendChild(tarjeta)
             })

@@ -1,10 +1,10 @@
 export const detalleTemplate = {
 
-    init(obj){
+    init(product){
         return `
          <section class="product-detail">
       <div class="product-detail__image">
-        <img src="${product.imagen}" alt="${product.nombre}">
+        <img src="${product.imagen[0]}" alt="${product.nombre}">
       </div>
 
       <div class="product-detail__info">

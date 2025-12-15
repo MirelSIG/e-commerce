@@ -7,13 +7,10 @@ import { registro } from "./registro.js"
 import { usuarioCreado } from "./usuarioCreado.js"
 import { login } from "./login.js"
 import { dateTime } from "./dateTime.js";
-
+import { detalleProducto  } from "./productoDetalle.js";
 
 await productsController.getData()
-
-
-
-productsController.getData()    
+    
 header.init()
 
 navbar.render()
@@ -69,24 +66,23 @@ if (btnCart) {
 }
 /* fin de evento: no borrar */
 
+
+
+
+
+
+// pdetalle
+detalleProducto.renderProductDetail()
+
+// fin de pdetalle
+
+
+
 /*Login */
 
 
  login.loginF()
 
-
-/* solo para hacer test con el carrito */
-cart.addItem(13)
-cart.addItem(13)
-cart.addItem(20)
-cart.addItem(2)
-cart.addItem(10) 
-cart.addItem(20)
-cart.addItem(2)
-cart.addItem(10)
-cart.addItem(20)
-cart.addItem(10)
-/* se puede borrar */
 
 /*Seguimiento no borrar */
 

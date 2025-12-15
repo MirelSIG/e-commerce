@@ -1,24 +1,31 @@
-export const registro = {
+import { productsController } from "./products.js"
+import { detalleTemplate } from "../components/paginaDetalle.template.js"
+
+export const detalleProducto = {
   container: document.getElementById("product-detail"),
 
   getProductIdFromURL() {
     const params = new URLSearchParams(window.location.search)
-    return Number(params.get("id"))
+    const id = Number(params.get("id"))
+    
+    return id
   },
 
-  async renderProductDetail() {
-    await productsController.getData()
+   renderProductDetail() {
 
     const id = this.getProductIdFromURL()
-    const result = productsController.getById(id)
 
-    if (!result.status) {
+    const product = productsController.getById(id)    
+
+    if (product.status) {
+      const product = product.data[0]
+      this.container.innerHTML = detalleTemplate.init(product)
+    }
+    else{
       this.container.innerHTML = `<p>${result.mensaje}</p>`
-      return
     }
 
-    const product = result.data[0]
-    this.container.innerHTML = detalleTemplate(product)
+    
 
     document.querySelector(".btn-add").addEventListener("click", () => {
       cart.addItem(product.id)
@@ -26,5 +33,3 @@ export const registro = {
   }
 }
 
-// ejecutar
-registro.renderProductDetail()
