@@ -6,7 +6,7 @@ import { productsController } from "./products.js"
 import { registro } from "./registro.js"
 import { usuarioCreado } from "./usuarioCreado.js"
 import { login } from "./login.js"
-import { detalleProducto  } from "./productoDetalle.js";
+import { productoDetalleController  } from "./productoDetalle.js"
 
 
 await productsController.getData()
@@ -113,7 +113,7 @@ if (btnCart) {
 
 
 // pdetalle
-detalleProducto.renderProductDetail()
+//detalleProducto.renderProductDetail()
 
 // fin de pdetalle
 
