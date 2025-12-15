@@ -13,6 +13,7 @@ export const headerTemplate = {
             
         
                      <div id="search-results"></div>
+                    <div id="search-results"></div>
                 </div>
 
                 <div class="top-right">
