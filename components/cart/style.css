@@ -201,6 +201,9 @@
     color: var(--color1);
     font-size: 1.3rem;
 }
+.cartQuantityMsg { 
+    color: red;
+}
 .cartItemFooter {
     width: 100%;
     display: flex;

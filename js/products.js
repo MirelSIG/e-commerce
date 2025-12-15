@@ -197,13 +197,14 @@ export const productsController = {
                 const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : "img/placeholder.jpg";
 
                 tarjeta.innerHTML = `
-                    <figure class="producto__media">
-                    <img src="${imagen}" alt="${producto.nombre}">
-                    </figure>
-                    <h3 class="producto__titulo">${producto.nombre}</h3>
-                    <p class="producto__categoria">Categoría: ${producto.categoria}</p>
-                    <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
-                    
+                    <a data-id="${producto.id}" href="./paginaDetalle.html?id=${producto.id}">
+                        <figure class="producto__media">
+                        <img src="${imagen}" alt="${producto.nombre}">
+                        </figure>
+                        <h3 class="producto__titulo">${producto.nombre}</h3>
+                        <p class="producto__categoria">Categoría: ${producto.categoria}</p>
+                        <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
+                    </a> 
                     <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
                 `;
 
