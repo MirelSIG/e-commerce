@@ -1,6 +1,6 @@
-export const usuarioCreadoTemplate= {
+export const usuarioCreadoTemplate = {
 
-    init(obj){
+    init(obj) {
         return `
    <section class="dashboard-section">
         <!-- Fondo sutil dorado -->
@@ -18,6 +18,13 @@ export const usuarioCreadoTemplate= {
               <a href="/pages/login.html" class="btn-logout-small">
                 <i class="fas fa-sign-out-alt"></i> Salir
               </a>
+            <div class="usuario">
+                <ul>
+                    <li><a href="#" data-idioma="navbar.guitar">Guitarra</a></li>
+                    <li><a href="#" data-idioma="navbar.amplification">Amplificación</a></li>
+                    <li><a href="#" data-idioma="navbar.effects">Efectos</a></li>
+                    <li><a href="#" data-idioma="navbar.bass">Bajos</a></li>                
+                </ul>
             </div>
           </div>
         </header>
@@ -98,5 +105,5 @@ export const usuarioCreadoTemplate= {
  
         `
     }
-    
+
 }

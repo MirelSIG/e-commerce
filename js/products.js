@@ -35,15 +35,15 @@ export const productsController = {
     getById(id){
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
+            result.data = this.data.filter(function (value, index) {
                 if (value.id === id) {
                     return value
                 }
             })
             if (result.data.length > 0) {
-                result.status = true 
+                result.status = true
             }
-            else{
+            else {
                 result.status = false
                 result.mensaje = `No existe un producto con el id: ${id}`
             }
@@ -199,7 +199,13 @@ export const productsController = {
                 })
             })
         } else {
-            console.log("No se encontraron los botones de añadir al carrito")
+            console.log(`no se encontraron los botones de añadir al carrito`);
+        }
+        /* Fin del escuchador no borrar :) */
+
+        // NO BORRAR: Traduce los productos nuevos
+        if (window.idioma) {
+            window.idioma.translatePage();
         }
     }
 }

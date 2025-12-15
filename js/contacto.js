@@ -42,10 +42,17 @@ form.addEventListener("submit", function(e) {
     mostrarMensajeEnviado();
 });
 
+  // NO BORRAR: Traduce los productos nuevos
+        if (window.idioma) {
+            window.idioma.translatePage();  
+        }
+
     // Función que muestra un mensaje de confirmación al usuario
     function mostrarMensajeEnviado() {
 
     result.innerHTML = `<h3 style="color:red;">Su mensaje a sido enviado <i class="fa-regular fa-thumbs-up"></i></h3>`; 
+
+
 }
 
 

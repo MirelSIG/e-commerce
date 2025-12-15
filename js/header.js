@@ -26,8 +26,13 @@ export const header = {
     render() {
         let output = document.querySelector(`#${this.id}`);
         if (output) {
-           output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
-            
+            output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
+
+            // NO BORRAR: Traduce el contenido nuevo del header
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
+
         }
     },
 
