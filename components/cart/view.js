@@ -105,11 +105,14 @@ export const cartView = {
         if (elementHtml){
             const quantity = Number(elementHtml.value)
             let regex = /^\d+$/;
-            if (!regex.test(quantity) && quantity !== '') {
-                console.log(`false::: solo se admiten numeros en el input de cantidad`);                              
+            if (regex.test(quantity) && quantity !== '' || quantity !== 0) {
+                /* console.log(`false::: solo se admiten numeros en el input de cantidad`); */
+                console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`);
+                /* elementHtml.value = 1  */                        
             }
             else{
-                console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`);                              
+                /* console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`); */
+                console.log(`false::: solo se admiten numeros en el input de cantidad`);
             }
 
             /* cartController.changeQuantity(id, quantity)

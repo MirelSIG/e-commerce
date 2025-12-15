@@ -7,12 +7,25 @@ export const productsController = {
     data:[],
     async getData(){
         try {
+            const result = {}
             const response = await fetch("data/products.json")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
             const data = await response.json()
-            this.data = data
+            const setLS = this.setLocalStorage(data)
+            if (setLS.status) {
+                this.data = data
+            }
+            else{
+                const getLS = this.getLocalStorage()
+                if (getLS.status) {
+                    this.data = getLS.data                    
+                }
+                else{
+                    console.log(getLS.msg)
+                }
+            }
         }
         catch (error) {
             console.error('Hubo un problema con la petición fetch:', error);
@@ -87,6 +100,36 @@ export const productsController = {
         }
         return products     //Revisar el retorno de esta función: result//
     },
+    /* No borrar las funciones setLocalStorage y getLocalStorage*/
+    setLocalStorage(obj){
+        const result = {}
+        const products = JSON.parse(localStorage.getItem("products")) || []        
+        if (products.length <= 0){
+            localStorage.setItem('products', JSON.stringify(obj))
+            result.status = true
+            result.msg = `products enviados a Local Storage`
+        }
+        else{
+            result.status = false
+            result.msg = `no se pudo enviar los productos a local storage` 
+        }
+        return result
+    },
+    getLocalStorage(){
+        const result = {}
+        const products = JSON.parse(localStorage.getItem("products")) || [];
+        if (products.length > 0){
+            result.data = products
+            result.status = true
+            result.msg = "obtenido de LocalStorage"
+        }
+        else{
+            result.status = false
+            result.msg = `no se pudo obtener los productos de LocalStorage` 
+        }
+        return result
+    },
+    /* no borrar lo de arriba */
     render() {
         // 1) Precondiciones
         if (!this.data || this.data.length === 0) {
