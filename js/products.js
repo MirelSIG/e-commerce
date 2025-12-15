@@ -101,7 +101,7 @@ export const productsController = {
 
         // 4) Renderización de secciones por categoría
         for (const [categoria, productos] of Object.entries(categorias)) {
-            const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-")
+            const categoriaId = categoria.trim().toLowerCase().replace(/\s+/g, "-")
 
             const seccion = document.createElement("section")
             seccion.id = categoriaId
