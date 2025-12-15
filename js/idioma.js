@@ -3,15 +3,15 @@
 
 class I18n {
     constructor() {
+
         // Obtiene el idioma guardado previamente en el navegador (localStorage) o usa 'es' por defecto.
-        this.currentLang = localStorage.getItem('language') || 'es';
+        this.currentLang = localStorage.getItem('language') || 'es_COMPLETO';
         this.translations = {};
-        this.supportedLanguages = ['es', 'en', 'eu'];
+        this.supportedLanguages = ['es_COMPLETO', 'en_COMPLETO', 'eu_COMPLETO'];
     }
 
     /**                     
-     * Load language file and apply translations
-     * @param {string} lang - Language code (es, en, eu)
+      @param {string} lang 
      */
     async loadLanguage(lang) {
         // Valida que el idioma sea soportado
@@ -45,18 +45,28 @@ class I18n {
     }
 
     /**
-     * Traduce todos los elementos con el atributo data-i18n
+     * Traduce todos los elementos con el atributo data-idioma
      */
     translatePage() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
+        document.querySelectorAll('[data-idioma]').forEach(element => {
+            const key = element.getAttribute('data-idioma');
             const translation = this.getTranslation(key);
 
             if (translation) {
-                // Verifica si el elemento tiene el atributo data-i18n-html para contenido HTML
-                if (element.hasAttribute('data-i18n-html')) {
+                // Verifica si el elemento tiene el atributo data-idioma-html para contenido HTML
+                if (element.hasAttribute('data-idioma-html')) {
                     element.innerHTML = translation;
-                } else {
+                }
+                // Verifica si es un input o textarea con placeholder
+                else if (element.hasAttribute('data-idioma-placeholder')) {
+                    element.placeholder = translation;
+                }
+                // Verifica si es un input type submit o button con value
+                else if (element.hasAttribute('data-idioma-value')) {
+                    element.value = translation;
+                }
+                // Por defecto, traduce el textContent
+                else {
                     element.textContent = translation;
                 }
             } else {
@@ -68,7 +78,7 @@ class I18n {
     /**
      * Obtiene la traducción por clave (e.g., "footer.categories")
      * @param {string} keyPath - Dot-separated key path 
-     * @returns {string|null} Translation or null if not found
+     * @returns {string|null} 
      */
     getTranslation(keyPath) {
         const keys = keyPath.split('.');
@@ -119,9 +129,9 @@ class I18n {
 }
 
 // Crea una instancia global
-const i18n = new I18n();
+const idioma = new I18n();
 
 // Inicializa al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    i18n.loadLanguage(i18n.currentLang);
+    idioma.loadLanguage(idioma.currentLang);
 });

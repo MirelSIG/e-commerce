@@ -4,8 +4,8 @@ import { cart } from "../components/cart/cart.js"
 /* no borrar :) */
 
 export const productsController = {
-    data:[],
-    async getData(){
+    data: [],
+    async getData() {
         try {
             const response = await fetch("../data/products.json")
             if (!response.ok) {
@@ -18,72 +18,72 @@ export const productsController = {
             console.error('Hubo un problema con la petición fetch:', error);
         }
     },
-    getById(id){
+    getById(id) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
+            result.data = this.data.filter(function (value, index) {
                 if (value.id === id) {
-                    return value                    
+                    return value
                 }
             })
             if (result.data.length > 0) {
-                result.status = true 
+                result.status = true
             }
-            else{
+            else {
                 result.status = false
                 result.mensaje = `No existe un producto con el id: ${id}`
             }
         }
         else {
             result.status = false
-            result.mensaje = `No hay productos en la data para buscar el id` 
+            result.mensaje = `No hay productos en la data para buscar el id`
         }
         return result
     },
     getByCategory(category) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
+            result.data = this.data.filter(function (value, index) {
                 if (value.categoria.toLowerCase() === category.toLowerCase()) {
-                    return value                    
+                    return value
                 }
             })
             if (result.data.length > 0) {
-                result.status = true 
+                result.status = true
             }
-            else{
+            else {
                 result.status = false
                 result.mensaje = `No existe un producto con la categoria: ${category}`
             }
         }
         else {
             result.status = false
-            result.mensaje = `No hay data para filtrar la categoria`  
+            result.mensaje = `No hay data para filtrar la categoria`
         }
         return result
     },
     searchString(q) {
         const result = {}
         if (this.data.length > 0) {
-            result.data = this.data.filter(function(value, index){
-                if(value.nombre.toLowerCase().includes(q.toLowerCase()) || 
+            result.data = this.data.filter(function (value, index) {
+                if (value.nombre.toLowerCase().includes(q.toLowerCase()) ||
                     value.categoria.toLowerCase().includes(q.toLowerCase()) ||
                     value.descripcion.toLowerCase().includes(q.toLowerCase())
-                ){
+                ) {
                     return value
                 }
             })
             if (result.data.length > 0) {
-                result.status = true 
+                result.status = true
             }
-            else{
+            else {
                 result.status = false
                 result.mensaje = `No existe un producto con el string: ${q}`
             }
         }
         else {
             result.status = false
-            result.mensaje = `No hay data para filtrar la busqueda` 
+            result.mensaje = `No hay data para filtrar la busqueda`
         }
         return products     //Revisar el retorno de esta función: result//
     },
@@ -113,13 +113,18 @@ export const productsController = {
 
         // 4) Renderización de secciones por categoría
         for (const [categoria, productos] of Object.entries(categorias)) {
-            const categoriaId = categoria.toLowerCase().replace(/\s+/g, "-");
+            // Normalizar categoría para usar como clave (ej: "Teclados y pianos" -> "teclados-y-pianos")
+            // Quitamos tildes y espacios
+            const categoryKey = categoria.toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "-");
 
             const seccion = document.createElement("section");
-            seccion.id = categoriaId;
+            seccion.id = categoryKey;
 
             const titulo = document.createElement("h2");
             titulo.textContent = categoria;
+            titulo.setAttribute("data-idioma", `products.category.${categoryKey}`);
             seccion.appendChild(titulo);
 
             const grid = document.createElement("div");
@@ -157,20 +162,21 @@ export const productsController = {
                     <figure class="producto__media">
                     <img src="${imagen}" alt="${producto.nombre}">
                     </figure>
-                    <h3 class="producto__titulo">${producto.nombre}</h3>
-                    <p class="producto__categoria">Categoría: ${producto.categoria}</p>
-                    <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
+                    <h3 class="producto__titulo" data-idioma="products.name.${producto.id}">${producto.nombre}</h3>
+                    <p class="producto__categoria"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.${categoryKey}">${producto.categoria}</span></p>
+                    <p class="producto__precio"><span data-idioma="products.priceLabel">Precio:</span> €${Number(producto.precio).toFixed(2)}</p>
                     <button
                     type="button"
                     class="producto__btn producto__btn--add"
-                    data-product-id="${producto.id}">
+                    data-product-id="${producto.id}"
+                    data-idioma="products.selectBtn">
                     Seleccionar
                     </button>
-                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
+                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i> <span data-idioma="products.addToCartBtn">Agregar al carrito</span></a>
                 `;
 
                 grid.appendChild(tarjeta);
-                
+
             });
 
             seccion.appendChild(grid);
@@ -182,17 +188,22 @@ export const productsController = {
         el boton morado*/
         const btnsAddToCart = document.querySelectorAll(".cartAddItemBtn")
         if (btnsAddToCart) {
-            btnsAddToCart.forEach(function(value, index){
+            btnsAddToCart.forEach(function (value, index) {
                 const bntElement = value
                 let id = Number(value.dataset.id)
-                bntElement.addEventListener("click", function(e){
+                bntElement.addEventListener("click", function (e) {
                     e.preventDefault()
                     cart.addItem(id)
-                })                
-            })                        
+                })
+            })
         } else {
-            console.log(`no se encontraron los botones de añadir al carrito`);                        
+            console.log(`no se encontraron los botones de añadir al carrito`);
         }
         /* Fin del escuchador no borrar :) */
+
+        // NO BORRAR: Traduce los productos nuevos
+        if (window.idioma) {
+            window.idioma.translatePage();
+        }
     }
 };

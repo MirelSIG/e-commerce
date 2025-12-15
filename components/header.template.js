@@ -2,13 +2,24 @@ export const headerTemplate = {
 
     init(obj) {
         return `
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="es_COMPLETO" onclick="idioma.changeLanguage('es_COMPLETO')">
+                   ES
+            </button>
+            <button class="lang-btn" data-lang="en_COMPLETO" onclick="idioma.changeLanguage('en_COMPLETO')">
+                   EN
+            </button>
+            <button class="lang-btn" data-lang="eu_COMPLETO" onclick="idioma.changeLanguage('eu_COMPLETO')">
+                   EU
+            </button>
+        </div>
             <div id="headerDiv" class="top-header">
                 <div class="logo">
                     <img src="../img/logos/logo Symphony store.png" alt="logo">
                 </div>
 
                 <div class="search-bar">
-                    <input id="buscador-input" type="text" placeholder=" Buscar tu instrumento">
+                    <input id="buscador-input" type="text" data-idioma="header.searchPlaceholder" data-idioma-placeholder placeholder=" Buscar tu instrumento">
                     <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
             
         
@@ -16,17 +27,17 @@ export const headerTemplate = {
                 </div>
 
                 <div class="top-right">
-                    <div class="contactanos"><a href="../pages/contacto.html">CONTACTANOS</a></div>
+                    <div class="contactanos"><a href="../pages/contacto.html" data-idioma="header.contact">CONTACTANOS</a></div>
 
                     <div class="separator"></div>
 
                     <div class="user-actions">
 
                         <a href="../pages/reguistro.html" style="  color: #9370DB;">
-                                <i class="far fa-user" style="font-size: 40px;"></i> Mi cuenta 
+                                <i class="far fa-user" style="font-size: 40px;"></i> <span data-idioma="header.myAccount">Mi cuenta</span> 
                         </a>
                         <a id="btnCart" href="#" style="  color: #9370DB;">
-                            <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> Carrito
+                            <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> <span data-idioma="header.cart">Carrito</span>
                             <span id="cartCount" class="cart-count">${obj.cartCount ? obj.cartCount : 0}</span>
                         </a>
                     </div>

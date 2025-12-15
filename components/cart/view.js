@@ -11,27 +11,27 @@ export const cartView = {
     idCartCount: `cartCount`,
     idToDrawItems: `cartItems`,
     statusVisible: false,
-    
-    exists(){
+
+    exists() {
         return document.querySelector(`#${this.id}`) ? true : false
     },
 
-    init(){
-        if(!this.exists()){
+    init() {
+        if (!this.exists()) {
             this.draw()
         }
     },
 
-    getTemplate(){        
+    getTemplate() {
         try {
             const obj = cartController.getData()
-            let itemsHtml =``
-            obj.items.forEach(function(value, index){
-                itemsHtml+=cartTemplate.item(value)
+            let itemsHtml = ``
+            obj.items.forEach(function (value, index) {
+                itemsHtml += cartTemplate.item(value)
             })
-            obj.itemsHtml = itemsHtml 
+            obj.itemsHtml = itemsHtml
             console.log(obj);
-                       
+
 
             return cartTemplate.init(obj)
         } catch (error) {
@@ -39,7 +39,7 @@ export const cartView = {
         }
     },
 
-    draw(){
+    draw() {
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
         if (outputToDraw) {
             outputToDraw.innerHTML = this.getTemplate()
@@ -47,18 +47,23 @@ export const cartView = {
             const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
             const thisArg = this
             if (btnCloseCart) {
-                btnCloseCart.addEventListener("click", function(e){
+                btnCloseCart.addEventListener("click", function (e) {
                     e.preventDefault()
                     thisArg.toggle()
                 })
             }
+
+            // NO BORRAR: Traduce el carrito al abrirlo
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
         }
-        else{
+        else {
             console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
         }
     },
 
-    remove(){
+    remove() {
         let cartElement = document.querySelector(`#${this.id}`)
         cartElement.remove()
         this.statusVisible = false
@@ -67,28 +72,33 @@ export const cartView = {
     updateCartCount() {
         const cartCount = document.querySelector(`#${this.idCartCount}`)
         if (cartCount) {
-            cartCount.textContent = cartController.cartCount           
+            cartCount.textContent = cartController.cartCount
         }
     },
 
-    toggle(){
-        if(this.statusVisible && this.exists()){
+    toggle() {
+        if (this.statusVisible && this.exists()) {
             this.remove()
         }
-        else{
+        else {
             this.init()
         }
     },
 
-    addItem(id){
+    addItem(id) {
         cartController.addItem(id)
         this.updateCartCount()
 
-        if(this.statusVisible && this.exists()){
+        if (this.statusVisible && this.exists()) {
             const product = productsController.getById(id)
             const itemHtml = product.status ? cartTemplate.item(product.data[0]) : ``
             const outputToDraw = document.querySelector(`#${this.idToDrawItems}`)
             outputToDraw.innerHTML += itemHtml
-        }        
+
+            // NO BORRAR: Traduce el nuevo item agregado al carrito
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
+        }
     }
 }
