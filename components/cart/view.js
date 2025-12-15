@@ -117,6 +117,7 @@ export const cartView = {
                 quantity = 1
                 elementHtml.value = quantity                        
             }
+            cartController.changeQuantity(id, quantity)
 
             /* cartController.changeQuantity(id, quantity)
             this.updateCartCount() */

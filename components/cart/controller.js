@@ -29,9 +29,31 @@ export const cartController = {
         }
     },
     changeQuantity(id, quantity){
-        const product = this.getItemById(id)
-        if (product.status){
-            
+        const result ={}
+        const itemExists = this.getItemById(id)
+        if (itemExists.status){
+            const item = itemExists.data[0]
+            let regex = /^\d+$/;
+            if (regex.test(quantity) && quantity !== '') {
+                if (quantity > 0 && quantity <= item.stock) {
+                    let oldQuantity = item.quantity                    
+                    let oldCartCount = this.cartCount
+                    this.cartCount = (oldCartCount - oldQuantity) + quantity
+                    this.items[itemExists.indexItem].quantity = quantity
+                }
+                else {
+                    result.status = false
+                    result.msg = `la cantidad debe estar entre 1 y ${item.stock}`  
+                }
+            }
+            else{
+                result.status = false
+                result.msg = "la cantidad debe ser un numero entero"                       
+            }
+        }
+        else{
+            result.status = false
+            result.msg = itemExists.mensaje
         }
     },
     getItemById(id){
@@ -56,6 +78,9 @@ export const cartController = {
             result.mensaje = `No hay items en el carrito para buscar el id` 
         }
         return result
+    },
+    setCartCount(){
+        
     },
     getData(){
         return {
