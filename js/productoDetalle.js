@@ -21,17 +21,17 @@ export const productoDetalleController = {
     }
   },
 
-  getProductIdFromURL() {
+  traerProductoURL() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     return id ? Number(id) : null;
   },
 
   render() {
-    const id = this.getProductIdFromURL();
+    const id = this.traerProductoURL();
 
     if (!id) {
-      this.showError("No se encontró el ID del producto.");
+      this. verError("No se encontró el ID del producto.");
       return;
     }
 
@@ -40,13 +40,13 @@ export const productoDetalleController = {
     if (result.status && result.data.length > 0) {
       const product = result.data[0];
       this.container.innerHTML = detalleTemplate.init(product);
-      this.setupAddToCartButton(product.id);
+      this.agregarCarrito(product.id);
     } else {
       this.showError("Producto no encontrado.");
     }
   },
 
-  setupAddToCartButton(productId) {
+   agregarCarrito(productId) {
     const button = this.container.querySelector(".btn-add");
     if (button) {
       button.addEventListener("click", (e) => {
@@ -62,7 +62,7 @@ export const productoDetalleController = {
     }
   },
 
-  showError(message) {
+  verError(message) {
     this.container.innerHTML = `
       <div style="text-align: center; padding: 40px; color: #666;">
         <h2>Error</h2>
