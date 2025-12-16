@@ -15,7 +15,7 @@ export const detalleTemplate = {
       imagenes = []
     } = product || {};
 
-    // === CÁLCULOS PREVIOS (todo definido aquí arriba) ===
+    // === CÁLCULOS PREVIOS ===
     const tieneImagenes = Array.isArray(imagenes) && imagenes.length > 0;
     const imagenPrincipal = tieneImagenes 
       ? '../' + imagenes[0] 
@@ -70,7 +70,7 @@ export const detalleTemplate = {
           <p class="stock ${stockClase}">${stockTexto}</p>
 
           <p class="description">${descripcion}</p>
-            <button 
+          <button 
             class="btn-add" 
             data-id="${id}" 
             ${stock === 0 ? 'disabled' : ''}>
@@ -88,8 +88,6 @@ export const detalleTemplate = {
               </ul>
             </div>
           ` : ''}
-
-          
         </div>
       </section>
     `;

@@ -8,7 +8,7 @@ export const productsController = {
     async getData(){
         try {
             const result = {}
-            const response = await fetch("../data/products_detalle.json")
+            const response = await fetch("../data/products.json")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }

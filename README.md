@@ -61,7 +61,7 @@ plan de archivos y carpetas:
 │   ├── checkout.html
 │   ├── contacto.html
 │   ├── login.html
-│   ├── reguistro.html
+│   ├── registro.html
 │   └── usuarioCreado.html
 └── README.md
 ```
