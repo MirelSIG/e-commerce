@@ -70,6 +70,12 @@ export const detalleTemplate = {
           <p class="stock ${stockClase}">${stockTexto}</p>
 
           <p class="description">${descripcion}</p>
+            <button 
+            class="btn-add" 
+            data-id="${id}" 
+            ${stock === 0 ? 'disabled' : ''}>
+            ${stock === 0 ? 'Agotado' : 'Añadir al carrito'}
+          </button>
 
           ${tieneCaracteristicas ? `
             <div class="features">
@@ -83,12 +89,7 @@ export const detalleTemplate = {
             </div>
           ` : ''}
 
-          <button 
-            class="btn-add" 
-            data-id="${id}" 
-            ${stock === 0 ? 'disabled' : ''}>
-            ${stock === 0 ? 'Agotado' : 'Añadir al carrito'}
-          </button>
+          
         </div>
       </section>
     `;
