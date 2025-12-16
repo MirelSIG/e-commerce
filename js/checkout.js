@@ -102,20 +102,15 @@ if (isNaN(cvvNumero) || cvv.length !== 3) {
     return; // No guardar ni continuar
   }
   // Guardar el cliente
-  clientes.push(cliente);
+  const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+  clientes.push(orden.cliente);
   localStorage.setItem("clientes", JSON.stringify(clientes));
 
   ordenes.push(orden);
   localStorage.setItem("ordenes", JSON.stringify(ordenes));
 
-  // Guardar el pedido
-  const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-  pedidos.push(pedido);
-  localStorage.setItem("pedidos", JSON.stringify(pedidos));
-
 
 console.log(localStorage.getItem("clientes"));
-console.log(localStorage.getItem("pedidos"));
 
   alert("Pago aceptado. ¡Gracias por su compra!");
   console.log(localStorage.getItem("ordenes"));
