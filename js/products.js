@@ -22,7 +22,7 @@ export const productsController = {
                 if (getLS.status) {
                     this.data = getLS.data
                 }
-                else{
+                else{   
                     console.log(getLS.msg)
                 }
             }
