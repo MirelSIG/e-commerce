@@ -9,6 +9,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes.",
+    "caracteristicas": "Uso recomendado: Estudiantes, principiantes y clases de música,Ventajas: Fácil de tocar, sonido agradable y construcción duradera.",
     "imagenes": ["img/cuerdas/guitarra_espanola_clasica_id1.webp"]
   },
   {
@@ -21,6 +22,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Bajo eléctrico de 4 cuerdas con acabado brillante.",
+    "caracteristicas": "4 cuerdas estándar: afinadas normalmente E – A – D – G (de más grave a más aguda),Cuerpo: normalmente de madera como alder, basswood, o mahogany (según modelo y gama)..",
     "imagenes": ["img/cuerdas/bajo_4cuerdas_id2.webp", "img/cuerdas/bajo_electrico_id2.webp"]
   },
   {
@@ -33,6 +35,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Arpa celta portátil con 22 cuerdas, sonido cálido y envolvente.",
+    "caracteristicas": "Material: Madera seleccionada para buena resonancia,Tamaño: Compacto y ligero, fácil de transportar.",
     "imagenes": ["img/cuerdas/arpa_celta_id3.webp"]
   },
   {
@@ -45,6 +48,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Ukelele soprano de caoba, perfecto para iniciarse en el instrumento.",
+    "caracteristicas": "Material: Caoba, aporta un sonido cálido y equilibrado,Sonido: Brillante y dulce, con buena proyección.",
     "imagenes": ["img/cuerdas/ukelele_1_id4.webp", "img/cuerdas/ukelele_2_id4.webp"]
   },
   {
@@ -57,6 +61,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Violín tamaño completo con arco y estuche rígido.",
+    "caracteristicas":"Sonido: Claro, equilibrado y con buena proyección,Material: Maderas seleccionadas para buena resonancia.",
     "imagenes": ["img/cuerdas/violin_id5.webp", "img/cuerdas/violin2_id5.webp"]
   },
   
@@ -70,6 +75,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Set de batería acústica de 5 piezas con platillos incluidos.",
+    "caracteristicas":"Sonido: Versátil para varios estilos musicales,Número de piezas: 5 tambores principales",
     "imagenes": ["img/percusion/bateria_id6.webp"]
   },
   {
@@ -82,6 +88,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Par de congas de madera con herrajes cromados.",
+    "caracteristicas":"Afinación ajustable:Permite variar tonos según ritmo,Juego de dos:Amplía rango tonal",
     "imagenes": ["img/percusion/congas_id7.webp"]
   },
   {
@@ -94,6 +101,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Cajón flamenco artesanal con tapa de abedul.",
+    "caracteristicas":"",
     "imagenes": ["img/percusion/cajon_flamenco_id8.webp"]
   },
   {
@@ -106,6 +114,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Piano digital con 88 teclas contrapesadas y sonidos realistas.",
+    "caracteristicas":"",
     "imagenes": ["img/teclados/piano_pedal_id9.webp"]
   },
   {
@@ -118,6 +127,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Sintetizador portátil con secuenciador integrado y múltiples efectos.",
+    "caracteristicas":"",
     "imagenes": ["img/teclados/sintetizador_id10.webp"]
 },
 {
@@ -130,6 +140,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Clarinete en Sib con estuche rígido y boquilla incluida.",
+    "caracteristicas":"",
     "imagenes": ["img/viento/clarinete_id11.webp"]
 },
 {
@@ -142,6 +153,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Trompeta en Do con acabado dorado y estuche.",
+    "caracteristicas":"",
     "imagenes": ["img/viento/trompeta_id12.webp", "img/viento/trompeta_2_id12.webp", "img/viento/trompeta_azul_id12.webp"]
 },
 {
@@ -154,6 +166,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Acordeón dinámico con diseño compacto.",
+    "caracteristicas":"",
     "imagenes": ["img/viento/acordeon_id13.webp"]
 },
 {
@@ -166,6 +179,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Amplificador de estudio con respuesta plana.",
+    "caracteristicas":"",
     "imagenes": ["img/accesorios/amplificador_bajo_id14.webp"]
 },
 {
@@ -178,6 +192,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Bajo acústico de alta calidad con cuerpo de madera maciza.",
+    "caracteristicas":"",
     "imagenes": ["img/cuerdas/bajo_acustico_id15.webp"]
 },
 {
@@ -190,6 +205,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Arpa clásica de cuerdas de nylon con diseño elegante.",
+    "caracteristicas":"",
     "imagenes": ["img/cuerdas/arpa_clasica_id16.webp"]
 },
 {
@@ -202,6 +218,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Saxofón alto con acabado dorado y estuche rígido.",
+    "caracteristicas":"",
     "imagenes": ["img/viento/saxofon_id17.webp"]
 },
 {
@@ -214,6 +231,7 @@
     "stock": 20,
     "status": "available",
     "descripcion": "Funda acolchada para trompeta, ligera y resistente.",
+    "caracteristicas":"",
     "imagenes": ["img/accesorios/funda_trompeta_id18.webp"]
 },
 {
@@ -226,6 +244,7 @@
     "stock": 10,
     "status": "available",
     "descripcion": "Estuche rígido para violonchelo, con interior acolchado.",
+    "caracteristicas":"",
     "imagenes": ["img/accesorios/case_violonchelo_id19.webp"]
 },
 {
@@ -238,6 +257,7 @@
     "stock": 8,
     "status": "available",
     "descripcion": "Órgano electrónico con múltiples registros y acompañamientos automáticos.",
+    "caracteristicas":"",
     "imagenes": ["img/teclados/organo_electronico_id20.webp"]
 },
 {
@@ -250,6 +270,7 @@
     "stock": 50,
     "status": "available",
     "descripcion": "Flauta dulce de plástico ABS, ideal para estudiantes.",
+    "caracteristicas":"",
     "imagenes": ["img/viento/flauta_dulce_id21.webp"]
 },
 {
@@ -262,6 +283,7 @@
     "stock": 30,
     "status": "available",
     "descripcion": "Castañuelas clásicas de madera, ideales para acompañar danzas flamencas.",
+    "caracteristicas":"",
     "imagenes": ["img/percusion/castanuelas_id22.webp"]
 },
 {
@@ -274,6 +296,7 @@
     "stock": 25,
     "status": "available",
     "descripcion": "Castañuelas con mango ergonómico para mayor comodidad en la interpretación.",
+    "caracteristicas":"",
     "imagenes": ["img/percusion/castanuelas_con_mango_id23.webp"]
 },
 {
@@ -286,6 +309,7 @@
     "stock": 40,
     "status": "available",
     "descripcion": "Par de maracas de madera con sonido vibrante, perfectas para ritmos latinos.",
+    "caracteristicas":"",
     "imagenes": ["img/percusion/maracas_id24.webp"]
 },
 {
@@ -298,6 +322,7 @@
     "stock": 15,
     "status": "available",
     "descripcion": "Set completo de percusión para niños, incluye varios instrumentos pequeños.",
+    "caracteristicas":"",
     "imagenes": ["img/percusion/set_percusion_id25.webp"]
 },
 {
@@ -310,6 +335,7 @@
     "stock": 20,
     "status": "available",
     "descripcion": "Forro acolchado para guitarra clásica o acústica, resistente y ligero.",
+    "caracteristicas":"",
     "imagenes": ["img/accesorios/forro_guitarra_id26.webp"]
 },
 {
@@ -322,6 +348,7 @@
     "stock": 10,
     "status": "available",
     "descripcion": "Funda protectora para arpa Palanca Aurelia, con acolchado y asas resistentes.",
+    "caracteristicas":"",
     "imagenes": ["img/accesorios/funda_arpa_palanca_aurelia_id27.webp"]
 },
 {
@@ -334,6 +361,7 @@
     "stock": 10,
     "status": "available",
     "descripcion": "Guitarra eléctrica de cuerpo sólido, ideal para rock y blues.",
+    "caracteristicas":"",
     "imagenes": ["img/cuerdas/guitarra_electrica_id28.webp"]
 },
 {
@@ -346,6 +374,7 @@
     "stock": 10,
     "status": "available",
     "descripcion": "Violonchelo de tamaño completo con arco y estuche rígido.",
+    "caracteristicas":"",
     "imagenes": ["img/cuerdas/violonchelo_id29.webp"]
 },
 {
@@ -358,6 +387,7 @@
     "stock": 10,
     "status": "available",
     "descripcion": "Cuatro venezolano tradicional, ideal para música folclórica.",
+    "caracteristicas":"",
     "imagenes": ["img/cuerdas/cuatro_venezolano_id30.webp"]
 }
 ]   
