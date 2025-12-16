@@ -9,7 +9,7 @@
     "stock": 12,
     "status": "available",
     "descripcion": "Guitarra clásica de madera maciza, ideal para principiantes y estudiantes.",
-    "imagenes": ["img/cuerdas/guitarra_espanola_clasica_id1.webp"]
+    "imagenes": ["../img/cuerdas/guitarra_espanola_clasica_id1.webp"]
   },
   {
     "id": 2,

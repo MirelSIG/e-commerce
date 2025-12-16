@@ -28,8 +28,11 @@ export const cartController = {
             this.cartCount -= item.data[0].quantity     
         }
     },
-    changeQuantity(id){
-
+    changeQuantity(id, quantity){
+        const product = this.getItemById(id)
+        if (product.status){
+            
+        }
     },
     getItemById(id){
         const result = {}

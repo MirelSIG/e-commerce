@@ -1,0 +1,174 @@
+/* ==================== RESET BÁSICO Y TIPOGRAFÍA ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F5F5F5;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* ==================== CONTENEDOR PRINCIPAL ==================== */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== PRODUCT DETAIL - ESTRELLA DEL SHOW ==================== */
+.product-detail {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 868px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+    gap: 30px;
+  }
+}
+
+/* Imagen */
+.product-detail__image {
+  text-align: center;
+}
+
+.product-detail__image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(106, 27, 154, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.product-detail__image img:hover {
+  transform: scale(1.05);
+}
+
+/* Información */
+.product-detail__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-detail__info h1 {
+  font-size: 2.8rem;
+  color: #6A1B9A;
+  margin-bottom: 10px;
+}
+
+.product-detail__info .category {
+  font-size: 1.2rem;
+  color: #9C27B0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-detail__info .description {
+  font-size: 1.1rem;
+  color: #666666;
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+.product-detail__info .price {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* Botón Añadir al carrito - ¡El héroe! */
+.btn-add {
+  background: linear-gradient(135deg, #6A1B9A, #9C27B0);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  box-shadow: 0 6px 20px rgba(106, 27, 154, 0.3);
+}
+
+.btn-add:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(106, 27, 154, 0.4);
+  background: linear-gradient(135deg, #9C27B0, #AB47BC);
+}
+
+.btn-add:active {
+  transform: translateY(1px);
+}
+
+.btn-add:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Estado de "¡Añadido!" */
+.btn-add::after {
+  content: '';
+}
+
+/* ==================== ERROR STATE ==================== */
+.product-detail.error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.product-detail.error h2 {
+  color: #6A1B9A;
+  margin-bottom: 20px;
+}
+
+.product-detail.error a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #6A1B9A;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.product-detail.error a:hover {
+  background: #9C27B0;
+}
+
+/* ==================== MEJORAS GENERALES ==================== */
+main {
+  flex: 1;
+}
+
+/* Transiciones suaves globales */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

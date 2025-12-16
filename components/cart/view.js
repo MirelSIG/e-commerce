@@ -1,7 +1,5 @@
 import { cartTemplate } from "./template.js"
 import { cartController } from "./controller.js"
-import { productsController } from "../../js/products.js"
-import { cart } from "./cart.js"
 
 export const cartView = {
     id: `cart`,
@@ -108,19 +106,24 @@ export const cartView = {
         this.draw()      
     },
 
-    changeQuantity(id, elementHtml){
-        /* const inputQuantityItem = document.querySelector("#cartItemQuantityInput") */
+    changeQuantity(id, elementHtml, msgElement){
         if (elementHtml){
-            const quantity = Number(elementHtml.value)
-            let regex = /^\d+$/;
-            if (regex.test(quantity) && quantity !== '' || quantity !== 0) {
-                /* console.log(`false::: solo se admiten numeros en el input de cantidad`); */
-                console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`);
-                /* elementHtml.value = 1  */                        
+            let quantity = Number(elementHtml.value)
+            const product = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
+            let regex = /^\d+$/;            
+            if (regex.test(quantity) && quantity !== '') {
+                if (quantity > 0 && quantity <= product.stock) {
+                    console.log(`true::: cantidad:${quantity} correcta`);
+                    msgElement.textContent = ``
+                }
+                else {
+                    msgElement.textContent = `La cantidad debe estar entre 1 y ${product.stock}`
+                    quantity = 1
+                }
             }
             else{
-                /* console.log(`true::: cantidad:${quantity}  tipo: ${typeof(quantity)}`); */
-                console.log(`false::: solo se admiten numeros en el input de cantidad`);
+                quantity = 1
+                elementHtml.value = quantity                        
             }
 
             /* cartController.changeQuantity(id, quantity)
@@ -151,13 +154,15 @@ export const cartView = {
             console.log(`no se encontraron los botones de eliminar items del carrito`);                        
         }
         const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput")
+        const msgQuantityItem = document.querySelectorAll(".cartQuantityMsg")
         if (inputsQuantityItem) {
             inputsQuantityItem.forEach(function(value, index){
                 const inputElement = value
+                const msgElement = msgQuantityItem[index]
                 let id = Number(value.dataset.id)
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
-                    thisArg.changeQuantity(id, inputElement)
+                    thisArg.changeQuantity(id, inputElement, msgElement)
                 })                
             })                        
         } else {
