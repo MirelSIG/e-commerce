@@ -109,12 +109,10 @@ if (isNaN(cvvNumero) || cvv.length !== 3) {
   ordenes.push(orden);
   localStorage.setItem("ordenes", JSON.stringify(ordenes));
 
-
-console.log(localStorage.getItem("clientes"));
+ form.reset();
+ console.log(localStorage.getItem("clientes"));
 
   alert("Pago aceptado. ¡Gracias por su compra!");
   console.log(localStorage.getItem("ordenes"));
-
-
 
 });
