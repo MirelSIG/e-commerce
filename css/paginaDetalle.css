@@ -7,16 +7,10 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F5F5F5;
-  color: #333333;
-  line-height: 1.6;
-}
 
 /* ==================== CONTENEDOR PRINCIPAL ==================== */
 #app {
-  min-height: 100vh;
+  min-height: 50rem;
   display: flex;
   flex-direction: column;
 }
@@ -171,4 +165,13 @@ main {
 /* Transiciones suaves globales */
 * {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 868px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding: 20px;
+    gap: 30px;
+  }
 }

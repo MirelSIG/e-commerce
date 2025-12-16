@@ -9,6 +9,7 @@ import { login } from "./login.js"
 import { productoDetalleController  } from "./productoDetalle.js"
 
 
+
 await productsController.getData()
     
 header.init()
@@ -16,6 +17,7 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
+
 
 
 // Scroll suave y manejo de hash hacia las secciones del catálogo
@@ -107,10 +109,7 @@ if (btnCart) {
     })   
 }
 
-
-
-
-
+//FIN poppup
 
 // pdetalle
 //detalleProducto.renderProductDetail()
