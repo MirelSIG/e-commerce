@@ -8,7 +8,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     background: var(--negro);
-    color:var(--blanco)
+    color:var(--blanco);
 }
 /* ------------------ CONTENEDOR PRINCIPAL ------------------ */
 .container {
