@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/favicon/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="../css/contacto.css">
     <link rel="stylesheet" href="../css/index.css">
     <title>Contacto</title>
 </head>
@@ -30,16 +29,39 @@
             <div class="card">
                 <h2 data-idioma="contact.title">Información de contacto :</h2>
 
-            <p><strong>Dirección:</strong><br><br>3,Plaza de Santiago,48005 Bilbao</p>
-            <p><strong>Teléfono:</strong><br><br>+34 784 03 74 01 </p>
-            <p><strong>Correo:</strong><br><br>support@symphony.com</p>
-            <p><strong>WhatsApp:</strong><br><br> +34 784 03 74 00</p>
-            <p><strong>Horario de Atención :</strong><br><br>
-                Lunes a Viernes: 9:00 AM – 6:00 PM<br>
-                Sábados: 10:00 AM – 4:00 PM<br>
-                Domingos: Cerrado
-            </p>
-            
+                <p><strong data-idioma="contact.address">Dirección:</strong><br> [dirección]</p>
+                <p><strong data-idioma="contact.phone">Teléfono:</strong><br> [+00]</p>
+                <p><strong data-idioma="contact.email">Correo:</strong><br> @symfone.com</p>
+                <p><strong data-idioma="contact.whatsapp">WhatsApp:</strong><br> [+00]</p>
+
+                <h3 data-idioma="contact.schedule">Horario de Atención :</h3>
+                <p>
+                    <span data-idioma="contact.weekdays">Lunes a Viernes: 9:00 AM – 6:00 PM</span><br>
+                    <span data-idioma="contact.saturday">Sábados: 10:00 AM – 4:00 PM</span><br>
+                    <span data-idioma="contact.sunday">Domingos: Cerrado</span>
+                </p>
+
+            </div>
+
+            <!-- FORMULARIO -->
+            <div class="card">
+                <h2 data-idioma="contact.formTitle">Envíanos un mensaje :</h2>
+                <form id="contactForm">
+                    <input type="text" name="nombre" data-idioma="contact.formName" data-idioma-placeholder
+                        placeholder="Tu nombre" required>
+                    <input type="email" name="correo" data-idioma="contact.formEmail" data-idioma-placeholder
+                        placeholder="Tu correo electrónico" required>
+                    <input type="text" name="telefono" data-idioma="contact.formPhone" data-idioma-placeholder
+                        placeholder="Teléfono (opcional)">
+                    <textarea name="mensaje" rows="6" data-idioma="contact.formMessage" data-idioma-placeholder
+                        placeholder="Escribe tu mensaje..." required></textarea>
+                    <button type="submit" data-idioma="contact.formSubmit">Enviar mensaje</button>
+                </form>
+
+            </div>
+            <div id="result">
+            </div>
+
         </div>
 
         <!-- MAPA / UBICACIÓN -->
