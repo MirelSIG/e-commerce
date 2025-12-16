@@ -1,18 +1,17 @@
 import { cartView } from "./view.js"
+import { cartController } from "./controller.js"
 
 export const cart = {
     idBtnCart: cartView.idBtnCart,
     idBtnCloseCart: cartView.idBtnCloseCart,
+    init(){
+        cartController.init()
+        cartView.updateCartCount()
+    },
     toggle(){
         cartView.toggle()
     },
     addItem(id){
         cartView.addItem(id)
-    },
-    removeItem(id){
-        cartView.removeItem(id)
-    },
-    changeQuantity(id, typeChange){
-        cartView.changeQuantity(id, typeChange)
     }
 };

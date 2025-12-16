@@ -9,6 +9,10 @@ header.init()
 navbar.render()
 footer.render()
 productsController.render();
+/* no borrar: cart.init() funcion para inicializar el estado del carrito */
+cart.init()
+/* no borrar lo de arriba no borrar cart.init() */
+
 
 /* no borrar esto: evento para llamar al carrito */
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
@@ -18,7 +22,7 @@ if (btnCart) {
         cart.toggle()
     })   
 }
-/* fin de evento: no borrar */
+/* fin de evento para llamar al carrito: no borrar */
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
