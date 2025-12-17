@@ -21,9 +21,8 @@ export const headerTemplate = {
                 <div class="search-bar">
                     <input id="buscador-input" type="text" data-idioma="header.searchPlaceholder" data-idioma-placeholder placeholder=" Buscar tu instrumento">
                     <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
-            
         
-                     <div id="search-results"></div>
+
                     <div id="search-results"></div>
                 </div>
 
@@ -34,7 +33,7 @@ export const headerTemplate = {
 
                     <div class="user-actions">
 
-                        <a href="../pages/reguistro.html" style="  color: #9370DB;">
+                        <a href="../pages/registro.html" style="  color: #9370DB;">
                                 <i class="far fa-user" style="font-size: 40px;"></i> <span data-idioma="header.myAccount">Mi cuenta</span> 
                         </a>
                         <a id="btnCart" href="#" style="  color: #9370DB;">
