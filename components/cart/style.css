@@ -204,6 +204,10 @@
 .cartQuantityMsg { 
     color: red;
 }
+.cartCheckoutMsg {
+    padding: 1rem;
+    color: red;
+}
 .cartItemFooter {
     width: 100%;
     display: flex;

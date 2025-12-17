@@ -10,6 +10,7 @@ export const cartView = {
     idCartCount: `cartCount`,
     idToDrawItems: `cartItems`,
     statusVisible: false,
+    statusValid: true,
     
     exists(){
         return document.querySelector(`#${this.id}`) ? true : false
@@ -117,19 +118,22 @@ export const cartView = {
         if (elementsHtml){
             let quantity = Number(elementsHtml.input.value)
             const product = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
-            let regex = /^\d+$/;            
+            let regex = /^\d+$/
             if (regex.test(quantity) && quantity !== '') {
                 if (quantity > 0 && quantity <= product.stock) {
                     elementsHtml.msg.textContent = ``
+                    this.statusValid = true
                 }
                 else {
                     elementsHtml.msg.textContent = `La cantidad debe estar entre 1 y ${product.stock}`
                     quantity = 1
+                    this.statusValid = false
                 }
             }
             else{
                 quantity = 1
-                elementsHtml.input.value = quantity                        
+                elementsHtml.input.value = quantity  
+                this.statusValid = true                      
             }
             cartController.changeQuantity(id, quantity)
             this.updateCartCount()
@@ -139,6 +143,35 @@ export const cartView = {
 
             /* cartController.changeQuantity(id, quantity)
             this.updateCartCount() */
+        }
+    },
+
+    incrementQuantity(id, elementsHtml){
+        const product = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
+        let quantity = Number(elementsHtml.input.value)
+        quantity += 1
+        if (quantity <= product.stock) {
+            elementsHtml.input.value = quantity            
+        } 
+        this.changeQuantity(id, elementsHtml)
+    },
+
+    decrementQuantity(id, elementsHtml){
+        let quantity = Number(elementsHtml.input.value)
+        quantity -= 1
+        if (quantity >= 1) {
+            elementsHtml.input.value = quantity            
+        }        
+        this.changeQuantity(id, elementsHtml)
+    },
+
+    checkout(){
+        const cartCheckoutMsg = document.querySelector("#cartCheckoutMsg")
+        if (this.statusValid) {
+            window.location.assign('../pages/checkout.html')
+        }
+        else{
+            cartCheckoutMsg.textContent = `Cantidad no valida, verifica tus productos`
         }
     },
 
@@ -165,6 +198,8 @@ export const cartView = {
             console.log(`no se encontraron los botones de eliminar items del carrito`);                        
         }
         const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput")
+        const decreaseItemsBtns = document.querySelectorAll(".cartDecreaseItemBtn")
+        const increaseItemsBtns = document.querySelectorAll(".cartIncreaseItemBtn")
         const msgQuantityItem = document.querySelectorAll(".cartQuantityMsg")
         const totalIvaPriceItem = document.querySelectorAll(".totalIvaPriceItem")
         const totalPriceItem = document.querySelectorAll(".totalPriceItem")
@@ -173,6 +208,8 @@ export const cartView = {
                 const inputElement = value
                 const elementsHtml = {
                     input: inputElement,
+                    incrementBtn: increaseItemsBtns[index],
+                    decrementBtn: decreaseItemsBtns[index],
                     msg: msgQuantityItem[index],
                     ivaPriceItem: totalIvaPriceItem[index],
                     priceItem: totalPriceItem[index]
@@ -181,12 +218,29 @@ export const cartView = {
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
                     thisArg.changeQuantity(id, elementsHtml)
+                })
+                elementsHtml.incrementBtn.addEventListener("click", function(e){
+                    e.preventDefault()
+                    thisArg.incrementQuantity(id, elementsHtml)
+                })
+                elementsHtml.decrementBtn.addEventListener("click", function(e){
+                    e.preventDefault()
+                    thisArg.decrementQuantity(id, elementsHtml)
                 })                
             })                        
         } else {
             console.log(`no se encontraron los inputs de cantidad de items del carrito`);                        
         }
-
+        const btnCheckout = document.querySelector("#cartCheckoutBnt")
+        if (btnCheckout) {
+            btnCheckout.addEventListener("click", function(e){
+                e.preventDefault()
+                thisArg.checkout()
+            })            
+        }
+        else {
+            console.log(`no se encontro el boton de checkout`);                        
+        }
     }
 
 }
