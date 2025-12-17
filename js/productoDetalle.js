@@ -10,10 +10,10 @@ export const productoDetalleController = {
   init() {
     // Solo ejecutamos si estamos en la página de detalle (el contenedor existe)
     if (!this.container) {
-      return; // Salimos silenciosamente si no es la página correcta
+      return; // Salimos si no es la página correcta
     }
 
-    // Si los datos no están cargados, los cargamos
+    // Si los datos no están cargados, se cargan
     if (productsController.data.length === 0) {
       productsController.getData().then(() => this.render());
     } else {
@@ -73,7 +73,7 @@ export const productoDetalleController = {
   }
 };
 
-// ¡Importante! Esto inicia el detalle AUTOMÁTICAMENTE solo en la página correcta
+// Esto inicia el detalle AUTOMÁTICAMENTE solo en la página 
 document.addEventListener("DOMContentLoaded", () => {
   productoDetalleController.init();
 });
