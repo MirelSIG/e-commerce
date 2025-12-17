@@ -6,8 +6,8 @@ export const cartController = {
     subTotalIva: 0,
     subTotalItems: 0,
     totalOrder: 0,
-    init(){
-        this.setData()
+    async init(){
+        await this.setData()
     },
     addItem(id){
         const product = productsController.getById(id)
@@ -124,10 +124,10 @@ export const cartController = {
             totalOrder: this.totalOrder
         }
     },
-    setData(){
+    async setData(){
         try {
             const result = {}
-            const cartLS = this.getLocalStorage()
+            const cartLS = this.getLocalStorage()            
             if (cartLS.status) {
                 const cart = cartLS.data                
                 this.items = cart.items 
@@ -137,6 +137,8 @@ export const cartController = {
                 this.totalOrder = cart.totalOrder
                 result.status = true
                 result.msg = `data actualizada utiliza getData() para obtenerla`
+                console.log(`data actualizada utiliza getData() para obtenerla`);
+                
             } else {
                 result.status = false
                 result.msg = cartLS.msg                

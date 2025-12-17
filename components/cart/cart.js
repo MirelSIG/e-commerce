@@ -4,8 +4,8 @@ import { cartController } from "./controller.js"
 export const cart = {
     idBtnCart: cartView.idBtnCart,
     idBtnCloseCart: cartView.idBtnCloseCart,
-    init(){
-        cartController.init()
+    async init(){
+        await cartController.init()
         cartView.updateCartCount()
     },
     toggle(){

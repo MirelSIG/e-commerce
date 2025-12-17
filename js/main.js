@@ -14,7 +14,7 @@ navbar.render()
 footer.render()
 productsController.render()
 /* no borrar: cart.init() funcion para inicializar el estado del carrito */
-cart.init();
+await cart.init();
 /* no borrar lo de arriba no borrar cart.init() */
 
 // Scroll suave y manejo de hash hacia las secciones del catálogo

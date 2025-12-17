@@ -92,5 +92,23 @@ export const cartTemplate = {
                 </div>
             </div>
         `
-    }
+    },
+    resumeCheckout(obj, html){
+        return `
+            <aside id="cartCheckout" class="cartCheckout">
+                <div id="cartDiv" class="cartDiv">
+                    <div class="cartHeader">
+                        <h2>Resumen de Pedido</h2>
+                    </div>                    
+                    <div id="cartItems" class="cartBody">
+                        <div class="cartCoutItems">
+                            <h3><span class="cartCountNumber">${obj.cartCount}</span> <span data-idioma="cart.items">Artículos</span></h3>
+                        </div>
+                        ${html.items ? html.items : this.isEmpty()}
+                    </div>
+                    ${html.items ? html.footer : ``}
+                </div>
+            <aside>
+        `
+    },
 }

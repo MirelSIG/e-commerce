@@ -1,3 +1,5 @@
+import { cartController } from "../components/cart/controller.js"
+import { cartTemplate } from "../components/cart/template.js"
 
 const form = document.getElementById("checkoutForm");
 
@@ -112,3 +114,26 @@ if (isNaN(cvvNumero) || cvv.length !== 3) {
   console.log(localStorage.getItem("ordenes"));
 
 });
+
+const cartCheckoutInfo = document.querySelector("#cartCheckoutInfo")
+if (cartCheckoutInfo) {
+    const obj = cartController.getData()
+    console.log(`cartController.getData():`)
+    console.log(obj)
+    
+    const html ={
+        items: ``,
+        footer:``
+    }
+    obj.items.forEach(function(value, index){
+        html.items += cartTemplate.item(value)
+    })
+    html.footer = cartTemplate.footer(obj)
+    cartCheckoutInfo.innerHTML = cartTemplate.resumeCheckout(obj, html)
+
+
+
+}
+else{
+    console.log(`no existe el div para dibujar el resumen del pedido`);
+}
