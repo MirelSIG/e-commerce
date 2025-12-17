@@ -119,7 +119,7 @@ const cartCheckoutInfo = document.querySelector("#cartCheckoutInfo")
 if (cartCheckoutInfo) {
     const obj = cartController.getData()
     console.log(`cartController.getData():`)
-    console.log(obj)
+    console.log(cartController.getData())
     
     const html ={
         items: ``,
