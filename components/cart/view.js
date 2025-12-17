@@ -67,8 +67,23 @@ export const cartView = {
         }
     },
 
-    toggle() {
-        if (this.statusVisible && this.exists()) {
+    updateTotals(id, elementsHtml) {
+        const item = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
+        elementsHtml.priceItem.textContent = `€${item.totalPriceItem.toFixed(2)}`
+        elementsHtml.ivaPriceItem.textContent = `€${item.totalIvaPriceItem.toFixed(2)}` 
+        const cartSubTotalIva = document.querySelector(`#cartSubTotalIva`)
+        const cartSubTotal = document.querySelector(`#cartSubTotal`)
+        const cartTotal = document.querySelector(`#cartTotal`)
+        if (cartSubTotalIva && cartSubTotal && cartTotal) {
+            cartSubTotalIva.textContent = `€${cartController.subTotalIva.toFixed(2)}`  
+            cartSubTotal.textContent = `€${cartController.subTotalItems.toFixed(2)}`  
+            cartTotal.textContent = `€${cartController.totalOrder.toFixed(2)}`          
+        }
+        
+    },
+
+    toggle(){
+        if(this.statusVisible && this.exists()){
             this.remove()
         }
         else {
@@ -106,25 +121,29 @@ export const cartView = {
         this.draw()      
     },
 
-    changeQuantity(id, elementHtml, msgElement){
-        if (elementHtml){
-            let quantity = Number(elementHtml.value)
+    changeQuantity(id, elementsHtml){
+        if (elementsHtml){
+            let quantity = Number(elementsHtml.input.value)
             const product = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
             let regex = /^\d+$/;            
             if (regex.test(quantity) && quantity !== '') {
                 if (quantity > 0 && quantity <= product.stock) {
-                    console.log(`true::: cantidad:${quantity} correcta`);
-                    msgElement.textContent = ``
+                    elementsHtml.msg.textContent = ``
                 }
                 else {
-                    msgElement.textContent = `La cantidad debe estar entre 1 y ${product.stock}`
+                    elementsHtml.msg.textContent = `La cantidad debe estar entre 1 y ${product.stock}`
                     quantity = 1
                 }
             }
             else{
                 quantity = 1
-                elementHtml.value = quantity                        
+                elementsHtml.input.value = quantity                        
             }
+            cartController.changeQuantity(id, quantity)
+            this.updateCartCount()
+            this.updateTotals(id, elementsHtml)
+            /* elementsHtml.priceItem.textContent = `€${product.totalPriceItem.toFixed(2)}`
+            elementsHtml.ivaPriceItem.textContent = `€${product.totalIvaPriceItem.toFixed(2)}` */
 
             /* cartController.changeQuantity(id, quantity)
             this.updateCartCount() */
@@ -155,14 +174,21 @@ export const cartView = {
         }
         const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput")
         const msgQuantityItem = document.querySelectorAll(".cartQuantityMsg")
+        const totalIvaPriceItem = document.querySelectorAll(".totalIvaPriceItem")
+        const totalPriceItem = document.querySelectorAll(".totalPriceItem")
         if (inputsQuantityItem) {
             inputsQuantityItem.forEach(function(value, index){
                 const inputElement = value
-                const msgElement = msgQuantityItem[index]
+                const elementsHtml = {
+                    input: inputElement,
+                    msg: msgQuantityItem[index],
+                    ivaPriceItem: totalIvaPriceItem[index],
+                    priceItem: totalPriceItem[index]
+                }
                 let id = Number(value.dataset.id)
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
-                    thisArg.changeQuantity(id, inputElement, msgElement)
+                    thisArg.changeQuantity(id, elementsHtml)
                 })                
             })                        
         } else {

@@ -1,129 +1,112 @@
-import { header } from "./header.js"
-import { navbar } from "./navbar.js"
-import { footer } from "./footer.js"
-import { cart } from "../components/cart/cart.js"
-import { productsController } from "./products.js"
-import { registro } from "./registro.js"
-import { usuarioCreado } from "./usuarioCreado.js"
-import { login } from "./login.js"
-import { productoDetalleController  } from "./productoDetalle.js"
+// main.js
 
+import { header } from "./header.js";
+import { navbar } from "./navbar.js";
+import { footer } from "./footer.js";
+import { cart } from "../components/cart/cart.js";
+import { productsController } from "./products.js";
+import { registro } from "./registro.js";
+import { usuarioCreado } from "./usuarioCreado.js";
+import { login } from "./login.js";
+import { productoDetalleController } from "./productoDetalle.js";
 
+// === FUNCIÓN PRINCIPAL ASYNC ===
+async function initApp() {
+  try {
+    // 1. Cargar datos de productos (con await dentro de async)
+    await productsController.getData();
 
-await productsController.getData()
-    
-header.init()
+    // 2. Renderizar componentes estáticos
+    header.init();
+    navbar.render();
+    footer.render();
+    productsController.render();
 
-navbar.render()
-footer.render()
-productsController.render();
+    // 3. Inicializar el carrito (¡importantísimo!)
+    cart.init();
 
-
-
-// Scroll suave y manejo de hash hacia las secciones del catálogo
-(function enableCategoryNav(){
-  // Scroll suave al hacer clic en el navbar
-  const navbar = document.getElementById("navbar");
-  if (navbar) {
-    navbar.addEventListener("click", (e) => {
-      const link = e.target.closest("a[href^='#']");
-      if (!link) return;
-      const targetId = link.getAttribute("href").slice(1); // sin '#'
-      const target = document.getElementById(targetId);
-
-      if (target) {
+    // 4. Evento para abrir/cerrar el carrito
+    const btnCart = document.querySelector(`#${cart.idBtnCart}`);
+    if (btnCart) {
+      btnCart.addEventListener("click", (e) => {
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", `#${targetId}`);
-      }
-      // Si aún no existe (por cualquier razón), dejamos que el navegador gestione el hash.
-      // Cuando la sección aparezca, el bloque de hashchange se ocupará.
-    });
-  }
+        cart.toggle();
+      });
+    } else {
+      console.warn("Botón del carrito no encontrado. ¿Está cart.idBtnCart bien definido?");
+    }
 
-  // Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
-  // navegamos cuando el DOM tenga la sección.
-  const navigateToHash = () => {
-    const hash = window.location.hash;
-    if (!hash) return;
-    const target = document.getElementById(hash.slice(1));
+    // 5. Scroll suave en navbar
+    enableCategoryNav();
+
+    // 6. Buscador en header
+    setupSearch();
+
+    // 7. Formularios específicos
+    const registroSection = document.querySelector("#registro-section");
+    if (registroSection) registro.f();
+
+    const usuarioSection = document.querySelector("#usuario");
+    if (usuarioSection) usuarioCreado.f();
+
+    // 8. Login
+    login.loginF();
+
+  } catch (error) {
+    console.error("Error al inicializar la app:", error);
+  }
+}
+
+// === SCROLL SUAVE (función separada) ===
+function enableCategoryNav() {
+  const navbarEl = document.getElementById("navbar");
+  if (!navbarEl) return;
+
+  navbarEl.addEventListener("click", (e) => {
+    const link = e.target.closest("a[href^='#']");
+    if (!link) return;
+
+    const targetId = link.getAttribute("href").slice(1);
+    const target = document.getElementById(targetId);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${targetId}`);
+    }
+  });
+
+  // Manejo de hash al cargar o cambiar
+  const navigateToHash = () => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const target = document.getElementById(hash);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  // Intento inmediato por si ya está renderizado:
   navigateToHash();
-
-  // Reintento tras el render del catálogo (por si se llamó después):
-  // Este setTimeout es no invasivo y evita dependencias internas.
-  setTimeout(navigateToHash, 0);
-
-  // Además, reaccionamos a cambios de hash (navegación manual del usuario):
   window.addEventListener("hashchange", navigateToHash);
-})();
+}
 
-
-
-
-/* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
-dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
-(funcion de la barra del header) */
-const input = document.getElementById("buscador-input");
-if (!input) {
+// BUSCADOR 
+function setupSearch() {
+  const input = document.getElementById("buscador-input");
+  if (!input) {
     console.error("No se encontró el input del buscador");
-}
-else {
+    return;
+  }
 
-    input.addEventListener("keyup", async () => {
-        const texto = input.value.trim();
-        if (texto === "") {
-            document.getElementById("search-results").innerHTML = "";
-            return;
-        }
-        const resultados = await header.buscarInstrumentos(texto);
-        header.mostrarResultados(resultados);
-    });
-
-};
-
-// Fin de la funcion de la barra del buscador en el header.
-
- const inpt = document.querySelector("#registro-section");
-  if (inpt) {
-   registro.f()
+  input.addEventListener("keyup", async () => {
+    const texto = input.value.trim();
+    if (texto === "") {
+      document.getElementById("search-results").innerHTML = "";
+      return;
     }
 
-
-  const inp = document.querySelector("#usuario");
-  if (inp) {
-    usuarioCreado.f()
-    }
-
-/* no borrar esto: evento para llamar al carrito */
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-if (btnCart) {
-    btnCart.addEventListener("click", function(e){
-        e.preventDefault()
-        cart.toggle()
-    })   
+    const resultados = await header.buscarInstrumentos(texto);
+    header.mostrarResultados(resultados);
+  });
 }
 
-//FIN poppup
-
-// pdetalle
-//detalleProducto.renderProductDetail()
-
-// fin de pdetalle
-
-
-
-/*Login */
-
-
- login.loginF()
-
-
-/*Seguimiento no borrar */
-
-
+//INICIAR LA APP
+initApp();

@@ -57,7 +57,7 @@ export const productoDetalleController = {
         setTimeout(() => {
           button.textContent = "Añadir al carrito";
           button.disabled = false;
-        }, 2000);
+        }, 1000);
       });
     }
   },
