@@ -15,7 +15,7 @@ export const detalleTemplate = {
       imagenes = []
     } = product || {};
 
-    // === CÁLCULOS PREVIOS (todo definido aquí arriba) ===
+    // CÁLCULOS PREVIOS (todo definido aquí arriba) 
     const tieneImagenes = Array.isArray(imagenes) && imagenes.length > 0;
     const imagenPrincipal = tieneImagenes 
       ? '../' + imagenes[0] 
@@ -33,7 +33,7 @@ export const detalleTemplate = {
 
     const tieneCaracteristicas = Object.keys(caracteristicas).length > 0;
 
-    // === TEMPLATE ===
+    // TEMPLATE 
     return `
       <section class="product-detail" aria-labelledby="product-title">
         <div class="product-detail__gallery">
