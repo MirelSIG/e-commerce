@@ -7,10 +7,12 @@ import { productsController } from "./products.js"
 
 import { registro } from "./registro.js"
 import { usuarioCreado } from "./usuarioCreado.js"
+import { hero } from "./hero.js"
 
 await productsController.getData()
 header.init()
 navbar.render()
+hero.render()
 footer.render()
 productsController.render();
 
