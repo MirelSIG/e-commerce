@@ -5,14 +5,14 @@ export const cartTemplate = {
             <aside id="cart" class="cart">
                 <div id="cartDiv" class="cartDiv">
                     <div class="cartHeader">
-                        <h2>Tu carrito</h2>
+                        <h2 data-idioma="cart.title">Tu carrito</h2>
                         <a id="btnCloseCart" class="btnCloseCart" href="#">
                             <i class="fa-solid fa-xmark"></i>
                         </a>
                     </div>                    
                     <div id="cartItems" class="cartBody">
                         <div class="cartCoutItems">
-                            <h3><span id="cartCountNumber" class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
+                            <h3><span class="cartCountNumber">${obj.cartCount}</span> <span data-idioma="cart.items">Artículos</span></h3>
                         </div>
                         ${html.items ? html.items : this.isEmpty()}
                     </div>
@@ -22,15 +22,15 @@ export const cartTemplate = {
             <aside>
         `
     },
-    item(obj){
-        return`
+    item(obj) {
+        return `
         <div class="cartItem" id="${obj.id}">
             <div class="cartItemTitle">
                 <h3>${obj.nombre}</h3>
             </div>
             <div class="cartItemContent">
                 <div class="cartItemImg">
-                    <img src="${obj.imagenes[0]}" alt="${obj.nombre}">
+                    <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
                 </div>
                 <div class="cartItemDetails">
                     <div class="cartItemPrice">
@@ -64,10 +64,10 @@ export const cartTemplate = {
         </div>
         `
     },
-    isEmpty(){
-        return`
+    isEmpty() {
+        return `
             <div class="cartEmpty">
-                <h3>Tu carrito está vacío. Explora nuestros productos y añade algo.</h3>
+                <h3 data-idioma="cart.empty">Tu carrito está vacío. Explora nuestros productos y añade algo.</h3>
             </div>
         `
     },

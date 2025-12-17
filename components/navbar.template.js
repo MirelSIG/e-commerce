@@ -1,16 +1,16 @@
 export const navbarTemplate = {
 
-    init(obj){
+    init(obj) {
         return `
             <div id="navbarDiv" class="main-menu">
                 <ul>
-                    <li><a href="#">Guitarra</a></li>
-                    <li><a href="#">Amplificación</a></li>
-                    <li><a href="#">Efectos</a></li>
-                    <li><a href="#">Bajos</a></li>                
+                    <li><a href="#" data-idioma="navbar.guitar">Guitarra</a></li>
+                    <li><a href="#" data-idioma="navbar.amplification">Amplificación</a></li>
+                    <li><a href="#" data-idioma="navbar.effects">Efectos</a></li>
+                    <li><a href="#" data-idioma="navbar.bass">Bajos</a></li>                
                 </ul>
             </div>
         `
     }
-    
+
 }

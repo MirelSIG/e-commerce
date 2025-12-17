@@ -5,22 +5,30 @@ export const navbar = {
     id: `navbar`,
     divId: `navbarDiv`,
 
-    getTemplate(obj){
-        
+    getTemplate(obj) {
+
         try {
 
             return navbarTemplate.init(obj)
-           
+
         } catch (error) {
             console.error('Error al cargar el navbar:', error)
         }
 
-    }, 
+    },
 
-    render(){
+    render() {
         let countCarr = 10
         let output = document.querySelector("#navbar")
-        output.innerHTML = this.getTemplate({count:countCarr})
+        if (output) {
+            output.innerHTML = this.getTemplate({ count: countCarr })
+
+            // NO BORRAR: Traduce el contenido nuevo del navbar
+            if (window.idioma) {
+                window.idioma.translatePage();
+            }
+        }
+
     }
 
 }
