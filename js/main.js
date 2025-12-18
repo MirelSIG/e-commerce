@@ -1,21 +1,50 @@
-import { header } from "./header.js"
-import { navbar } from "./navbar.js"
-import { footer } from "./footer.js"
-import { cart } from "../components/cart/cart.js"
-import { productsController } from "./products.js"
-import { registro } from "./registro.js"
-import { usuarioCreado } from "./usuarioCreado.js"
-import { login } from "./login.js"
-import { detalleProducto  } from "./productoDetalle.js";
+// main.js
+import { header } from "./header.js";
+import { navbar } from "./navbar.js";
+import { footer } from "./footer.js";
+import { cart } from "../components/cart/cart.js";
+import { productsController } from "./products.js";
+import { registro } from "./registro.js";
+import { usuarioCreado } from "./usuarioCreado.js";
+import { login } from "./login.js";
+import { productoDetalleController } from "./productoDetalle.js";
+ 
+// 1. Cargar datos de productos (con await dentro de async)
+await productsController.getData();
 
-await productsController.getData()    
-header.init()
-navbar.render()
-footer.render()
-productsController.render()
+// 2. Renderizar componentes estáticos
+header.init();
+navbar.render();
+footer.render();
+productsController.render();
+
 /* no borrar: cart.init() funcion para inicializar el estado del carrito */
 await cart.init();
 /* no borrar lo de arriba no borrar cart.init() */
+
+// 4. Evento para abrir/cerrar el carrito
+/* no borrar esto: evento para abrir y cerrar el carrito */
+const btnCart = document.querySelector(`#${cart.idBtnCart}`)
+if (btnCart) {
+    btnCart.addEventListener("click", function(e){
+        e.preventDefault()
+        cart.toggle()
+    })   
+}
+else {
+  console.log("Botón del carrito no encontrado. ¿Está cart.idBtnCart correctamente definido?");
+}
+/* fin de evento para llamar al carrito: no borrar */
+
+// 7. Formularios específicos
+const registroSection = document.querySelector("#registro-section");
+if (registroSection) registro.f();
+
+const usuarioSection = document.querySelector("#usuario");
+if (usuarioSection) usuarioCreado.f();
+
+// 8. Login
+login.loginF();
 
 // Scroll suave y manejo de hash hacia las secciones del catálogo
 (function enableCategoryNav(){
@@ -58,54 +87,35 @@ await cart.init();
 
   // Además, reaccionamos a cambios de hash (navegación manual del usuario):
   window.addEventListener("hashchange", navigateToHash);
-})()
+})();
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
 (funcion de la barra del header) */
 const input = document.getElementById("buscador-input");
 if (!input) {
-    console.error("No se encontró el input del buscador");
+  console.error("No se encontró el input del buscador");
+  /* return; */
 }
-else {
-
-    input.addEventListener("keyup", async () => {
-        const texto = input.value.trim();
-        if (texto === "") {
-            document.getElementById("search-results").innerHTML = "";
-            return;
-        }
-        const resultados = await header.buscarInstrumentos(texto);
-        header.mostrarResultados(resultados);
-    });
-
-};
+input.addEventListener("keyup", async () => {
+    const texto = input.value.trim();
+    if (texto === "") {
+        document.getElementById("search-results").innerHTML = "";
+        return;
+    }
+    const resultados = await header.buscarInstrumentos(texto);
+    header.mostrarResultados(resultados);
+});
 // Fin de la funcion de la barra del buscador en el header.
 
- const inpt = document.querySelector("#registro-section");
-  if (inpt) {
-   registro.f()
-    }
-
-
-  const inp = document.querySelector("#usuario");
-  if (inp) {
-    usuarioCreado.f()
-    }
-
-/* no borrar esto: evento para llamar al carrito */
-const btnCart = document.querySelector(`#${cart.idBtnCart}`)
-if (btnCart) {
-    btnCart.addEventListener("click", function(e){
-        e.preventDefault()
-        cart.toggle()
-    })   
+const inpt = document.querySelector("#registro-section");
+if (inpt) {
+  registro.f()
 }
-/* fin de evento para llamar al carrito: no borrar */
 
-// pdetalle
-detalleProducto.renderProductDetail()
-// fin de pdetalle
+/* // pdetalle
+productoDetalleController.renderProductDetail()
+// fin de pdetalle */
 
 /*Login */
  login.loginF()

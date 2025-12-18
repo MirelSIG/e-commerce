@@ -1,9 +1,9 @@
  :root {
-            --dorado: #D4A857;
-            --dorado-suave: #FFD700;
-            --negro: #36454E;
-            --gris-oscuro: #2A2A2A;
-            --blanco: #ffffff;
+    --dorado: #D4A857;
+    --dorado-suave: #FFD700;
+    --negro: #36454E;
+    --gris-oscuro: #2A2A2A;
+    --blanco: #ffffff;
 }
 body {
   font-family: 'Montserrat', sans-serif;;

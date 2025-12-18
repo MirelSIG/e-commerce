@@ -22,7 +22,7 @@ export const productsController = {
                 if (getLS.status) {
                     this.data = getLS.data
                 }
-                else{
+                else{   
                     console.log(getLS.msg)
                 }
             }
@@ -171,7 +171,7 @@ export const productsController = {
                 const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : ""
 
                 tarjeta.innerHTML = `
-                    <a class="linkToDetails" data-id="${producto.id}" href="./paginaDetalle.html?id=${producto.id}">
+                    <a class="linkToDetails" data-id="${producto.id}" href="./pages/paginaDetalle.html?id=${producto.id}">
                         <figure class="producto__media">
                         <img src="${imagen}" alt="${producto.nombre}">
                         </figure>

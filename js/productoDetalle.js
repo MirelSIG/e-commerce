@@ -1,35 +1,79 @@
-import { productsController } from "./products.js"
-import { detalleTemplate } from "../components/paginaDetalle.template.js"
+// js/productoDetalle.js
 
-export const detalleProducto = {
+import { productsController } from "./products.js";
+import { detalleTemplate } from "../components/paginaDetalle.template.js";
+import { cart } from "../components/cart/cart.js";
+
+export const productoDetalleController = {
   container: document.getElementById("product-detail"),
 
-  getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search)
-    const id = Number(params.get("id"))
-    
-    return id
+  init() {
+    // Solo ejecutamos si estamos en la página de detalle (el contenedor existe)
+    if (!this.container) {
+      return; // Salimos si no es la página correcta
+    }
+
+    // Si los datos no están cargados, se cargan
+    if (productsController.data.length === 0) {
+      productsController.getData().then(() => this.render());
+    } else {
+      this.render();
+    }
   },
 
-   renderProductDetail() {
+  traerProductoURL() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    return id ? Number(id) : null;
+  },
 
-    const id = this.getProductIdFromURL()
+  render() {
+    const id = this.traerProductoURL();
 
-    const product = productsController.getById(id)    
-
-    if (product.status) {
-      const product = product.data[0]
-      this.container.innerHTML = detalleTemplate.init(product)
+    if (!id) {
+      this. verError("No se encontró el ID del producto.");
+      return;
     }
-    else{
-      this.container.innerHTML = `<p>${result.mensaje}</p>`
+
+    const result = productsController.getById(id);
+
+    if (result.status && result.data.length > 0) {
+      const product = result.data[0];
+      this.container.innerHTML = detalleTemplate.init(product);
+      this.agregarCarrito(product.id);
+    } else {
+      this.showError("Producto no encontrado.");
     }
+  },
 
-    
+   agregarCarrito(productId) {
+    const button = this.container.querySelector(".btn-add");
+    if (button) {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        cart.addItem(productId);
+        button.textContent = "¡Añadido!";
+        button.disabled = true;
+        setTimeout(() => {
+          button.textContent = "Añadir al carrito";
+          button.disabled = false;
+        }, 1000);
+      });
+    }
+  },
 
-    document.querySelector(".btn-add").addEventListener("click", () => {
-      cart.addItem(product.id)
-    })
+  verError(message) {
+    this.container.innerHTML = `
+      <div style="text-align: center; padding: 40px; color: #666;">
+        <h2>Error</h2>
+        <p>${message}</p>
+        <a href="../index.html">Volver al catálogo</a>
+      </div>
+    `;
   }
-}
+};
 
+// Esto inicia el detalle AUTOMÁTICAMENTE solo en la página 
+document.addEventListener("DOMContentLoaded", () => {
+  productoDetalleController.init();
+});

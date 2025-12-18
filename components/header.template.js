@@ -21,9 +21,6 @@ export const headerTemplate = {
             <div class="search-bar">
                 <input id="buscador-input" type="text" data-idioma="header.searchPlaceholder" data-idioma-placeholder placeholder=" Buscar tu instrumento">
                 <button id="buscador-btn"  ><i class="fas fa-search"></i></button>
-        
-    
-                    <div id="search-results"></div>
                 <div id="search-results"></div>
             </div>
 
@@ -57,8 +54,8 @@ initDateTime() {
 
   const days = {
     es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-    en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    eus: ["Igandea", "Astelehena", "Asteartea", "Asteazkena", "Osteguna", "Ostirala", "Larunbata"]
+    // en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    // eus: ["Igandea", "Astelehena", "Asteartea", "Asteazkena", "Osteguna", "Ostirala", "Larunbata"]
   };
 
   function update() {
