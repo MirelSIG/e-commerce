@@ -30,6 +30,9 @@ export const productoDetalleController = {
     if (!id) return;
     
     const product = productsController.data.find(p => p.id === id);
+
+    console.log(product);
+    
     
     this.container.innerHTML = detalleTemplate.init(product);
     this.agregarCarrito(id);

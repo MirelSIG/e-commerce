@@ -51,7 +51,8 @@ export const navbar = {
                         if (section) {
                             section.scrollIntoView({ behavior: "smooth", block: "start" })
                         } else {
-                            window.location.hash = `#${targetId}`
+                            /* window.location.hash = `#${targetId}` */
+                            window.location.assign(`../index.html#${targetId}`)
                         }
                     }, 100)
                     return

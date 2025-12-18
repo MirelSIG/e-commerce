@@ -6,8 +6,8 @@ export const cartController = {
     subTotalIva: 0,
     subTotalItems: 0,
     totalOrder: 0,
-    async init(){
-        await this.setData()
+    init(){
+        this.setData()
     },
     addItem(id){
         const product = productsController.getById(id)
@@ -116,15 +116,17 @@ export const cartController = {
         return result
     },
     getData(){
-        return {
-            items: this.items, 
+/*         this.setData() */
+        const result = {
+            items: this.items,
             cartCount: this.cartCount,
             subTotalIva: this.subTotalIva,
             subTotalItems: this.subTotalItems,
             totalOrder: this.totalOrder
         }
+        return result
     },
-    async setData(){
+    setData(){
         try {
             const result = {}
             const cartLS = this.getLocalStorage()            
@@ -136,9 +138,7 @@ export const cartController = {
                 this.subTotalItems = cart.subTotalItems,
                 this.totalOrder = cart.totalOrder
                 result.status = true
-                result.msg = `data actualizada utiliza getData() para obtenerla`
-                console.log(`data actualizada utiliza getData() para obtenerla`);
-                
+                result.msg = `data actualizada utiliza getData() para obtenerla`                
             } else {
                 result.status = false
                 result.msg = cartLS.msg                
@@ -177,7 +177,7 @@ export const cartController = {
         try {
             this.setCartCount()
             this.setTotals()
-            const cart = this.getData()            
+            const cart = this.getData()                        
             this.setLocalStorage(cart)
         } catch (error) {
             console.error('No se pudo actualizar el estado del carrito:', error);                      

@@ -22,7 +22,7 @@ footer.render()
 productsController.render();
 
 /* no borrar: cart.init() funcion para inicializar el estado del carrito */
-await cart.init();
+cart.init();
 /* no borrar lo de arriba no borrar cart.init() */
 
 // 4. Evento para abrir/cerrar el carrito
@@ -49,27 +49,6 @@ if (usuarioSection) usuarioCreado.f();
 // 8. Login
 login.loginF();
 
-// Scroll suave y manejo de hash hacia las secciones del catálogo
-(function enableCategoryNav(){
-  // Scroll suave al hacer clic en el navbar
-  const navbar = document.getElementById("navbar");
-  if (navbar) {
-    navbar.addEventListener("click", (e) => {
-      const link = e.target.closest("a[href^='#']");
-      if (!link) return;
-      const targetId = link.getAttribute("href").slice(1); // sin '#'
-      const target = document.getElementById(targetId);
-
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", `#${targetId}`);
-      }
-      // Si aún no existe (por cualquier razón), dejamos que el navegador gestione el hash.
-      // Cuando la sección aparezca, el bloque de hashchange se ocupará.
-    });
-  }
-
   // Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
   // navegamos cuando el DOM tenga la sección.
   const navigateToHash = () => {
@@ -90,7 +69,6 @@ login.loginF();
 
   // Además, reaccionamos a cambios de hash (navegación manual del usuario):
   window.addEventListener("hashchange", navigateToHash);
-})();
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
