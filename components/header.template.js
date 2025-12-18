@@ -15,7 +15,7 @@ export const headerTemplate = {
         </div>
         <div id="headerDiv" class="top-header">
             <div class="logo">
-                <img src="../img/logos/logo Symphony store.png" alt="logo">
+                <a href="../index.html"><img src="../img/logos/logo Symphony store.png" alt="logo"></a>
             </div>
 
             <div class="search-bar">

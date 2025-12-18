@@ -8,6 +8,7 @@ import { registro } from "./registro.js";
 import { usuarioCreado } from "./usuarioCreado.js";
 import { login } from "./login.js";
 import { productoDetalleController } from "./productoDetalle.js";
+import { hero } from "./hero.js"
  
 // 1. Cargar datos de productos (con await dentro de async)
 await productsController.getData();
@@ -16,6 +17,8 @@ await productsController.getData();
 header.init();
 navbar.render();
 footer.render();
+hero.render()
+footer.render()
 productsController.render();
 
 /* no borrar: cart.init() funcion para inicializar el estado del carrito */
